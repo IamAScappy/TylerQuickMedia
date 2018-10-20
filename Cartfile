@@ -1,0 +1,9 @@
+github "SnapKit/SnapKit" ~> 4.0.1
+github "SwiftyBeaver/SwiftyBeaver"
+github "Instagram/IGListKit"
+github "ReactiveX/RxSwift" ~> 4.0
+github "RxSwiftCommunity/RxDataSources"
+github "RxSwiftCommunity/RxOptional"
+github "fastred/DeallocationChecker"
+github "malcommac/SwiftRichString"
+github "Moya/Moya"

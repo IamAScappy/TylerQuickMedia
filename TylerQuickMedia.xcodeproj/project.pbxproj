@@ -1,0 +1,1041 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		880BDA025598B15BD91C76AB /* Pods_TylerQuickMediaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D47B958AB465AB6CE4EA2 /* Pods_TylerQuickMediaTests.framework */; };
+		BDC2C263217B666600A30107 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C262217B666600A30107 /* AppDelegate.swift */; };
+		BDC2C265217B666600A30107 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C264217B666600A30107 /* ViewController.swift */; };
+		BDC2C268217B666600A30107 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C266217B666600A30107 /* Main.storyboard */; };
+		BDC2C26D217B666700A30107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C26C217B666700A30107 /* Assets.xcassets */; };
+		BDC2C270217B666700A30107 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C26E217B666700A30107 /* LaunchScreen.storyboard */; };
+		BDC2C27B217B666800A30107 /* TylerQuickMediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C27A217B666800A30107 /* TylerQuickMediaTests.swift */; };
+		BDC2C286217B666800A30107 /* TylerQuickMediaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C285217B666800A30107 /* TylerQuickMediaUITests.swift */; };
+		BDC2C299217B69E600A30107 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C298217B69E600A30107 /* Logger.swift */; };
+		BDC2C29D217B6A5E00A30107 /* color.txt in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C29C217B6A5E00A30107 /* color.txt */; };
+		BDC2C2A3217B6C9400A30107 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C2A2217B6C9400A30107 /* swiftgen.yml */; };
+		BDC2C2A6217B6CE700A30107 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C2A4217B6CE700A30107 /* Localizable.strings */; };
+		BDC2C2AD217B715000A30107 /* Pods_TylerQuickMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC2C2AC217B715000A30107 /* Pods_TylerQuickMedia.framework */; };
+		BDC2C2B2217B726300A30107 /* MyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C2AE217B726300A30107 /* MyColor.swift */; };
+		BDC2C2B3217B726300A30107 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C2AF217B726300A30107 /* Fonts.swift */; };
+		BDC2C2B4217B726300A30107 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C2B0217B726300A30107 /* Assets.swift */; };
+		BDC2C2B5217B726300A30107 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C2B1217B726300A30107 /* L10n.swift */; };
+		BDC2C2B7217B727000A30107 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C2B6217B727000A30107 /* .gitignore */; };
+		BDC2C2BE217B72B700A30107 /* SwiftNameIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C2BA217B72B700A30107 /* SwiftNameIdentifier.swift */; };
+		BDC2C2BF217B72B700A30107 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C2BB217B72B700A30107 /* StoryboardInitializable.swift */; };
+		BDC2C2C0217B72B700A30107 /* NibWithSwiftName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C2BC217B72B700A30107 /* NibWithSwiftName.swift */; };
+		BDC2C2C1217B72B700A30107 /* HasDisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C2BD217B72B700A30107 /* HasDisposeBag.swift */; };
+		CFC25D1DBB02C4FCD6654D00 /* Pods_TylerQuickMediaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58BC8CA288ADE69F0BD0DD5 /* Pods_TylerQuickMediaUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDC2C277217B666800A30107 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDC2C257217B666600A30107 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDC2C25E217B666600A30107;
+			remoteInfo = TylerQuickMedia;
+		};
+		BDC2C282217B666800A30107 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDC2C257217B666600A30107 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDC2C25E217B666600A30107;
+			remoteInfo = TylerQuickMedia;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		39E825EA20243572C6B079A1 /* Pods-TylerQuickMediaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMediaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMediaTests/Pods-TylerQuickMediaTests.release.xcconfig"; sourceTree = "<group>"; };
+		ABCC3E19CABE4F69A2855DE2 /* Pods-TylerQuickMedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMedia.release.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMedia/Pods-TylerQuickMedia.release.xcconfig"; sourceTree = "<group>"; };
+		BDC2C25F217B666600A30107 /* TylerQuickMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TylerQuickMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDC2C262217B666600A30107 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BDC2C264217B666600A30107 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BDC2C267217B666600A30107 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BDC2C26C217B666700A30107 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDC2C26F217B666700A30107 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BDC2C271217B666700A30107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDC2C276217B666800A30107 /* TylerQuickMediaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TylerQuickMediaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDC2C27A217B666800A30107 /* TylerQuickMediaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TylerQuickMediaTests.swift; sourceTree = "<group>"; };
+		BDC2C27C217B666800A30107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDC2C281217B666800A30107 /* TylerQuickMediaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TylerQuickMediaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDC2C285217B666800A30107 /* TylerQuickMediaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TylerQuickMediaUITests.swift; sourceTree = "<group>"; };
+		BDC2C287217B666800A30107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDC2C294217B672600A30107 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		BDC2C298217B69E600A30107 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		BDC2C29C217B6A5E00A30107 /* color.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = color.txt; sourceTree = "<group>"; };
+		BDC2C2A2217B6C9400A30107 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgen.yml; sourceTree = "<group>"; };
+		BDC2C2A5217B6CE700A30107 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BDC2C2A9217B6D4400A30107 /* Pods_TylerQuickMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_TylerQuickMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDC2C2AC217B715000A30107 /* Pods_TylerQuickMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_TylerQuickMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDC2C2AE217B726300A30107 /* MyColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyColor.swift; sourceTree = "<group>"; };
+		BDC2C2AF217B726300A30107 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		BDC2C2B0217B726300A30107 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		BDC2C2B1217B726300A30107 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		BDC2C2B6217B727000A30107 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		BDC2C2BA217B72B700A30107 /* SwiftNameIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNameIdentifier.swift; sourceTree = "<group>"; };
+		BDC2C2BB217B72B700A30107 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
+		BDC2C2BC217B72B700A30107 /* NibWithSwiftName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibWithSwiftName.swift; sourceTree = "<group>"; };
+		BDC2C2BD217B72B700A30107 /* HasDisposeBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasDisposeBag.swift; sourceTree = "<group>"; };
+		C195F91F40CC13CBDF4880E3 /* Pods-TylerQuickMedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMedia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMedia/Pods-TylerQuickMedia.debug.xcconfig"; sourceTree = "<group>"; };
+		C6296536AB41DFE8360D4291 /* Pods-TylerQuickMediaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMediaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMediaUITests/Pods-TylerQuickMediaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C7CADA137F115014A33D05BF /* Pods-TylerQuickMediaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMediaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMediaUITests/Pods-TylerQuickMediaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E58BC8CA288ADE69F0BD0DD5 /* Pods_TylerQuickMediaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TylerQuickMediaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC8D47B958AB465AB6CE4EA2 /* Pods_TylerQuickMediaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TylerQuickMediaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F797908061889DDB672E5688 /* Pods-TylerQuickMediaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMediaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMediaTests/Pods-TylerQuickMediaTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDC2C25C217B666600A30107 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDC2C2AD217B715000A30107 /* Pods_TylerQuickMedia.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDC2C273217B666800A30107 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				880BDA025598B15BD91C76AB /* Pods_TylerQuickMediaTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDC2C27E217B666800A30107 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFC25D1DBB02C4FCD6654D00 /* Pods_TylerQuickMediaUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9286968C5C9347CEA9B058F8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C195F91F40CC13CBDF4880E3 /* Pods-TylerQuickMedia.debug.xcconfig */,
+				ABCC3E19CABE4F69A2855DE2 /* Pods-TylerQuickMedia.release.xcconfig */,
+				F797908061889DDB672E5688 /* Pods-TylerQuickMediaTests.debug.xcconfig */,
+				39E825EA20243572C6B079A1 /* Pods-TylerQuickMediaTests.release.xcconfig */,
+				C6296536AB41DFE8360D4291 /* Pods-TylerQuickMediaUITests.debug.xcconfig */,
+				C7CADA137F115014A33D05BF /* Pods-TylerQuickMediaUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BDC2C256217B666600A30107 = {
+			isa = PBXGroup;
+			children = (
+				BDC2C2B6217B727000A30107 /* .gitignore */,
+				BDC2C2A2217B6C9400A30107 /* swiftgen.yml */,
+				BDC2C293217B671B00A30107 /* Config */,
+				BDC2C2A0217B6B4800A30107 /* Generated */,
+				BDC2C261217B666600A30107 /* TylerQuickMedia */,
+				BDC2C279217B666800A30107 /* TylerQuickMediaTests */,
+				BDC2C284217B666800A30107 /* TylerQuickMediaUITests */,
+				BDC2C260217B666600A30107 /* Products */,
+				BDC2C2A8217B6D4400A30107 /* Frameworks */,
+				9286968C5C9347CEA9B058F8 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		BDC2C260217B666600A30107 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDC2C25F217B666600A30107 /* TylerQuickMedia.app */,
+				BDC2C276217B666800A30107 /* TylerQuickMediaTests.xctest */,
+				BDC2C281217B666800A30107 /* TylerQuickMediaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDC2C261217B666600A30107 /* TylerQuickMedia */ = {
+			isa = PBXGroup;
+			children = (
+				BDC2C2B9217B72AB00A30107 /* Common */,
+				BDC2C29B217B6A2900A30107 /* Resources */,
+				BDC2C297217B69D900A30107 /* Logger */,
+				BDC2C29F217B6AD600A30107 /* Route */,
+				BDC2C262217B666600A30107 /* AppDelegate.swift */,
+				BDC2C264217B666600A30107 /* ViewController.swift */,
+				BDC2C266217B666600A30107 /* Main.storyboard */,
+				BDC2C26C217B666700A30107 /* Assets.xcassets */,
+				BDC2C26E217B666700A30107 /* LaunchScreen.storyboard */,
+				BDC2C271217B666700A30107 /* Info.plist */,
+				BDC2C2A4217B6CE700A30107 /* Localizable.strings */,
+			);
+			path = TylerQuickMedia;
+			sourceTree = "<group>";
+		};
+		BDC2C279217B666800A30107 /* TylerQuickMediaTests */ = {
+			isa = PBXGroup;
+			children = (
+				BDC2C27A217B666800A30107 /* TylerQuickMediaTests.swift */,
+				BDC2C27C217B666800A30107 /* Info.plist */,
+			);
+			path = TylerQuickMediaTests;
+			sourceTree = "<group>";
+		};
+		BDC2C284217B666800A30107 /* TylerQuickMediaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BDC2C285217B666800A30107 /* TylerQuickMediaUITests.swift */,
+				BDC2C287217B666800A30107 /* Info.plist */,
+			);
+			path = TylerQuickMediaUITests;
+			sourceTree = "<group>";
+		};
+		BDC2C293217B671B00A30107 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				BDC2C294217B672600A30107 /* Debug.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		BDC2C297217B69D900A30107 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				BDC2C298217B69E600A30107 /* Logger.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		BDC2C29B217B6A2900A30107 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BDC2C29E217B6A6100A30107 /* Fonts */,
+				BDC2C29C217B6A5E00A30107 /* color.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BDC2C29E217B6A6100A30107 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		BDC2C29F217B6AD600A30107 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Route;
+			sourceTree = "<group>";
+		};
+		BDC2C2A0217B6B4800A30107 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				BDC2C2B0217B726300A30107 /* Assets.swift */,
+				BDC2C2AF217B726300A30107 /* Fonts.swift */,
+				BDC2C2B1217B726300A30107 /* L10n.swift */,
+				BDC2C2AE217B726300A30107 /* MyColor.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		BDC2C2A8217B6D4400A30107 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BDC2C2AC217B715000A30107 /* Pods_TylerQuickMedia.framework */,
+				BDC2C2A9217B6D4400A30107 /* Pods_TylerQuickMedia.framework */,
+				EC8D47B958AB465AB6CE4EA2 /* Pods_TylerQuickMediaTests.framework */,
+				E58BC8CA288ADE69F0BD0DD5 /* Pods_TylerQuickMediaUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDC2C2B9217B72AB00A30107 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BDC2C2BD217B72B700A30107 /* HasDisposeBag.swift */,
+				BDC2C2BC217B72B700A30107 /* NibWithSwiftName.swift */,
+				BDC2C2BB217B72B700A30107 /* StoryboardInitializable.swift */,
+				BDC2C2BA217B72B700A30107 /* SwiftNameIdentifier.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BDC2C25E217B666600A30107 /* TylerQuickMedia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDC2C28A217B666800A30107 /* Build configuration list for PBXNativeTarget "TylerQuickMedia" */;
+			buildPhases = (
+				6D7070C91755DFE90A4844BC /* [CP] Check Pods Manifest.lock */,
+				BDC2C25B217B666600A30107 /* Sources */,
+				BDC2C25C217B666600A30107 /* Frameworks */,
+				BDC2C25D217B666600A30107 /* Resources */,
+				BDC2C296217B695000A30107 /* [CP] Copy Carthage Resources */,
+				BDC2C2AB217B6DB900A30107 /* SwiftGen */,
+				BDC2C2A1217B6B7D00A30107 /* SwiftLint */,
+				6AE16687FDF08945AAAD15B2 /* [CP] Embed Pods Frameworks */,
+				67461388F25BF1C7E554A73D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TylerQuickMedia;
+			productName = TylerQuickMedia;
+			productReference = BDC2C25F217B666600A30107 /* TylerQuickMedia.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BDC2C275217B666800A30107 /* TylerQuickMediaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDC2C28D217B666800A30107 /* Build configuration list for PBXNativeTarget "TylerQuickMediaTests" */;
+			buildPhases = (
+				D43856F6D226F5F67B703ED0 /* [CP] Check Pods Manifest.lock */,
+				BDC2C272217B666800A30107 /* Sources */,
+				BDC2C273217B666800A30107 /* Frameworks */,
+				BDC2C274217B666800A30107 /* Resources */,
+				71EE396B7544D43FBF9986AD /* [CP] Embed Pods Frameworks */,
+				7464DCF2DEC795AE8BF0041F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDC2C278217B666800A30107 /* PBXTargetDependency */,
+			);
+			name = TylerQuickMediaTests;
+			productName = TylerQuickMediaTests;
+			productReference = BDC2C276217B666800A30107 /* TylerQuickMediaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BDC2C280217B666800A30107 /* TylerQuickMediaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDC2C290217B666800A30107 /* Build configuration list for PBXNativeTarget "TylerQuickMediaUITests" */;
+			buildPhases = (
+				33B906F426234D7ACECB0EA0 /* [CP] Check Pods Manifest.lock */,
+				BDC2C27D217B666800A30107 /* Sources */,
+				BDC2C27E217B666800A30107 /* Frameworks */,
+				BDC2C27F217B666800A30107 /* Resources */,
+				ECE497ED47471686EA6518F2 /* [CP] Embed Pods Frameworks */,
+				50E7EECB8F429B32AF2CD455 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDC2C283217B666800A30107 /* PBXTargetDependency */,
+			);
+			name = TylerQuickMediaUITests;
+			productName = TylerQuickMediaUITests;
+			productReference = BDC2C281217B666800A30107 /* TylerQuickMediaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDC2C257217B666600A30107 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = tskim;
+				TargetAttributes = {
+					BDC2C25E217B666600A30107 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					BDC2C275217B666800A30107 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = BDC2C25E217B666600A30107;
+					};
+					BDC2C280217B666800A30107 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = BDC2C25E217B666600A30107;
+					};
+				};
+			};
+			buildConfigurationList = BDC2C25A217B666600A30107 /* Build configuration list for PBXProject "TylerQuickMedia" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BDC2C256217B666600A30107;
+			productRefGroup = BDC2C260217B666600A30107 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDC2C25E217B666600A30107 /* TylerQuickMedia */,
+				BDC2C275217B666800A30107 /* TylerQuickMediaTests */,
+				BDC2C280217B666800A30107 /* TylerQuickMediaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDC2C25D217B666600A30107 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDC2C270217B666700A30107 /* LaunchScreen.storyboard in Resources */,
+				BDC2C2B7217B727000A30107 /* .gitignore in Resources */,
+				BDC2C2A6217B6CE700A30107 /* Localizable.strings in Resources */,
+				BDC2C2A3217B6C9400A30107 /* swiftgen.yml in Resources */,
+				BDC2C26D217B666700A30107 /* Assets.xcassets in Resources */,
+				BDC2C29D217B6A5E00A30107 /* color.txt in Resources */,
+				BDC2C268217B666600A30107 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDC2C274217B666800A30107 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDC2C27F217B666800A30107 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		33B906F426234D7ACECB0EA0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TylerQuickMediaUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		50E7EECB8F429B32AF2CD455 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TylerQuickMediaUITests/Pods-TylerQuickMediaUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67461388F25BF1C7E554A73D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TylerQuickMedia/Pods-TylerQuickMedia-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6AE16687FDF08945AAAD15B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TylerQuickMedia/Pods-TylerQuickMedia-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TylerQuickMedia/Pods-TylerQuickMedia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D7070C91755DFE90A4844BC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TylerQuickMedia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71EE396B7544D43FBF9986AD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TylerQuickMediaTests/Pods-TylerQuickMediaTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TylerQuickMediaTests/Pods-TylerQuickMediaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7464DCF2DEC795AE8BF0041F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TylerQuickMediaTests/Pods-TylerQuickMediaTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDC2C296217B695000A30107 /* [CP] Copy Carthage Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftRichString.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxOptional.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/DeallocationChecker.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/IGListKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxMoya.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
+			);
+			name = "[CP] Copy Carthage Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		BDC2C2A1217B6B7D00A30107 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		BDC2C2AB217B6DB900A30107 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$PODS_ROOT/SwiftGen/bin/swiftgen config run --config swiftgen.yml --verbose\n";
+		};
+		D43856F6D226F5F67B703ED0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TylerQuickMediaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECE497ED47471686EA6518F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TylerQuickMediaUITests/Pods-TylerQuickMediaUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TylerQuickMediaUITests/Pods-TylerQuickMediaUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDC2C25B217B666600A30107 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDC2C265217B666600A30107 /* ViewController.swift in Sources */,
+				BDC2C2C1217B72B700A30107 /* HasDisposeBag.swift in Sources */,
+				BDC2C2B3217B726300A30107 /* Fonts.swift in Sources */,
+				BDC2C2B4217B726300A30107 /* Assets.swift in Sources */,
+				BDC2C2B2217B726300A30107 /* MyColor.swift in Sources */,
+				BDC2C2B5217B726300A30107 /* L10n.swift in Sources */,
+				BDC2C2BF217B72B700A30107 /* StoryboardInitializable.swift in Sources */,
+				BDC2C2C0217B72B700A30107 /* NibWithSwiftName.swift in Sources */,
+				BDC2C2BE217B72B700A30107 /* SwiftNameIdentifier.swift in Sources */,
+				BDC2C263217B666600A30107 /* AppDelegate.swift in Sources */,
+				BDC2C299217B69E600A30107 /* Logger.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDC2C272217B666800A30107 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDC2C27B217B666800A30107 /* TylerQuickMediaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDC2C27D217B666800A30107 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDC2C286217B666800A30107 /* TylerQuickMediaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BDC2C278217B666800A30107 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDC2C25E217B666600A30107 /* TylerQuickMedia */;
+			targetProxy = BDC2C277217B666800A30107 /* PBXContainerItemProxy */;
+		};
+		BDC2C283217B666800A30107 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDC2C25E217B666600A30107 /* TylerQuickMedia */;
+			targetProxy = BDC2C282217B666800A30107 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BDC2C266217B666600A30107 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDC2C267217B666600A30107 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BDC2C26E217B666700A30107 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDC2C26F217B666700A30107 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BDC2C2A4217B6CE700A30107 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDC2C2A5217B6CE700A30107 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BDC2C288217B666800A30107 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		BDC2C289217B666800A30107 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDC2C28B217B666800A30107 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C195F91F40CC13CBDF4880E3 /* Pods-TylerQuickMedia.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 576T8HK6X4;
+				INFOPLIST_FILE = TylerQuickMedia/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hucet.tyler.TylerQuickMedia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BDC2C28C217B666800A30107 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABCC3E19CABE4F69A2855DE2 /* Pods-TylerQuickMedia.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 576T8HK6X4;
+				INFOPLIST_FILE = TylerQuickMedia/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hucet.tyler.TylerQuickMedia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BDC2C28E217B666800A30107 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F797908061889DDB672E5688 /* Pods-TylerQuickMediaTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 576T8HK6X4;
+				INFOPLIST_FILE = TylerQuickMediaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hucet.tyler.TylerQuickMediaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TylerQuickMedia.app/TylerQuickMedia";
+			};
+			name = Debug;
+		};
+		BDC2C28F217B666800A30107 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39E825EA20243572C6B079A1 /* Pods-TylerQuickMediaTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 576T8HK6X4;
+				INFOPLIST_FILE = TylerQuickMediaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hucet.tyler.TylerQuickMediaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TylerQuickMedia.app/TylerQuickMedia";
+			};
+			name = Release;
+		};
+		BDC2C291217B666800A30107 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6296536AB41DFE8360D4291 /* Pods-TylerQuickMediaUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 576T8HK6X4;
+				INFOPLIST_FILE = TylerQuickMediaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hucet.tyler.TylerQuickMediaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TylerQuickMedia;
+			};
+			name = Debug;
+		};
+		BDC2C292217B666800A30107 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7CADA137F115014A33D05BF /* Pods-TylerQuickMediaUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 576T8HK6X4;
+				INFOPLIST_FILE = TylerQuickMediaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hucet.tyler.TylerQuickMediaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TylerQuickMedia;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDC2C25A217B666600A30107 /* Build configuration list for PBXProject "TylerQuickMedia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDC2C288217B666800A30107 /* Debug */,
+				BDC2C289217B666800A30107 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDC2C28A217B666800A30107 /* Build configuration list for PBXNativeTarget "TylerQuickMedia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDC2C28B217B666800A30107 /* Debug */,
+				BDC2C28C217B666800A30107 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDC2C28D217B666800A30107 /* Build configuration list for PBXNativeTarget "TylerQuickMediaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDC2C28E217B666800A30107 /* Debug */,
+				BDC2C28F217B666800A30107 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDC2C290217B666800A30107 /* Build configuration list for PBXNativeTarget "TylerQuickMediaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDC2C291217B666800A30107 /* Debug */,
+				BDC2C292217B666800A30107 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BDC2C257217B666600A30107 /* Project object */;
+}

@@ -1,0 +1,22 @@
+input_dir: TylerQuickMedia
+output_dir: Generated
+
+strings:
+  paths: Base.lproj/Localizable.strings
+  templateName: structured-swift4
+  output: L10n.swift
+
+xcassets:
+  paths: Assets.xcassets
+  templateName: swift4
+  output: Assets.swift
+
+colors:
+  paths: Resources/color.txt
+  templateName: literals-swift4
+  output: MyColor.swift
+
+fonts:
+  paths: Resources/Fonts
+  templateName: swift4
+  output: Fonts.swift
