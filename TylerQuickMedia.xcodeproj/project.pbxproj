@@ -81,6 +81,24 @@
 		BDC2C2BB217B72B700A30107 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		BDC2C2BC217B72B700A30107 /* NibWithSwiftName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibWithSwiftName.swift; sourceTree = "<group>"; };
 		BDC2C2BD217B72B700A30107 /* HasDisposeBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasDisposeBag.swift; sourceTree = "<group>"; };
+		BDC2C2C2217B73D400A30107 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
+		BDC2C2C3217B73D400A30107 /* IGListKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IGListKit.framework; path = Carthage/Build/iOS/IGListKit.framework; sourceTree = "<group>"; };
+		BDC2C2C4217B73D400A30107 /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
+		BDC2C2C5217B73D400A30107 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		BDC2C2C6217B73D400A30107 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		BDC2C2C7217B73D400A30107 /* SwiftRichString.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftRichString.framework; path = Carthage/Build/iOS/SwiftRichString.framework; sourceTree = "<group>"; };
+		BDC2C2C8217B73D400A30107 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		BDC2C2C9217B73D400A30107 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		BDC2C2CA217B73D400A30107 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		BDC2C2CB217B73D400A30107 /* RxOptional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxOptional.framework; path = Carthage/Build/iOS/RxOptional.framework; sourceTree = "<group>"; };
+		BDC2C2CC217B73D400A30107 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
+		BDC2C2CD217B73D400A30107 /* ReactiveMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveMoya.framework; path = Carthage/Build/iOS/ReactiveMoya.framework; sourceTree = "<group>"; };
+		BDC2C2CE217B73D400A30107 /* DeallocationChecker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeallocationChecker.framework; path = Carthage/Build/iOS/DeallocationChecker.framework; sourceTree = "<group>"; };
+		BDC2C2CF217B73D400A30107 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		BDC2C2D0217B73D400A30107 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
+		BDC2C2D1217B73D400A30107 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		BDC2C2D2217B73D400A30107 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
+		BDC2C2D3217B73D400A30107 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
 		C195F91F40CC13CBDF4880E3 /* Pods-TylerQuickMedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMedia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMedia/Pods-TylerQuickMedia.debug.xcconfig"; sourceTree = "<group>"; };
 		C6296536AB41DFE8360D4291 /* Pods-TylerQuickMediaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMediaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMediaUITests/Pods-TylerQuickMediaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7CADA137F115014A33D05BF /* Pods-TylerQuickMediaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMediaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMediaUITests/Pods-TylerQuickMediaUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -245,6 +263,24 @@
 		BDC2C2A8217B6D4400A30107 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BDC2C2D1217B73D400A30107 /* Alamofire.framework */,
+				BDC2C2CE217B73D400A30107 /* DeallocationChecker.framework */,
+				BDC2C2C2217B73D400A30107 /* Differentiator.framework */,
+				BDC2C2C3217B73D400A30107 /* IGListKit.framework */,
+				BDC2C2D3217B73D400A30107 /* Moya.framework */,
+				BDC2C2CD217B73D400A30107 /* ReactiveMoya.framework */,
+				BDC2C2CC217B73D400A30107 /* ReactiveSwift.framework */,
+				BDC2C2C9217B73D400A30107 /* Result.framework */,
+				BDC2C2CA217B73D400A30107 /* RxBlocking.framework */,
+				BDC2C2C8217B73D400A30107 /* RxCocoa.framework */,
+				BDC2C2D2217B73D400A30107 /* RxDataSources.framework */,
+				BDC2C2C4217B73D400A30107 /* RxMoya.framework */,
+				BDC2C2CB217B73D400A30107 /* RxOptional.framework */,
+				BDC2C2CF217B73D400A30107 /* RxSwift.framework */,
+				BDC2C2C5217B73D400A30107 /* RxTest.framework */,
+				BDC2C2C6217B73D400A30107 /* SnapKit.framework */,
+				BDC2C2C7217B73D400A30107 /* SwiftRichString.framework */,
+				BDC2C2D0217B73D400A30107 /* SwiftyBeaver.framework */,
 				BDC2C2AC217B715000A30107 /* Pods_TylerQuickMedia.framework */,
 				BDC2C2A9217B6D4400A30107 /* Pods_TylerQuickMedia.framework */,
 				EC8D47B958AB465AB6CE4EA2 /* Pods_TylerQuickMediaTests.framework */,
@@ -272,11 +308,11 @@
 			buildConfigurationList = BDC2C28A217B666800A30107 /* Build configuration list for PBXNativeTarget "TylerQuickMedia" */;
 			buildPhases = (
 				6D7070C91755DFE90A4844BC /* [CP] Check Pods Manifest.lock */,
+				BDC2C2AB217B6DB900A30107 /* SwiftGen */,
 				BDC2C25B217B666600A30107 /* Sources */,
 				BDC2C25C217B666600A30107 /* Frameworks */,
 				BDC2C25D217B666600A30107 /* Resources */,
 				BDC2C296217B695000A30107 /* [CP] Copy Carthage Resources */,
-				BDC2C2AB217B6DB900A30107 /* SwiftGen */,
 				BDC2C2A1217B6B7D00A30107 /* SwiftLint */,
 				6AE16687FDF08945AAAD15B2 /* [CP] Embed Pods Frameworks */,
 				67461388F25BF1C7E554A73D /* [CP] Copy Pods Resources */,
@@ -477,6 +513,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TylerQuickMedia/Pods-TylerQuickMedia-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
 			);
@@ -485,6 +522,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
 			);
@@ -580,6 +618,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxMoya.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveMoya.framework",
 			);
 			name = "[CP] Copy Carthage Resources";
 			outputFileListPaths = (
@@ -878,6 +918,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 576T8HK6X4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TylerQuickMedia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -898,6 +942,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 576T8HK6X4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TylerQuickMedia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
