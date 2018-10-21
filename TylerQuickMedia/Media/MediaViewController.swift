@@ -11,10 +11,10 @@ import RxOptional
 import RxSwift
 import UIKit
 
-class MediaViewController: UIViewController, HasDisposeBag {
-
+class MediaViewController: UIViewController, HasDisposeBag, DeallocationView {
     override func viewDidLoad() {
         super.viewDidLoad()
+        enableMemoryLeakCheck(disposeBag)
     }
 }
 

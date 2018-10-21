@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		880BDA025598B15BD91C76AB /* Pods_TylerQuickMediaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D47B958AB465AB6CE4EA2 /* Pods_TylerQuickMediaTests.framework */; };
+		BD15DDEC217C521800978A3B /* DeallocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDEB217C521800978A3B /* DeallocationView.swift */; };
 		BD34F009217C19A60066023E /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F008217C19A60066023E /* Enviroment.swift */; };
 		BD34F00D217C1B080066023E /* SwinjectStoryboard+setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F00C217C1B080066023E /* SwinjectStoryboard+setup.swift */; };
 		BD34F00F217C1CB00066023E /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F00E217C1CB00066023E /* Inject.swift */; };
@@ -69,6 +70,7 @@
 /* Begin PBXFileReference section */
 		39E825EA20243572C6B079A1 /* Pods-TylerQuickMediaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMediaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMediaTests/Pods-TylerQuickMediaTests.release.xcconfig"; sourceTree = "<group>"; };
 		ABCC3E19CABE4F69A2855DE2 /* Pods-TylerQuickMedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMedia.release.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMedia/Pods-TylerQuickMedia.release.xcconfig"; sourceTree = "<group>"; };
+		BD15DDEB217C521800978A3B /* DeallocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeallocationView.swift; sourceTree = "<group>"; };
 		BD34F008217C19A60066023E /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		BD34F00C217C1B080066023E /* SwinjectStoryboard+setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+setup.swift"; sourceTree = "<group>"; };
 		BD34F00E217C1CB00066023E /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 				BDC2C2F5217B843F00A30107 /* DictionarySerializable.swift */,
 				BDC2C2F7217B8A8A00A30107 /* ThreadInfo.swift */,
 				BD34F01E217C2AE40066023E /* ViewController+Rx.swift */,
+				BD15DDEB217C521800978A3B /* DeallocationView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -831,6 +834,7 @@
 				BD34F009217C19A60066023E /* Enviroment.swift in Sources */,
 				BD34F022217C2C150066023E /* KakaoResponses.swift in Sources */,
 				BD34F02C217C47FB0066023E /* MoyaPlugins.swift in Sources */,
+				BD15DDEC217C521800978A3B /* DeallocationView.swift in Sources */,
 				BD34F018217C1F7B0066023E /* ServiceTypes.swift in Sources */,
 				BDC2C2C1217B72B700A30107 /* HasDisposeBag.swift in Sources */,
 				BDC2C2B3217B726300A30107 /* Fonts.swift in Sources */,

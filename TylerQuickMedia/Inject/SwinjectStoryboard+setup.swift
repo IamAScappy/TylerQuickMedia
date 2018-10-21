@@ -12,6 +12,7 @@ import SwinjectStoryboard
 import UIKit
 
 extension SwinjectStoryboard {
+    // swiftlint:disable:next attributes
     @objc class func setup() {
         defaultContainer.storyboardInitCompleted(MediaViewController.self) { r, c in
             c.reactor = mediaContainer.resolve(MediaReactor.self)
