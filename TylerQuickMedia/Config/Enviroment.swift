@@ -12,7 +12,11 @@ struct Enviroment {
     static let networkTimeout: TimeInterval = 3
     
     struct Kakao {
-        static let BASE_URL = "https://dapi.kakao.com"
         static let API_KEY = "8c84f32197bb0fb2ccba0d7d73c57863"
+    }
+    struct Naver {
+        // TODO: must hide in xcconfig
+        static let CLIENT_ID = "vDnrwSb8JwlKV279nbtS"
+        static let CLIENT_SECRET = "eTibrDU9sZ"
     }
 }

@@ -10,57 +10,51 @@ import Foundation
 import Moya
 import Result
 
-enum KakaoApi {
-    case image(KakaoMediumRequest)
-    case vclip(KakaoMediumRequest)
+enum NaverApi {
+    case image(NaverMediumRequest)
 }
 
-extension KakaoApi: TargetType, AccessTokenAuthorizable {
+extension NaverApi: TargetType, AccessTokenAuthorizable {
     
-    var baseURL: URL { return URL(string: "https://dapi.kakao.com")! }
-
+    var baseURL: URL { return URL(string: "https://openapi.naver.com")! }
+    
     var headers: [String: String]? {
         return ["Content-Type": "application/json;charset=UTF-8"]
     }
-
+    
     var path: String {
         switch self {
         case .image:
-            return "/v2/search/image"
-        case .vclip:
-            return "/v2/search/vclip"
+            return "/v1/search/image"
         }
     }
-
+    
     var authorizationType: AuthorizationType {
         switch self {
-        case .image, .vclip:
-            return .kakaoAk
+        case .image:
+            return .naver
         }
     }
     var method: Moya.Method {
         switch self {
-        case .image, .vclip:
+        case .image:
             return .get
         }
     }
-
+    
     var parameterEncoding: Moya.ParameterEncoding {
         switch self {
-        case .image, .vclip:
+        case .image:
             return URLEncoding.default
-        default: return JSONEncoding.default
         }
     }
     var task: Task {
         switch self {
         case let .image(request):
             return .requestParameters(parameters: request.toDict(), encoding: parameterEncoding)
-        case .vclip(let request):
-            return .requestParameters(parameters: request.toDict(), encoding: parameterEncoding)
         }
     }
-
+    
     var sampleData: Data {
         return "".data(using: String.Encoding.utf8)!
     }

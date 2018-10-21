@@ -11,10 +11,12 @@ import RxSwift
 
 class MediaReactor: Reactor {
     let initialState: State = State()
-    let service: KakaoServiceType
+    let kakaoService: KakaoServiceType
+    let naverService: NaverServiceType
 
-    init(_ service: KakaoServiceType) {
-        self.service = service
+    init(kakaoService kakao: KakaoServiceType, naverService naver: NaverServiceType) {
+        self.kakaoService = kakao
+        self.naverService = naver
     }
 
     enum Action {
@@ -23,25 +25,25 @@ class MediaReactor: Reactor {
     struct State {
         var isLoading: Bool = false
         var error: Error?
-        var images: [KakaoImage]?
-        var vclips: [KakaoVclip]?
+        var medium: [Medium]?
     }
     enum Mutation {
-        case setImages([KakaoImage])
-        case setVclips([KakaoVclip])
+        case setMedium([Medium])
         case setError(Error)
         case setLoading(Bool)
     }
     func mutate(action: Action) -> Observable<Mutation> {
         logger.debug("mutate action: \(action)")
-
+        
         switch action {
         case .searchMedium(let keyword):
-            let request = KakaoMediumRequest(query: "aa", page: 1, size: 10)
+            let kakaoRequest = KakaoMediumRequest(query: "aa", page: 1, size: 10)
+            let naverRequest = NaverMediumRequest(query: "aa", start: 1, display: 10)
+            
             return Observable.concat([
                 Observable.just(.setLoading(true)),
-                self.service.searchImages(request).asObservable().map { Mutation.setImages($0.documents) },
-                self.service.searchVclip(request).asObservable().map { Mutation.setVclips($0.documents) },
+                self.kakaoService.searchMedium(kakaoRequest).asObservable().map { Mutation.setMedium($0) },
+                self.naverService.searchMedium(naverRequest).asObservable().map { Mutation.setMedium($0) },
                 Observable.just(.setLoading(false))
                 ])
                 .catchError { .just(.setError($0)) }
@@ -50,15 +52,13 @@ class MediaReactor: Reactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
-        case .setImages(let images):
-            newState.images = images
+        case .setMedium(let medium):
+            newState.medium = medium
         case .setError(let error):
             newState.error = error
             newState.isLoading = false
         case .setLoading(let isLoading):
             newState.isLoading = isLoading
-        case .setVclips(let vclips):
-            newState.vclips = vclips
         }
         return newState
     }

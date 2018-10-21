@@ -13,7 +13,7 @@ struct Meta: Decodable {
     let pageable_count: Int
     let is_end: Bool
 }
-struct KakaoImage: Decodable {
+struct KakaoImage: Decodable, Medium {
     let collection: String
     let thumbnail_url: String
     let image_url: String
@@ -23,7 +23,7 @@ struct KakaoImage: Decodable {
     let doc_url: String
     let datetime: String
 }
-struct KakaoVclip: Decodable {
+struct KakaoVclip: Decodable, Medium {
     let title: String
     let url: String
     let datetime: String

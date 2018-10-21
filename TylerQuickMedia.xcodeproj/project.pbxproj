@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		880BDA025598B15BD91C76AB /* Pods_TylerQuickMediaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D47B958AB465AB6CE4EA2 /* Pods_TylerQuickMediaTests.framework */; };
 		BD15DDEC217C521800978A3B /* DeallocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDEB217C521800978A3B /* DeallocationView.swift */; };
+		BD15DDEF217C53CB00978A3B /* Medium.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDEE217C53CB00978A3B /* Medium.swift */; };
+		BD15DDF4217C599000978A3B /* NaverApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDF3217C599000978A3B /* NaverApi.swift */; };
+		BD15DDF6217C5ADA00978A3B /* NaverRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDF5217C5ADA00978A3B /* NaverRequests.swift */; };
+		BD15DDF8217C5C0900978A3B /* NaverResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDF7217C5C0900978A3B /* NaverResponses.swift */; };
+		BD15DDFA217C5D9700978A3B /* NaverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDF9217C5D9700978A3B /* NaverService.swift */; };
 		BD34F009217C19A60066023E /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F008217C19A60066023E /* Enviroment.swift */; };
 		BD34F00D217C1B080066023E /* SwinjectStoryboard+setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F00C217C1B080066023E /* SwinjectStoryboard+setup.swift */; };
 		BD34F00F217C1CB00066023E /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F00E217C1CB00066023E /* Inject.swift */; };
@@ -21,8 +26,11 @@
 		BD34F022217C2C150066023E /* KakaoResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F021217C2C150066023E /* KakaoResponses.swift */; };
 		BD34F027217C38680066023E /* Single+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F026217C38680066023E /* Single+Network.swift */; };
 		BD34F029217C45C50066023E /* DefaultAlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F028217C45C50066023E /* DefaultAlamofireManager.swift */; };
-		BD34F02C217C47FB0066023E /* MoyaPlugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F02B217C47FB0066023E /* MoyaPlugins.swift */; };
-		BD34F02E217C49AA0066023E /* KakaoAuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F02D217C49A90066023E /* KakaoAuthPlugin.swift */; };
+		BD34F02E217C49AA0066023E /* AccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F02D217C49A90066023E /* AccessTokenPlugin.swift */; };
+		BD945121217C8CF2001733B7 /* Media.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD945120217C8CF2001733B7 /* Media.storyboard */; };
+		BD945123217C8D46001733B7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD945122217C8D46001733B7 /* Router.swift */; };
+		BD945126217C91BB001733B7 /* ReplicateActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD945125217C91BB001733B7 /* ReplicateActivityIndicator.swift */; };
+		BD945128217C9237001733B7 /* CGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD945127217C9237001733B7 /* CGUtils.swift */; };
 		BDC2C263217B666600A30107 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C262217B666600A30107 /* AppDelegate.swift */; };
 		BDC2C265217B666600A30107 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C264217B666600A30107 /* ViewController.swift */; };
 		BDC2C268217B666600A30107 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C266217B666600A30107 /* Main.storyboard */; };
@@ -71,6 +79,11 @@
 		39E825EA20243572C6B079A1 /* Pods-TylerQuickMediaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMediaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMediaTests/Pods-TylerQuickMediaTests.release.xcconfig"; sourceTree = "<group>"; };
 		ABCC3E19CABE4F69A2855DE2 /* Pods-TylerQuickMedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMedia.release.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMedia/Pods-TylerQuickMedia.release.xcconfig"; sourceTree = "<group>"; };
 		BD15DDEB217C521800978A3B /* DeallocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeallocationView.swift; sourceTree = "<group>"; };
+		BD15DDEE217C53CB00978A3B /* Medium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medium.swift; sourceTree = "<group>"; };
+		BD15DDF3217C599000978A3B /* NaverApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverApi.swift; sourceTree = "<group>"; };
+		BD15DDF5217C5ADA00978A3B /* NaverRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverRequests.swift; sourceTree = "<group>"; };
+		BD15DDF7217C5C0900978A3B /* NaverResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverResponses.swift; sourceTree = "<group>"; };
+		BD15DDF9217C5D9700978A3B /* NaverService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverService.swift; sourceTree = "<group>"; };
 		BD34F008217C19A60066023E /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		BD34F00C217C1B080066023E /* SwinjectStoryboard+setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+setup.swift"; sourceTree = "<group>"; };
 		BD34F00E217C1CB00066023E /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
@@ -83,8 +96,11 @@
 		BD34F021217C2C150066023E /* KakaoResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoResponses.swift; sourceTree = "<group>"; };
 		BD34F026217C38680066023E /* Single+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Network.swift"; sourceTree = "<group>"; };
 		BD34F028217C45C50066023E /* DefaultAlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlamofireManager.swift; sourceTree = "<group>"; };
-		BD34F02B217C47FB0066023E /* MoyaPlugins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPlugins.swift; sourceTree = "<group>"; };
-		BD34F02D217C49A90066023E /* KakaoAuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthPlugin.swift; sourceTree = "<group>"; };
+		BD34F02D217C49A90066023E /* AccessTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenPlugin.swift; sourceTree = "<group>"; };
+		BD945120217C8CF2001733B7 /* Media.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Media.storyboard; sourceTree = "<group>"; };
+		BD945122217C8D46001733B7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		BD945125217C91BB001733B7 /* ReplicateActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplicateActivityIndicator.swift; sourceTree = "<group>"; };
+		BD945127217C9237001733B7 /* CGUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGUtils.swift; sourceTree = "<group>"; };
 		BDC2C25F217B666600A30107 /* TylerQuickMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TylerQuickMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC2C262217B666600A30107 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDC2C264217B666600A30107 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +199,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BD15DDED217C53BF00978A3B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD15DDEE217C53CB00978A3B /* Medium.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BD34F00A217C19AB0066023E /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				BD34F011217C1F360066023E /* KakaoApi.swift */,
+				BD15DDF3217C599000978A3B /* NaverApi.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -213,6 +238,7 @@
 			children = (
 				BD34F01A217C26C80066023E /* MediaViewController.swift */,
 				BD34F01C217C26D10066023E /* MediaReactor.swift */,
+				BD945120217C8CF2001733B7 /* Media.storyboard */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -221,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				BD34F021217C2C150066023E /* KakaoResponses.swift */,
+				BD15DDF7217C5C0900978A3B /* NaverResponses.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -230,8 +257,17 @@
 			children = (
 				BD34F017217C1F7B0066023E /* ServiceTypes.swift */,
 				BD34F015217C1F650066023E /* KakaoService.swift */,
+				BD15DDF9217C5D9700978A3B /* NaverService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		BD945124217C9162001733B7 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				BD945125217C91BB001733B7 /* ReplicateActivityIndicator.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		BDC2C256217B666600A30107 = {
@@ -262,6 +298,8 @@
 		BDC2C261217B666600A30107 /* TylerQuickMedia */ = {
 			isa = PBXGroup;
 			children = (
+				BD945124217C9162001733B7 /* Component */,
+				BD15DDED217C53BF00978A3B /* Model */,
 				BD34F019217C26A10066023E /* Media */,
 				BD34F00B217C1AFC0066023E /* Inject */,
 				BDC2C2ED217B7B6E00A30107 /* Network */,
@@ -326,6 +364,7 @@
 		BDC2C29F217B6AD600A30107 /* Route */ = {
 			isa = PBXGroup;
 			children = (
+				BD945122217C8D46001733B7 /* Router.swift */,
 			);
 			path = Route;
 			sourceTree = "<group>";
@@ -381,6 +420,7 @@
 				BDC2C2F7217B8A8A00A30107 /* ThreadInfo.swift */,
 				BD34F01E217C2AE40066023E /* ViewController+Rx.swift */,
 				BD15DDEB217C521800978A3B /* DeallocationView.swift */,
+				BD945127217C9237001733B7 /* CGUtils.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -394,8 +434,7 @@
 				BD34F02A217C46CC0066023E /* Service */,
 				BD34F026217C38680066023E /* Single+Network.swift */,
 				BD34F028217C45C50066023E /* DefaultAlamofireManager.swift */,
-				BD34F02B217C47FB0066023E /* MoyaPlugins.swift */,
-				BD34F02D217C49A90066023E /* KakaoAuthPlugin.swift */,
+				BD34F02D217C49A90066023E /* AccessTokenPlugin.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -404,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				BDC2C2F3217B7D8C00A30107 /* KakaoRequests.swift */,
+				BD15DDF5217C5ADA00978A3B /* NaverRequests.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -424,6 +464,7 @@
 				6AE16687FDF08945AAAD15B2 /* [CP] Embed Pods Frameworks */,
 				67461388F25BF1C7E554A73D /* [CP] Copy Pods Resources */,
 				BDC2C2A1217B6B7D00A30107 /* SwiftLint */,
+				BD15DDF0217C582C00978A3B /* Mark */,
 			);
 			buildRules = (
 			);
@@ -531,6 +572,7 @@
 				BDC2C26D217B666700A30107 /* Assets.xcassets in Resources */,
 				BDC2C29D217B6A5E00A30107 /* color.txt in Resources */,
 				BDC2C268217B666600A30107 /* Main.storyboard in Resources */,
+				BD945121217C8CF2001733B7 /* Media.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,6 +744,24 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TylerQuickMediaTests/Pods-TylerQuickMediaTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BD15DDF0217C582C00978A3B /* Mark */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Mark;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO|FIXME|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"$PROJECT_DIR/Source\" \\( -name \"*.swift\" \\) -print0 | \\\nxargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | \\\nperl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n";
+		};
 		BDC2C296217B695000A30107 /* [CP] Copy Carthage Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -829,18 +889,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDC2C265217B666600A30107 /* ViewController.swift in Sources */,
+				BD15DDF4217C599000978A3B /* NaverApi.swift in Sources */,
 				BD34F01B217C26C80066023E /* MediaViewController.swift in Sources */,
+				BD945128217C9237001733B7 /* CGUtils.swift in Sources */,
 				BD34F00D217C1B080066023E /* SwinjectStoryboard+setup.swift in Sources */,
 				BD34F009217C19A60066023E /* Enviroment.swift in Sources */,
 				BD34F022217C2C150066023E /* KakaoResponses.swift in Sources */,
-				BD34F02C217C47FB0066023E /* MoyaPlugins.swift in Sources */,
 				BD15DDEC217C521800978A3B /* DeallocationView.swift in Sources */,
 				BD34F018217C1F7B0066023E /* ServiceTypes.swift in Sources */,
 				BDC2C2C1217B72B700A30107 /* HasDisposeBag.swift in Sources */,
 				BDC2C2B3217B726300A30107 /* Fonts.swift in Sources */,
+				BD945123217C8D46001733B7 /* Router.swift in Sources */,
 				BD34F029217C45C50066023E /* DefaultAlamofireManager.swift in Sources */,
 				BD34F027217C38680066023E /* Single+Network.swift in Sources */,
 				BDC2C2B4217B726300A30107 /* Assets.swift in Sources */,
+				BD15DDF8217C5C0900978A3B /* NaverResponses.swift in Sources */,
 				BDC2C2B2217B726300A30107 /* MyColor.swift in Sources */,
 				BD34F01D217C26D10066023E /* MediaReactor.swift in Sources */,
 				BDC2C2B5217B726300A30107 /* L10n.swift in Sources */,
@@ -848,12 +911,16 @@
 				BDC2C2C0217B72B700A30107 /* NibWithSwiftName.swift in Sources */,
 				BDC2C2BE217B72B700A30107 /* SwiftNameIdentifier.swift in Sources */,
 				BDC2C2F4217B7D8C00A30107 /* KakaoRequests.swift in Sources */,
+				BD945126217C91BB001733B7 /* ReplicateActivityIndicator.swift in Sources */,
 				BDC2C263217B666600A30107 /* AppDelegate.swift in Sources */,
+				BD15DDF6217C5ADA00978A3B /* NaverRequests.swift in Sources */,
 				BDC2C2F6217B843F00A30107 /* DictionarySerializable.swift in Sources */,
 				BD34F012217C1F370066023E /* KakaoApi.swift in Sources */,
 				BD34F016217C1F650066023E /* KakaoService.swift in Sources */,
+				BD15DDEF217C53CB00978A3B /* Medium.swift in Sources */,
 				BD34F01F217C2AE40066023E /* ViewController+Rx.swift in Sources */,
-				BD34F02E217C49AA0066023E /* KakaoAuthPlugin.swift in Sources */,
+				BD34F02E217C49AA0066023E /* AccessTokenPlugin.swift in Sources */,
+				BD15DDFA217C5D9700978A3B /* NaverService.swift in Sources */,
 				BDC2C299217B69E600A30107 /* Logger.swift in Sources */,
 				BDC2C2F8217B8A8A00A30107 /* ThreadInfo.swift in Sources */,
 				BD34F00F217C1CB00066023E /* Inject.swift in Sources */,
