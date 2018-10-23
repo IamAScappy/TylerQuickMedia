@@ -27,6 +27,7 @@
 		BD34F027217C38680066023E /* Single+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F026217C38680066023E /* Single+Network.swift */; };
 		BD34F029217C45C50066023E /* DefaultAlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F028217C45C50066023E /* DefaultAlamofireManager.swift */; };
 		BD34F02E217C49AA0066023E /* AccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F02D217C49A90066023E /* AccessTokenPlugin.swift */; };
+		BD657077217F3A87001F715A /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD657076217F3A87001F715A /* GeneratedMocks.swift */; };
 		BD6A9DE9217D8CCD001952E8 /* MediaCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6A9DE8217D8CCD001952E8 /* MediaCollectionCell.swift */; };
 		BD8C0569217D8D7200F24EA2 /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8C0568217D8D7200F24EA2 /* Dimens.swift */; };
 		BD945121217C8CF2001733B7 /* Media.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD945120217C8CF2001733B7 /* Media.storyboard */; };
@@ -38,9 +39,7 @@
 		BD94512F217CB2F3001733B7 /* MediumMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD94512E217CB2F3001733B7 /* MediumMapper.swift */; };
 		BD945131217CBC40001733B7 /* UIEmptyState.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD945130217CBC40001733B7 /* UIEmptyState.framework */; };
 		BD945133217CC068001733B7 /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD945132217CC068001733B7 /* UIImage+GIF.swift */; };
-		BD945135217CC0C2001733B7 /* no_result.gif in Resources */ = {isa = PBXBuildFile; fileRef = BD945134217CC0C2001733B7 /* no_result.gif */; };
 		BDC2C263217B666600A30107 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C262217B666600A30107 /* AppDelegate.swift */; };
-		BDC2C265217B666600A30107 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C264217B666600A30107 /* ViewController.swift */; };
 		BDC2C268217B666600A30107 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C266217B666600A30107 /* Main.storyboard */; };
 		BDC2C26D217B666700A30107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C26C217B666700A30107 /* Assets.xcassets */; };
 		BDC2C270217B666700A30107 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C26E217B666700A30107 /* LaunchScreen.storyboard */; };
@@ -108,6 +107,7 @@
 		BD34F026217C38680066023E /* Single+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Network.swift"; sourceTree = "<group>"; };
 		BD34F028217C45C50066023E /* DefaultAlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlamofireManager.swift; sourceTree = "<group>"; };
 		BD34F02D217C49A90066023E /* AccessTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenPlugin.swift; sourceTree = "<group>"; };
+		BD657076217F3A87001F715A /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
 		BD6A9DE8217D8CCD001952E8 /* MediaCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionCell.swift; sourceTree = "<group>"; };
 		BD8C0568217D8D7200F24EA2 /* Dimens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
 		BD945120217C8CF2001733B7 /* Media.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Media.storyboard; sourceTree = "<group>"; };
@@ -119,10 +119,8 @@
 		BD94512E217CB2F3001733B7 /* MediumMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumMapper.swift; sourceTree = "<group>"; };
 		BD945130217CBC40001733B7 /* UIEmptyState.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIEmptyState.framework; path = Carthage/Build/iOS/UIEmptyState.framework; sourceTree = "<group>"; };
 		BD945132217CC068001733B7 /* UIImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
-		BD945134217CC0C2001733B7 /* no_result.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = no_result.gif; sourceTree = "<group>"; };
 		BDC2C25F217B666600A30107 /* TylerQuickMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TylerQuickMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC2C262217B666600A30107 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BDC2C264217B666600A30107 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BDC2C267217B666600A30107 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BDC2C26C217B666700A30107 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDC2C26F217B666700A30107 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -222,9 +220,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BD067002217F375A00B3F1AF /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				BD94512A217CA0A5001733B7 /* MediumModel.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		BD15DDED217C53BF00978A3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BD067002217F375A00B3F1AF /* Persistence */,
 				BD15DDEE217C53CB00978A3B /* Medium.swift */,
 			);
 			path = Model;
@@ -264,7 +271,6 @@
 				BDDF4D01217DDF0600B6C4EC /* MediaViewController+EmptyState.swift */,
 				BD34F01C217C26D10066023E /* MediaReactor.swift */,
 				BD945120217C8CF2001733B7 /* Media.storyboard */,
-				BD94512A217CA0A5001733B7 /* MediumModel.swift */,
 				BDF99637217EE4900064D40B /* MediumViewModel.swift */,
 				BD94512E217CB2F3001733B7 /* MediumMapper.swift */,
 				BD6A9DE8217D8CCD001952E8 /* MediaCollectionCell.swift */,
@@ -353,7 +359,6 @@
 				BDC2C297217B69D900A30107 /* Logger */,
 				BDC2C29F217B6AD600A30107 /* Route */,
 				BDC2C262217B666600A30107 /* AppDelegate.swift */,
-				BDC2C264217B666600A30107 /* ViewController.swift */,
 				BDC2C266217B666600A30107 /* Main.storyboard */,
 				BDC2C26C217B666700A30107 /* Assets.xcassets */,
 				BDC2C26E217B666700A30107 /* LaunchScreen.storyboard */,
@@ -366,6 +371,7 @@
 		BDC2C279217B666800A30107 /* TylerQuickMediaTests */ = {
 			isa = PBXGroup;
 			children = (
+				BD657076217F3A87001F715A /* GeneratedMocks.swift */,
 				BDC2C27A217B666800A30107 /* TylerQuickMediaTests.swift */,
 				BDC2C27C217B666800A30107 /* Info.plist */,
 			);
@@ -392,7 +398,6 @@
 		BDC2C29B217B6A2900A30107 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BD945134217CC0C2001733B7 /* no_result.gif */,
 				BDC2C29E217B6A6100A30107 /* Fonts */,
 				BDC2C29C217B6A5E00A30107 /* color.txt */,
 				BD8C0568217D8D7200F24EA2 /* Dimens.swift */,
@@ -499,6 +504,7 @@
 			buildPhases = (
 				6D7070C91755DFE90A4844BC /* [CP] Check Pods Manifest.lock */,
 				BDC2C2AB217B6DB900A30107 /* SwiftGen */,
+				BD657075217F396E001F715A /* Cuckoo */,
 				BDC2C25B217B666600A30107 /* Sources */,
 				BDC2C25C217B666600A30107 /* Frameworks */,
 				BDC2C25D217B666600A30107 /* Resources */,
@@ -607,7 +613,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD945135217CC0C2001733B7 /* no_result.gif in Resources */,
 				BDC2C270217B666700A30107 /* LaunchScreen.storyboard in Resources */,
 				BDC2C2B7217B727000A30107 /* .gitignore in Resources */,
 				BDC2C2A6217B6CE700A30107 /* Localizable.strings in Resources */,
@@ -811,6 +816,24 @@
 			shellPath = /bin/sh;
 			shellScript = "KEYWORDS=\"TODO|FIXME|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"$PROJECT_DIR/Source\" \\( -name \"*.swift\" \\) -print0 | \\\nxargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | \\\nperl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n";
 		};
+		BD657075217F396E001F715A /* Cuckoo */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Cuckoo;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "OUTPUT_FILE=\"$PROJECT_DIR/${TARGET_NAME}Tests/GeneratedMocks.swift\"\n\necho \"Generated Mocks File = $OUTPUT_FILE\"\n\nINPUT_DIR=\"${PROJECT_DIR}/${TARGET_NAME}\"\n\n\n\"Carthage/Checkouts/Cuckoo/run\" generate --testable \"$PROJECT_NAME\" \\\n--output \"$OUTPUT_FILE\" \\\n\"$INPUT_DIR/Network/Service/ServiceTypes.swift\" \\\n\n\n";
+		};
 		BDC2C296217B695000A30107 /* [CP] Copy Carthage Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -841,6 +864,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/UIEmptyState.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Diff.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			name = "[CP] Copy Carthage Resources";
 			outputFileListPaths = (
@@ -940,7 +965,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDC2C265217B666600A30107 /* ViewController.swift in Sources */,
 				BD15DDF4217C599000978A3B /* NaverApi.swift in Sources */,
 				BD34F01B217C26C80066023E /* MediaViewController.swift in Sources */,
 				BD945128217C9237001733B7 /* CGUtils.swift in Sources */,
@@ -993,6 +1017,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDC2C27B217B666800A30107 /* TylerQuickMediaTests.swift in Sources */,
+				BD657077217F3A87001F715A /* GeneratedMocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

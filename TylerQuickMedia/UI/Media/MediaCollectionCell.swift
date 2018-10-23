@@ -15,6 +15,7 @@ class MediaCollectionCell: UICollectionViewCell, SwiftNameIdentifier {
         return UIButton()
     }()
     let thumbnailView = UIImageView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         thumbnailView.do {
@@ -27,7 +28,6 @@ class MediaCollectionCell: UICollectionViewCell, SwiftNameIdentifier {
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         if let attributes = layoutAttributes as? PinterestLayoutAttributes {
-            print("!!!!!!!! \(attributes)")
         }
     }
     
@@ -39,7 +39,7 @@ class MediaCollectionCell: UICollectionViewCell, SwiftNameIdentifier {
 extension MediaCollectionCell {
     func configCell(_ item: MediumModel) {
         switch item.type {
-        case .vclip:
+        case MediumType.vclip.rawValue:
             self.playButton.isHidden = false
         default:
             self.playButton.isHidden = true

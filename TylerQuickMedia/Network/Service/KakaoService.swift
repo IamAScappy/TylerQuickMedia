@@ -10,6 +10,7 @@ import Foundation
 import Moya
 import Result
 import RxSwift
+import RxMoya
 
 class KakaoService: KakaoServiceType {
     func searchMedium(_ param: KakaoMediumRequest) -> Single<[Medium]> {
