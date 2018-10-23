@@ -20,6 +20,14 @@ struct NaverImageResponse: Decodable {
     let display: Int
     let start: Int
     let total: Int
-    let lastBuildDate: Date
+    let lastBuildDate: String
     let items: [NaverImage]
+}
+
+extension NaverImage: MediumConvetableModel {
+    func toMediumViewModel() -> MediumModel {
+        let width = Int(self.sizewidth) ?? 0
+        let height = Int(self.sizeheight) ?? 0
+        return MediumModel(type: .image, thumbnail: self.thumbnail, origin: self.link, title: self.title, width: width, height: height, dateTime: "")
+    }
 }

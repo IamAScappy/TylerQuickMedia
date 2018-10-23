@@ -9,6 +9,10 @@
 import Foundation
 import RxSwift
 
+protocol MediumServiceType {
+    func searchMedium(naverRequest: NaverMediumRequest, kakaoRequest: KakaoMediumRequest) -> Single<[Medium]>
+}
+
 protocol KakaoServiceType {
     func searchMedium(_ param: KakaoMediumRequest) -> Single<[Medium]>
     func searchImages(_ param: KakaoMediumRequest) -> Single<KakaoImageResponse>

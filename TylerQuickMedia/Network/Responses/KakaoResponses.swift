@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Meta: Decodable {
+struct Meta: Decodable, Equatable {
     let total_count: Int
     let pageable_count: Int
     let is_end: Bool
 }
-struct KakaoImage: Decodable, Medium {
+struct KakaoImage: Decodable, Medium, Equatable {
     let collection: String
     let thumbnail_url: String
     let image_url: String
@@ -23,7 +23,14 @@ struct KakaoImage: Decodable, Medium {
     let doc_url: String
     let datetime: String
 }
-struct KakaoVclip: Decodable, Medium {
+
+extension KakaoImage: MediumConvetableModel {
+    func toMediumViewModel() -> MediumModel {
+        return MediumModel(type: .image, thumbnail: self.thumbnail_url, origin: self.image_url, title: self.display_sitename, width: self.width, height: self.height, dateTime: self.datetime)
+    }
+}
+
+struct KakaoVclip: Decodable, Medium, Equatable {
     let title: String
     let url: String
     let datetime: String
@@ -31,11 +38,19 @@ struct KakaoVclip: Decodable, Medium {
     let play_time: Int
     let author: String
 }
-struct KakaoImageResponse: Decodable {
+
+extension KakaoVclip: MediumConvetableModel {
+    func toMediumViewModel() -> MediumModel {
+        let height = Int(Dimens.Media.videoHeightMin.rawValue)
+        let width = Int(Dimens.Media.videoWidthMin.rawValue)
+        return MediumModel(type: .vclip, thumbnail: self.thumbnail, origin: self.url, title: self.title, width: width, height: height, dateTime: self.datetime)
+    }
+}
+struct KakaoImageResponse: Decodable, Equatable {
     let meta: Meta
     let documents: [KakaoImage]
 }
-struct KakaoVclipResponse: Decodable {
+struct KakaoVclipResponse: Decodable, Equatable {
     let meta: Meta
     let documents: [KakaoVclip]
 }

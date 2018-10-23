@@ -13,7 +13,6 @@ import RxSwift
 
 class NaverService: NaverServiceType {
     
-    
     private let provider: MoyaProvider<NaverApi>
     
     init(_ provider: MoyaProvider<NaverApi>) {

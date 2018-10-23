@@ -10,3 +10,6 @@ github "Moya/Moya"
 github "SwiftKit/Cuckoo"
 github "Swinject/Swinject"
 github "Swinject/SwinjectStoryboard"
+github "luispadron/UIEmptyState"
+github "onevcat/Kingfisher" ~> 4.0
+github "wokalski/Diff.swift"

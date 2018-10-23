@@ -11,12 +11,12 @@ import RxSwift
 
 class MediaReactor: Reactor {
     let initialState: State = State()
-    let kakaoService: KakaoServiceType
-    let naverService: NaverServiceType
-
-    init(kakaoService kakao: KakaoServiceType, naverService naver: NaverServiceType) {
-        self.kakaoService = kakao
-        self.naverService = naver
+    let service: MediumServiceType
+    let mapper: MediumMapper
+    
+    init(_ service: MediumServiceType, mapper: MediumMapper) {
+        self.service = service
+        self.mapper = mapper
     }
 
     enum Action {
@@ -25,10 +25,10 @@ class MediaReactor: Reactor {
     struct State {
         var isLoading: Bool = false
         var error: Error?
-        var medium: [Medium]?
+        var mediumModel: [MediumModel]?
     }
     enum Mutation {
-        case setMedium([Medium])
+        case setMedium([MediumModel])
         case setError(Error)
         case setLoading(Bool)
     }
@@ -37,13 +37,15 @@ class MediaReactor: Reactor {
         
         switch action {
         case .searchMedium(let keyword):
-            let kakaoRequest = KakaoMediumRequest(query: "aa", page: 1, size: 10)
-            let naverRequest = NaverMediumRequest(query: "aa", start: 1, display: 10)
+            let kakaoRequest = KakaoMediumRequest(query: keyword, page: 1, size: 10)
+            let naverRequest = NaverMediumRequest(query: keyword, start: 1, display: 10)
             
             return Observable.concat([
                 Observable.just(.setLoading(true)),
-                self.kakaoService.searchMedium(kakaoRequest).asObservable().map { Mutation.setMedium($0) },
-                self.naverService.searchMedium(naverRequest).asObservable().map { Mutation.setMedium($0) },
+                self.service.searchMedium(naverRequest: naverRequest, kakaoRequest: kakaoRequest)
+                    .map { medium in medium.map(self.mapper.map) }
+                    .map { r in return Mutation.setMedium(r) }
+                    .asObservable(),
                 Observable.just(.setLoading(false))
                 ])
                 .catchError { .just(.setError($0)) }
@@ -52,8 +54,8 @@ class MediaReactor: Reactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
-        case .setMedium(let medium):
-            newState.medium = medium
+        case .setMedium(let model):
+            newState.mediumModel = model
         case .setError(let error):
             newState.error = error
             newState.isLoading = false
