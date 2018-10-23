@@ -16,15 +16,14 @@ import UIEmptyState
 import UIKit
 import PinterestLayout
 class MediaViewController: UIViewController, HasDisposeBag, DeallocationView {
+    @IBOutlet weak var uiCollectionView: UICollectionView!
     let searchController = UISearchController(searchResultsController: nil)
     lazy var pinterestLayout = PinterestLayout()
-    lazy var uiCollectionView: UICollectionView = {
-        return UICollectionView(frame: .zero, collectionViewLayout: pinterestLayout)
-    }()
     var items: [MediumModel]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        uiCollectionView.collectionViewLayout = pinterestLayout
         enableMemoryLeakCheck(disposeBag)
         self.emptyStateDataSource = self
         self.emptyStateDelegate = self
@@ -40,13 +39,10 @@ class MediaViewController: UIViewController, HasDisposeBag, DeallocationView {
             $0.searchBar.placeholder = "검색어를 입력해 주세요."
         }
         uiCollectionView.do {
-            view.addSubview($0)
             $0.register(MediaCollectionCell.self, forCellWithReuseIdentifier: MediaCollectionCell.swiftIdentifier)
             $0.prefetchDataSource = self
             $0.dataSource = self
-            $0.snp.makeConstraints({ make in
-                make.edges.equalToSuperview()
-            })
+            $0.delegate = self
             $0.backgroundColor = UIColor.white
         }
         pinterestLayout.do {
@@ -74,7 +70,7 @@ extension MediaViewController: PinterestLayoutDelegate {
     }
 }
 
-extension MediaViewController: UICollectionViewDataSourcePrefetching, UICollectionViewDataSource {
+extension MediaViewController: UICollectionViewDataSourcePrefetching, UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? MediaCollectionCell else { return }
 //        guard let item = items?[indexPath.row] else { return }
