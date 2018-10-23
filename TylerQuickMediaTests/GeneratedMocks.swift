@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: TylerQuickMedia/Network/Service/ServiceTypes.swift at 2018-10-23 11:45:19 +0000
+// MARK: - Mocks generated from file: TylerQuickMedia/Network/Service/ServiceTypes.swift at 2018-10-23 12:17:15 +0000
 
 //
 //  ServiceTypes.swift

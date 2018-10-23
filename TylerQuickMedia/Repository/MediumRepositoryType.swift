@@ -1,0 +1,19 @@
+//
+//  MediumRepositoryType.swift
+//  TylerQuickMedia
+//
+//  Created by tskim on 2018. 10. 23..
+//  Copyright © 2018년 tskim. All rights reserved.
+//
+
+import Foundation
+
+protocol MediumRepositoryType {
+    func searchMedium(_ keyword: String)
+}
+
+class MediumRepository: MediumRepositoryType {
+    func searchMedium(_ keyword: String) {
+        
+    }
+}

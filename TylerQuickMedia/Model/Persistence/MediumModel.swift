@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import IGListKit
 import RealmSwift
 import RxDataSources
 
@@ -48,5 +49,17 @@ class MediumModel: Object {
 extension MediumModel : IdentifiableType {
     var identity: String {
         return origin
+    }
+}
+
+extension MediumModel: ListDiffable {
+    func diffIdentifier() -> NSObjectProtocol {
+        return medium_id as NSObjectProtocol
+    }
+    
+    func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        guard self !== object else { return true }
+        guard let object = object as? MediumModel else { return false }
+        return self == object
     }
 }

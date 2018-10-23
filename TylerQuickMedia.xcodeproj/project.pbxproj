@@ -27,7 +27,11 @@
 		BD34F027217C38680066023E /* Single+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F026217C38680066023E /* Single+Network.swift */; };
 		BD34F029217C45C50066023E /* DefaultAlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F028217C45C50066023E /* DefaultAlamofireManager.swift */; };
 		BD34F02E217C49AA0066023E /* AccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F02D217C49A90066023E /* AccessTokenPlugin.swift */; };
-		BD657077217F3A87001F715A /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD657076217F3A87001F715A /* GeneratedMocks.swift */; };
+		BD65707D217F41E3001F715A /* MediumSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65707C217F41E3001F715A /* MediumSearchResult.swift */; };
+		BD657080217F43F9001F715A /* MediumRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65707F217F43F9001F715A /* MediumRepositoryType.swift */; };
+		BD657084217F4482001F715A /* RateLimitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD657083217F4482001F715A /* RateLimitable.swift */; };
+		BD657086217F46F6001F715A /* MediumSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD657085217F46F6001F715A /* MediumSearchResult.swift */; };
+		BD657087217F48BA001F715A /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD657076217F3A87001F715A /* GeneratedMocks.swift */; };
 		BD6A9DE9217D8CCD001952E8 /* MediaCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6A9DE8217D8CCD001952E8 /* MediaCollectionCell.swift */; };
 		BD8C0569217D8D7200F24EA2 /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8C0568217D8D7200F24EA2 /* Dimens.swift */; };
 		BD945121217C8CF2001733B7 /* Media.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD945120217C8CF2001733B7 /* Media.storyboard */; };
@@ -108,6 +112,10 @@
 		BD34F028217C45C50066023E /* DefaultAlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlamofireManager.swift; sourceTree = "<group>"; };
 		BD34F02D217C49A90066023E /* AccessTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenPlugin.swift; sourceTree = "<group>"; };
 		BD657076217F3A87001F715A /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
+		BD65707C217F41E3001F715A /* MediumSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumSearchResult.swift; sourceTree = "<group>"; };
+		BD65707F217F43F9001F715A /* MediumRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumRepositoryType.swift; sourceTree = "<group>"; };
+		BD657083217F4482001F715A /* RateLimitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateLimitable.swift; sourceTree = "<group>"; };
+		BD657085217F46F6001F715A /* MediumSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumSearchResult.swift; sourceTree = "<group>"; };
 		BD6A9DE8217D8CCD001952E8 /* MediaCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionCell.swift; sourceTree = "<group>"; };
 		BD8C0568217D8D7200F24EA2 /* Dimens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
 		BD945120217C8CF2001733B7 /* Media.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Media.storyboard; sourceTree = "<group>"; };
@@ -224,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				BD94512A217CA0A5001733B7 /* MediumModel.swift */,
+				BD65707C217F41E3001F715A /* MediumSearchResult.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -231,6 +240,7 @@
 		BD15DDED217C53BF00978A3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BD657083217F4482001F715A /* RateLimitable.swift */,
 				BD067002217F375A00B3F1AF /* Persistence */,
 				BD15DDEE217C53CB00978A3B /* Medium.swift */,
 			);
@@ -298,6 +308,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		BD65707E217F43EC001F715A /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				BD65707F217F43F9001F715A /* MediumRepositoryType.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		BD8D98C8217DBDEB00961629 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +367,7 @@
 		BDC2C261217B666600A30107 /* TylerQuickMedia */ = {
 			isa = PBXGroup;
 			children = (
+				BD65707E217F43EC001F715A /* Repository */,
 				BD945129217C9E59001733B7 /* UI */,
 				BD15DDED217C53BF00978A3B /* Model */,
 				BD34F00B217C1AFC0066023E /* Inject */,
@@ -371,6 +390,7 @@
 		BDC2C279217B666800A30107 /* TylerQuickMediaTests */ = {
 			isa = PBXGroup;
 			children = (
+				BD657085217F46F6001F715A /* MediumSearchResult.swift */,
 				BD657076217F3A87001F715A /* GeneratedMocks.swift */,
 				BDC2C27A217B666800A30107 /* TylerQuickMediaTests.swift */,
 				BDC2C27C217B666800A30107 /* Info.plist */,
@@ -965,6 +985,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD657087217F48BA001F715A /* GeneratedMocks.swift in Sources */,
 				BD15DDF4217C599000978A3B /* NaverApi.swift in Sources */,
 				BD34F01B217C26C80066023E /* MediaViewController.swift in Sources */,
 				BD945128217C9237001733B7 /* CGUtils.swift in Sources */,
@@ -984,6 +1005,7 @@
 				BD8C0569217D8D7200F24EA2 /* Dimens.swift in Sources */,
 				BD34F029217C45C50066023E /* DefaultAlamofireManager.swift in Sources */,
 				BD34F027217C38680066023E /* Single+Network.swift in Sources */,
+				BD657084217F4482001F715A /* RateLimitable.swift in Sources */,
 				BDC2C2B4217B726300A30107 /* Assets.swift in Sources */,
 				BD15DDF8217C5C0900978A3B /* NaverResponses.swift in Sources */,
 				BDC2C2B2217B726300A30107 /* MyColor.swift in Sources */,
@@ -1001,7 +1023,9 @@
 				BD34F012217C1F370066023E /* KakaoApi.swift in Sources */,
 				BD945133217CC068001733B7 /* UIImage+GIF.swift in Sources */,
 				BD34F016217C1F650066023E /* KakaoService.swift in Sources */,
+				BD657080217F43F9001F715A /* MediumRepositoryType.swift in Sources */,
 				BD15DDEF217C53CB00978A3B /* Medium.swift in Sources */,
+				BD65707D217F41E3001F715A /* MediumSearchResult.swift in Sources */,
 				BD34F01F217C2AE40066023E /* ViewController+Rx.swift in Sources */,
 				BD34F02E217C49AA0066023E /* AccessTokenPlugin.swift in Sources */,
 				BD15DDFA217C5D9700978A3B /* NaverService.swift in Sources */,
@@ -1017,7 +1041,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDC2C27B217B666800A30107 /* TylerQuickMediaTests.swift in Sources */,
-				BD657077217F3A87001F715A /* GeneratedMocks.swift in Sources */,
+				BD657086217F46F6001F715A /* MediumSearchResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
