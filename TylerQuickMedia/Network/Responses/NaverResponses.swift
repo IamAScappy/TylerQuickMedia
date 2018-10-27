@@ -24,12 +24,11 @@ extension NaverImage: MediumConvetableModel {
     }
 }
 
-
 struct NaverImageResponse: Decodable, MediumResponsable {
     func isEnd() -> Bool {
-        return self.isEnd() || start >= NaverImageResponse.limitPage
+        return self.start == self.total || start >= NaverImageResponse.limitPage
     }
-    
+
     let display: Int
     let start: Int
     let total: Int

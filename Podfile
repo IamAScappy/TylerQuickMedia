@@ -12,7 +12,6 @@ target 'TylerQuickMedia' do
   pod 'Then', '~> 2.4.0'
   pod 'PinterestLayout', '~> 1.0.3'
   pod 'Firebase/Core'
-  pod "Cuckoo"
   # Pods for ShowMap
   post_install do |installer|
       installer.pods_project.targets.each do |target|
@@ -26,7 +25,7 @@ target 'TylerQuickMedia' do
   def testing_pods
     pod 'Quick', '~> 1.3'
     pod 'Nimble', '~> 7.3'
-    pod 'Nimble-Snapshots'
+#    pod 'Nimble-Snapshots'
   end
   target 'TylerQuickMediaTests' do
     inherit! :search_paths

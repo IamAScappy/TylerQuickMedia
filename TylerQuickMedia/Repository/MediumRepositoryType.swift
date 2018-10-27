@@ -11,7 +11,14 @@ import RealmSwift
 import RxSwift
 
 protocol MediumRepositoryType {
-    func searchMedium(_ keyword: String) -> Single<[Medium]>
+    func searchMedium(_ keyword: String, searchOptions: SearchCategoryOptionType, sortOptions: SearchSortType) -> Single<[Medium]>
+}
+extension MediumRepositoryType {
+    func searchMedium(_ keyword: String,
+                      searchOptions: SearchCategoryOptionType = SearchCategoryOptionType.all,
+                      sortOptions: SearchSortType = .recency) -> Single<[Medium]> {
+        return searchMedium(keyword, searchOptions: searchOptions, sortOptions: sortOptions)
+    }
 }
 
 class MediumRepository: MediumRepositoryType, RateLimitable {
@@ -39,10 +46,16 @@ class MediumRepository: MediumRepositoryType, RateLimitable {
 
     var freshTime: Int = 20 * 60 // 20 minute
 
-    func searchMedium(_ keyword: String) -> Single<[Medium]> {
+    func searchMedium(
+        _ keyword: String,
+        searchOptions: SearchCategoryOptionType = SearchCategoryOptionType.all,
+        sortOptions: SearchSortType = .recency) -> Single<[Medium]> {
         guard !keyword.isEmpty else { return Single.just([]) }
 
-        let nexts = realm?.objects(MediumSearchResult.self).filter("query = '\(keyword)'").last?.nexts
+        
+        let nexts = realm?.objects(MediumSearchResult.self).filter("query = '\(keyword)'").last?.nexts ?? MediumRepository.DEFAULT_NEXTINFO
+        
+        return self.service.searchMedium(keyword, nexts: Array(nexts), sortOptions: sortOptions, searchOptions: searchOptions)
 //
 //        let aa = nexts?.flatMap({ nextInfo in
 //            switch nextInfo.dataSourceType {
@@ -69,10 +82,19 @@ class MediumRepository: MediumRepositoryType, RateLimitable {
 //            return Single.just("")
 //        }
 //        return self.service.searchMedium(keyword, next: nextInfo)
-        return Single.just([])
+//        return Single.just([])
     }
 }
 
+extension MediumRepository {
+    static var DEFAULT_NEXTINFO: List<NextInfo> {
+        return List([
+            NextInfo.generateInit(dataSourceType: .kakaoImage),
+            NextInfo.generateInit(dataSourceType: .kakaoVClip),
+            NextInfo.generateInit(dataSourceType: .naverImage)
+        ])
+    }
+}
 extension Int {
     func increase() -> Int {
         return self + 1

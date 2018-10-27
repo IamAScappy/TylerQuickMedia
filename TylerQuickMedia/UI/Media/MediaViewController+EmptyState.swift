@@ -1,5 +1,5 @@
-import UIKit
 import UIEmptyState
+import UIKit
 
 extension MediaViewController: UIEmptyStateDelegate, UIEmptyStateDataSource {
     var emptyStateTitle: NSAttributedString {

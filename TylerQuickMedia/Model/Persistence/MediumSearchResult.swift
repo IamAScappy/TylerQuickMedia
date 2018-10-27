@@ -31,21 +31,27 @@ class MediumSearchResult: Object {
     }
 }
 
-//class NextInfo: Object {
-//    @objc dynamic var kakaoNext: Int = 1
-//    @objc dynamic var isKakaoEnd: Bool = false
-//    @objc dynamic var naverNext: Int = 1
-//    @objc dynamic var isNaverEnd: Bool = false
-//
-//    convenience init(kakaoNext: Int = 1, naverNext: Int = 1) {
-//        self.init()
-//        self.kakaoNext = kakaoNext
-//        self.naverNext = naverNext
-//    }
-//}
+@objc enum DataSourceType: Int {
+    case naverImage
+    case kakaoImage
+    case kakaoVClip
+    case none
+}
 
 class NextInfo: Object {
     @objc dynamic var dataSourceType: DataSourceType = .none
     @objc dynamic var next: Int = 1
     @objc dynamic var isEnd: Bool = false
+    
+    convenience init(dataSourceType: DataSourceType, next: Int, isEnd: Bool) {
+        self.init()
+        self.dataSourceType = dataSourceType
+        self.next = next
+        self.isEnd = isEnd
+    }
+}
+extension NextInfo {
+    class func generateInit(dataSourceType: DataSourceType) -> NextInfo {
+        return NextInfo(dataSourceType: dataSourceType, next: 1, isEnd: false)
+    }
 }

@@ -1,8 +1,9 @@
-import UIKit
-import ReactorKit
-import RxSwift
-import RxDataSources
 import Diff
+import ReactorKit
+import RxDataSources
+import RxSwift
+import UIKit
+
 extension MediaViewController: View, StoryboardView {
     func bind(reactor: MediaReactor) {
         logger.debug("bind")
@@ -20,7 +21,6 @@ extension MediaViewController: View, StoryboardView {
             configureCell: configureCell
         )
 
-
         reactor.state.map { $0.mediumModel }
             .distinctUntilChanged()
             .asDriver(onErrorJustReturn: [])
@@ -34,7 +34,6 @@ extension MediaViewController: View, StoryboardView {
 //            .drive(self.uiCollectionView.rx.items(dataSource: dataSource))
             .drive(onNext: { [weak self] medium in
                 guard let self = self else { return }
-                
                 
                 logger.debug("medium: \(String(describing: medium.count))")
                 self.items = medium
@@ -53,7 +52,7 @@ extension MediaViewController: View, StoryboardView {
             .asDriver(onErrorJustReturn: nil)
             .filterNil()
             .drive(onNext: { error in
-                logger.error("error: ", context: error)
+                logger.error("error: \(error)")
             })
             .disposed(by: disposeBag)
     }

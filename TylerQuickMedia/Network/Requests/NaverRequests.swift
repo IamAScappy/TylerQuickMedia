@@ -27,7 +27,7 @@ struct NaverMediumRequest: DictionarySerializable {
     let sort: String // sim or date
     let filter: String
 
-    public init(query: String, start: Int, display: Int, filter: FilterType = .all, sort: SortType = .date) {
+    public init(query: String, start: Int, display: Int, sort: SortType = .date, filter: FilterType = .all) {
         self.query = query
         self.display = display
         self.start = start

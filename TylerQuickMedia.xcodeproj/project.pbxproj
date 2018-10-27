@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		95EEF02C777E9EBA95F8B987 /* Pods_TylerQuickMediaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BBE427C94E9BF8D0DA48BA /* Pods_TylerQuickMediaTests.framework */; };
 		BD068C102183F9EB00E62382 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD068C0F2183F9EB00E62382 /* Response.swift */; };
+		BD068C132184290D00E62382 /* SearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD068C122184290D00E62382 /* SearchOptions.swift */; };
 		BD15DDEC217C521800978A3B /* DeallocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDEB217C521800978A3B /* DeallocationView.swift */; };
 		BD15DDEF217C53CB00978A3B /* Medium.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDEE217C53CB00978A3B /* Medium.swift */; };
 		BD15DDF4217C599000978A3B /* NaverApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDF3217C599000978A3B /* NaverApi.swift */; };
@@ -38,7 +39,6 @@
 		BD65707D217F41E3001F715A /* MediumSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65707C217F41E3001F715A /* MediumSearchResult.swift */; };
 		BD657080217F43F9001F715A /* MediumRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65707F217F43F9001F715A /* MediumRepositoryType.swift */; };
 		BD657084217F4482001F715A /* RateLimitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD657083217F4482001F715A /* RateLimitable.swift */; };
-		BD657087217F48BA001F715A /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD657076217F3A87001F715A /* GeneratedMocks.swift */; };
 		BD6A9DE9217D8CCD001952E8 /* MediaCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6A9DE8217D8CCD001952E8 /* MediaCollectionCell.swift */; };
 		BD82C8722181E6450078081D /* RealmSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD82C8712181E6450078081D /* RealmSpec.swift */; };
 		BD82C87F2181FCC60078081D /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD82C87E2181FCC60078081D /* Defaults.swift */; };
@@ -104,6 +104,7 @@
 		54BBE427C94E9BF8D0DA48BA /* Pods_TylerQuickMediaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TylerQuickMediaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABCC3E19CABE4F69A2855DE2 /* Pods-TylerQuickMedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMedia.release.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMedia/Pods-TylerQuickMedia.release.xcconfig"; sourceTree = "<group>"; };
 		BD068C0F2183F9EB00E62382 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		BD068C122184290D00E62382 /* SearchOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptions.swift; sourceTree = "<group>"; };
 		BD15DDEB217C521800978A3B /* DeallocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeallocationView.swift; sourceTree = "<group>"; };
 		BD15DDEE217C53CB00978A3B /* Medium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medium.swift; sourceTree = "<group>"; };
 		BD15DDF3217C599000978A3B /* NaverApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverApi.swift; sourceTree = "<group>"; };
@@ -351,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				BD65707F217F43F9001F715A /* MediumRepositoryType.swift */,
+				BD068C122184290D00E62382 /* SearchOptions.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -779,7 +781,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TylerQuickMedia/Pods-TylerQuickMedia-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Cuckoo/Cuckoo.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/PinterestLayout/PinterestLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
@@ -791,7 +792,6 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cuckoo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinterestLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
@@ -1036,7 +1036,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD657087217F48BA001F715A /* GeneratedMocks.swift in Sources */,
 				BD15DDF4217C599000978A3B /* NaverApi.swift in Sources */,
 				BD34F01B217C26C80066023E /* MediaViewController.swift in Sources */,
 				BD945128217C9237001733B7 /* CGUtils.swift in Sources */,
@@ -1046,6 +1045,7 @@
 				BD34F009217C19A60066023E /* Enviroment.swift in Sources */,
 				BD34F022217C2C150066023E /* KakaoResponses.swift in Sources */,
 				BD6A9DE9217D8CCD001952E8 /* MediaCollectionCell.swift in Sources */,
+				BD068C132184290D00E62382 /* SearchOptions.swift in Sources */,
 				BD94512B217CA0A5001733B7 /* MediumModel.swift in Sources */,
 				BDF99638217EE4900064D40B /* MediumViewModel.swift in Sources */,
 				BD15DDEC217C521800978A3B /* DeallocationView.swift in Sources */,

@@ -9,12 +9,27 @@
 import Foundation
 import Moya
 import Result
-import RxSwift
 import RxMoya
+import RxSwift
+
+struct KakakoErrorData: Decodable {
+    let errorType: String
+    let message: String
+}
+public enum KakaoErrors: String, Swift.Error, CustomDebugStringConvertible {
+    case hitEnd = "InvalidArgument"
+
+    public var debugDescription: String {
+        switch self {
+        case .hitEnd:
+            return "page is more than max"
+        }
+    }
+}
 
 protocol KakaoDataSourceType {
-    func searchImages(_ param: KakaoMediumRequest) -> Single<KakaoImageResponse>
-    func searchVclip(_ param: KakaoMediumRequest) -> Single<KakaoVclipResponse>
+    func searchImages(_ param: KakaoMediumRequest) -> Single<KakaoResponse>
+    func searchVclip(_ param: KakaoMediumRequest) -> Single<KakaoResponse>
 }
 
 class KakaoDataSource: KakaoDataSourceType {
@@ -35,12 +50,30 @@ class KakaoDataSource: KakaoDataSourceType {
         self.provider = provider
     }
 
-    func searchImages(_ param: KakaoMediumRequest) -> Single<KakaoImageResponse> {
+    func searchImages(_ param: KakaoMediumRequest) -> Single<KakaoResponse> {
         return self.provider.rx.request(.image(param))
             .network()
+            .catchHitEnd()
     }
-    func searchVclip(_ param: KakaoMediumRequest) -> Single<KakaoVclipResponse> {
+    func searchVclip(_ param: KakaoMediumRequest) -> Single<KakaoResponse> {
         return self.provider.rx.request(.vclip(param))
             .network()
+            .catchHitEnd()
+    }
+}
+
+private extension PrimitiveSequence where TraitType == SingleTrait, ElementType == KakaoResponse {
+    func catchHitEnd() -> PrimitiveSequence<SingleTrait, KakaoResponse> {
+        return self.catchError({ error in
+            if let moyaError = error as? MoyaError {
+                let res = moyaError.response
+                let errorData = try res?.map(KakakoErrorData.self)
+                if res?.statusCode == 400 && errorData?.errorType == KakaoErrors.hitEnd.rawValue {
+                    let meta = Meta.INSTANCE_END
+                    return Single.just(KakaoResponse(meta: meta, documents: []))
+                }
+            }
+            throw error
+        })
     }
 }
