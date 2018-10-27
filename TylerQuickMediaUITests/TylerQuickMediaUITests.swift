@@ -7,7 +7,7 @@
 //
 
 import XCTest
-
+import Nimble
 class TylerQuickMediaUITests: XCTestCase {
 
     override func setUp() {
