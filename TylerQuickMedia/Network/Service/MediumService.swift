@@ -48,11 +48,13 @@ class MediumService: MediumServiceType {
         return Single.zip(requests, { results in
             results.flatMap({ res -> [Medium] in
                 var items: [Medium] = []
-                if let kakao = res as? KakaoResponse {
+                if let kakao = res as? KakaoImageResponse {
                     items.append(contentsOf: kakao.documents)
                 } else if let naver = res as? NaverImageResponse {
                     items.append(contentsOf: naver.items)
-                } else { }
+                } else if let kakaoVclip = res as? KakaoVClipResponse {
+                    items.append(contentsOf: kakaoVclip.documents)
+                }
                 return items
             })
         })

@@ -12,7 +12,7 @@ struct Meta: Decodable, Equatable {
     let total_count: Int
     let pageable_count: Int
     let is_end: Bool
-    
+
     public init(total_count: Int, pageable_count: Int, is_end: Bool) {
         self.total_count = total_count
         self.pageable_count = pageable_count
@@ -56,10 +56,17 @@ extension KakaoVclip: MediumConvetableModel {
         return MediumModel(type: .vclip, thumbnail: self.thumbnail, origin: self.url, title: self.title, width: width, height: height, dateTime: self.datetime)
     }
 }
-struct KakaoResponse: Decodable, Equatable, KakaoResponsable {
+
+struct KakaoImageResponse: Decodable, Equatable, KakaoResponsable {
     let meta: Meta
     let documents: [KakaoImage]
 }
+
+struct KakaoVClipResponse: Decodable, Equatable, KakaoResponsable {
+    let meta: Meta
+    let documents: [KakaoVclip]
+}
+
 
 protocol KakaoResponsable: MediumResponsable {
     associatedtype Data where Data: Medium
@@ -67,6 +74,12 @@ protocol KakaoResponsable: MediumResponsable {
     var meta: Meta { get }
     var documents: [Data] { get }
 }
+
+extension KakaoResponsable where Data: Medium {
+    func aaa() {
+    }
+}
+
 
 extension KakaoResponsable {
     func isEnd() -> Bool {
