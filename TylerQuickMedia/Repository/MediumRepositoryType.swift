@@ -14,16 +14,16 @@ protocol MediumRepositoryType {
     func searchMedium(_ keyword: String, searchOptions: SearchCategoryOptionType, sortOptions: SearchSortType) -> Single<[Medium]>
 }
 extension MediumRepositoryType {
-    func searchMedium(_ keyword: String,
-                      searchOptions: SearchCategoryOptionType = SearchCategoryOptionType.all,
-                      sortOptions: SearchSortType = .recency) -> Single<[Medium]> {
+    func searchMedium(
+        _ keyword: String,
+        searchOptions: SearchCategoryOptionType = SearchCategoryOptionType.all,
+        sortOptions: SearchSortType = .recency) -> Single<[Medium]> {
         return searchMedium(keyword, searchOptions: searchOptions, sortOptions: sortOptions)
     }
 }
 
 class MediumRepository: MediumRepositoryType, RateLimitable {
     private let service: MediumServiceType
-    private let realm = try? Realm()
 
     init(_ service: MediumServiceType) {
         self.service = service
@@ -46,57 +46,62 @@ class MediumRepository: MediumRepositoryType, RateLimitable {
 
     var freshTime: Int = 20 * 60 // 20 minute
 
+    private func getNextInfo(_ keyword: String) throws -> [NextInfo]? {
+        let realm = try Realm()
+        let result = realm.objects(MediumSearchResult.self).filter("query = '\(keyword)'")
+        if result.isEmpty {
+            try realm.write {
+                realm.add(MediumSearchResult(query: keyword, nexts: MediumRepository.DEFAULT_NEXTINFO, ids: []), update: true)
+            }
+        }
+        let realmNexts = realm.objects(MediumSearchResult.self).filter("query = '\(keyword)'").last?.nexts
+        
+        return realmNexts?.map({ nextInfo  in
+            // swiftlint:disable:next force_cast
+            nextInfo.copy() as! NextInfo
+        })
+    }
     func searchMedium(
         _ keyword: String,
         searchOptions: SearchCategoryOptionType = SearchCategoryOptionType.all,
         sortOptions: SearchSortType = .recency) -> Single<[Medium]> {
         guard !keyword.isEmpty else { return Single.just([]) }
 
-        
-        let nexts = realm?.objects(MediumSearchResult.self).filter("query = '\(keyword)'").last?.nexts ?? MediumRepository.DEFAULT_NEXTINFO
-        
-        return self.service.searchMedium(keyword, nexts: Array(nexts), sortOptions: sortOptions, searchOptions: searchOptions)
-//
-//        let aa = nexts?.flatMap({ nextInfo in
-//            switch nextInfo.dataSourceType {
-//            case DataSourceType.kakaoImage.rawValue: break
-//            case DataSourceType.kakaoVClip.rawValue: break
-//            case DataSourceType.naverImage.rawValue: break
-//            default: break
-//
-//            }
-//        })
-//        self.service.searchMedium(keyword, next: nextInfo).map { responses -> Single<String> in
-//            let aa = responses.flatMap({ (dataSourceType, response: MediumResponsable) in
-//                var nextParams: [NextParameter] = []
-//                switch dataSourceType {
-//                case .kakaoImage: nextParams.append(NextParameter(next: nextInfo.kakaoNext.increase(), isEnd: response.isEnd()))
-//                case .kakaoVClip: nextParams.append(NextParameter(next: nextInfo.kakaoNext.increase(), isEnd: response.isEnd()))
-//                case .naverImage: nextParams.append(NextParameter(next: nextInfo.naverNext.increase(), isEnd: response.isEnd()))
-//                }
-//
-//                MediumSearchResult(query: keyword, isEnd: response.isEnd(), next: <#T##NextInfo#>)
-//                medium
-//            })
-//            responses[DataSourceType.kakaoImage]
-//            return Single.just("")
-//        }
-//        return self.service.searchMedium(keyword, next: nextInfo)
-//        return Single.just([])
+        var nextInfos: [NextInfo]? = []
+        do {
+            nextInfos = try getNextInfo(keyword)
+        } catch let error {
+            logger.error("error: \(error)")
+        }
+        guard let nexts = nextInfos else { return Single.just([]) }
+        return self.service.searchMedium(keyword, nexts: nexts, sortOptions: sortOptions, searchOptions: searchOptions)
+            .observeOn(SerialDispatchQueueScheduler(qos: .userInteractive))
+            .map { proccessingMediums in
+                let nextInfos = proccessingMediums.compactMap { $0.nextInfo }
+                let mediums = proccessingMediums.flatMap({ $0.items })
+                let ids = mediums.map { $0.id }
+                do {
+                    let realm = try Realm()
+                    try realm.write {
+                        realm.add(MediumSearchResult(query: keyword, nexts: nextInfos, ids: ids), update: true)
+                        proccessingMediums.forEach { realm.add($0.items, update: true) }
+                        logger.debug("realm added query: [\(keyword)] nexts: [\(nextInfos)] ids: [\(ids)]")
+                    }
+                } catch let error {
+                    logger.error("error: \(error)")
+                    // ignored catched error
+                }
+                return mediums
+        }
     }
 }
 
 extension MediumRepository {
-    static var DEFAULT_NEXTINFO: List<NextInfo> {
-        return List([
+    static var DEFAULT_NEXTINFO: [NextInfo] {
+        return [
             NextInfo.generateInit(dataSourceType: .kakaoImage),
             NextInfo.generateInit(dataSourceType: .kakaoVClip),
             NextInfo.generateInit(dataSourceType: .naverImage)
-        ])
-    }
-}
-extension Int {
-    func increase() -> Int {
-        return self + 1
+        ]
     }
 }

@@ -8,6 +8,15 @@ extension MediaViewController: View, StoryboardView {
     func bind(reactor: MediaReactor) {
         logger.debug("bind")
 
+        uiCollectionView.rx.reachedBottom
+            .withLatestFrom(reactor.state.map { $0.isLoading })
+            .filter { !$0 }
+            .withLatestFrom(searchController.searchBar.rx.text.orEmpty)
+            .filter({ !$0.isEmpty })
+            .map { Reactor.Action.searchMedium(keyword: $0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
         searchController.searchBar.rx.text
             .orEmpty
             .debounce(1, scheduler: MainScheduler.asyncInstance)
@@ -17,28 +26,18 @@ extension MediaViewController: View, StoryboardView {
             .map { Reactor.Action.searchMedium(keyword: $0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
-        let dataSource = RxCollectionViewSectionedAnimatedDataSource<MediumViewModel>(
-            configureCell: configureCell
-        )
 
+        
         reactor.state.map { $0.mediumModel }
             .distinctUntilChanged()
             .asDriver(onErrorJustReturn: [])
             .filterNil()
-//            .do(onNext: { models in
-//                logger.debug("medium: \(String(describing: models.count))")
-//            })
-//            .map({ models in
-//                return [MediumViewModel(header: "1", items: models)]
-//            })
-//            .drive(self.uiCollectionView.rx.items(dataSource: dataSource))
             .drive(onNext: { [weak self] medium in
                 guard let self = self else { return }
                 
                 logger.debug("medium: \(String(describing: medium.count))")
                 self.items = medium
                 self.uiCollectionView.reloadData()
-//                self.uiCollectionView.reloadData()
             })
             .disposed(by: disposeBag)
         reactor.state.map { $0.isLoading }

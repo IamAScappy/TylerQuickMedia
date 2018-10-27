@@ -14,7 +14,10 @@ import SwinjectStoryboard
 let rootContainer: Container = {
     let container = Container()
     #if DEBUG
-    let loggerPlugin = NetworkLoggerPlugin(verbose: true)
+//    let loggerPlugin = NetworkLoggerPlugin(verbose: true)
+    class ProxyPlugin: PluginType { }
+    
+    let loggerPlugin = ProxyPlugin()
     #else
     class ProxyPlugin: PluginType { }
     

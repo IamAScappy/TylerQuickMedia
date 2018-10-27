@@ -7,6 +7,7 @@
 //
 
 import SwiftyBeaver
+import UIKit
 
 let logger: SwiftyBeaver.Type = {
     let console = ConsoleDestination()

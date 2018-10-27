@@ -33,7 +33,7 @@ class MediumModel: Object {
     override static func primaryKey() -> String {
         return "medium_id"
     }
-    
+
     convenience init(type: MediumType, thumbnail: String, origin: String, title: String, width: Int, height: Int, dateTime: String) {
         self.init()
         self.type = type.rawValue
@@ -46,7 +46,7 @@ class MediumModel: Object {
     }
 }
 
-extension MediumModel : IdentifiableType {
+extension MediumModel: IdentifiableType {
     var identity: String {
         return origin
     }
@@ -56,7 +56,7 @@ extension MediumModel: ListDiffable {
     func diffIdentifier() -> NSObjectProtocol {
         return medium_id as NSObjectProtocol
     }
-    
+
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         guard self !== object else { return true }
         guard let object = object as? MediumModel else { return false }

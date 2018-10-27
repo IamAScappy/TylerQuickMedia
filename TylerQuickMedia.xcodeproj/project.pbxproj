@@ -37,6 +37,13 @@
 		BD34F027217C38680066023E /* Single+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F026217C38680066023E /* Single+Network.swift */; };
 		BD34F029217C45C50066023E /* DefaultAlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F028217C45C50066023E /* DefaultAlamofireManager.swift */; };
 		BD34F02E217C49AA0066023E /* AccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F02D217C49A90066023E /* AccessTokenPlugin.swift */; };
+		BD41860C2184718400C6B5C4 /* AppDelegate+Deallocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41860B2184718400C6B5C4 /* AppDelegate+Deallocation.swift */; };
+		BD41860E2184730700C6B5C4 /* ApplicationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41860D2184730700C6B5C4 /* ApplicationErrors.swift */; };
+		BD41861021848C0100C6B5C4 /* Result+toArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41860F21848C0100C6B5C4 /* Result+toArray.swift */; };
+		BD418612218499D500C6B5C4 /* UIScrollView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD418611218499D500C6B5C4 /* UIScrollView+Rx.swift */; };
+		BD4186142184C12600C6B5C4 /* KakaoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4186132184C12600C6B5C4 /* KakaoImage.swift */; };
+		BD4186162184C14900C6B5C4 /* KakaoVclip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4186152184C14900C6B5C4 /* KakaoVclip.swift */; };
+		BD4186182184C19300C6B5C4 /* NaverImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4186172184C19300C6B5C4 /* NaverImage.swift */; };
 		BD65707D217F41E3001F715A /* MediumSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65707C217F41E3001F715A /* MediumSearchResult.swift */; };
 		BD657080217F43F9001F715A /* MediumRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65707F217F43F9001F715A /* MediumRepositoryType.swift */; };
 		BD657084217F4482001F715A /* RateLimitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD657083217F4482001F715A /* RateLimitable.swift */; };
@@ -132,6 +139,13 @@
 		BD34F026217C38680066023E /* Single+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Network.swift"; sourceTree = "<group>"; };
 		BD34F028217C45C50066023E /* DefaultAlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlamofireManager.swift; sourceTree = "<group>"; };
 		BD34F02D217C49A90066023E /* AccessTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenPlugin.swift; sourceTree = "<group>"; };
+		BD41860B2184718400C6B5C4 /* AppDelegate+Deallocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Deallocation.swift"; sourceTree = "<group>"; };
+		BD41860D2184730700C6B5C4 /* ApplicationErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationErrors.swift; sourceTree = "<group>"; };
+		BD41860F21848C0100C6B5C4 /* Result+toArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+toArray.swift"; sourceTree = "<group>"; };
+		BD418611218499D500C6B5C4 /* UIScrollView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Rx.swift"; sourceTree = "<group>"; };
+		BD4186132184C12600C6B5C4 /* KakaoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoImage.swift; sourceTree = "<group>"; };
+		BD4186152184C14900C6B5C4 /* KakaoVclip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoVclip.swift; sourceTree = "<group>"; };
+		BD4186172184C19300C6B5C4 /* NaverImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverImage.swift; sourceTree = "<group>"; };
 		BD65707C217F41E3001F715A /* MediumSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumSearchResult.swift; sourceTree = "<group>"; };
 		BD65707F217F43F9001F715A /* MediumRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumRepositoryType.swift; sourceTree = "<group>"; };
 		BD657083217F4482001F715A /* RateLimitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateLimitable.swift; sourceTree = "<group>"; };
@@ -252,8 +266,12 @@
 		BD067002217F375A00B3F1AF /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				BD4186132184C12600C6B5C4 /* KakaoImage.swift */,
+				BD4186152184C14900C6B5C4 /* KakaoVclip.swift */,
+				BD15DDEE217C53CB00978A3B /* Medium.swift */,
 				BD94512A217CA0A5001733B7 /* MediumModel.swift */,
 				BD65707C217F41E3001F715A /* MediumSearchResult.swift */,
+				BD4186172184C19300C6B5C4 /* NaverImage.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -263,7 +281,6 @@
 			children = (
 				BD657083217F4482001F715A /* RateLimitable.swift */,
 				BD067002217F375A00B3F1AF /* Persistence */,
-				BD15DDEE217C53CB00978A3B /* Medium.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -368,6 +385,7 @@
 				BD945132217CC068001733B7 /* UIImage+GIF.swift */,
 				BDC2C2BB217B72B700A30107 /* StoryboardInitializable.swift */,
 				BD945125217C91BB001733B7 /* ReplicateActivityIndicator.swift */,
+				BD418611218499D500C6B5C4 /* UIScrollView+Rx.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -425,6 +443,7 @@
 				BDC2C26E217B666700A30107 /* LaunchScreen.storyboard */,
 				BDC2C271217B666700A30107 /* Info.plist */,
 				BDC2C2A4217B6CE700A30107 /* Localizable.strings */,
+				BD41860B2184718400C6B5C4 /* AppDelegate+Deallocation.swift */,
 			);
 			path = TylerQuickMedia;
 			sourceTree = "<group>";
@@ -536,6 +555,8 @@
 				BDC2C2BD217B72B700A30107 /* HasDisposeBag.swift */,
 				BDC2C2F5217B843F00A30107 /* DictionarySerializable.swift */,
 				BDC2C2F7217B8A8A00A30107 /* ThreadInfo.swift */,
+				BD41860D2184730700C6B5C4 /* ApplicationErrors.swift */,
+				BD41860F21848C0100C6B5C4 /* Result+toArray.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1040,9 +1061,12 @@
 				BD15DDF4217C599000978A3B /* NaverApi.swift in Sources */,
 				BD34F01B217C26C80066023E /* MediaViewController.swift in Sources */,
 				BD945128217C9237001733B7 /* CGUtils.swift in Sources */,
+				BD4186162184C14900C6B5C4 /* KakaoVclip.swift in Sources */,
 				BD94512F217CB2F3001733B7 /* MediumMapper.swift in Sources */,
+				BD41860E2184730700C6B5C4 /* ApplicationErrors.swift in Sources */,
 				BD34F00D217C1B080066023E /* SwinjectStoryboard+setup.swift in Sources */,
 				BD068C102183F9EB00E62382 /* Response.swift in Sources */,
+				BD4186142184C12600C6B5C4 /* KakaoImage.swift in Sources */,
 				BD34F009217C19A60066023E /* Enviroment.swift in Sources */,
 				BD34F022217C2C150066023E /* KakaoResponses.swift in Sources */,
 				BD6A9DE9217D8CCD001952E8 /* MediaCollectionCell.swift in Sources */,
@@ -1051,11 +1075,15 @@
 				BDF99638217EE4900064D40B /* MediumViewModel.swift in Sources */,
 				BD15DDEC217C521800978A3B /* DeallocationView.swift in Sources */,
 				BDC2C2C1217B72B700A30107 /* HasDisposeBag.swift in Sources */,
+				BD41861021848C0100C6B5C4 /* Result+toArray.swift in Sources */,
+				BD4186182184C19300C6B5C4 /* NaverImage.swift in Sources */,
 				BDDF4D02217DDF0600B6C4EC /* MediaViewController+EmptyState.swift in Sources */,
 				BDC2C2B3217B726300A30107 /* Fonts.swift in Sources */,
 				BD945123217C8D46001733B7 /* Router.swift in Sources */,
 				BD8C0569217D8D7200F24EA2 /* Dimens.swift in Sources */,
 				BD34F029217C45C50066023E /* DefaultAlamofireManager.swift in Sources */,
+				BD41860C2184718400C6B5C4 /* AppDelegate+Deallocation.swift in Sources */,
+				BD418612218499D500C6B5C4 /* UIScrollView+Rx.swift in Sources */,
 				BD34F027217C38680066023E /* Single+Network.swift in Sources */,
 				BD657084217F4482001F715A /* RateLimitable.swift in Sources */,
 				BDC2C2B4217B726300A30107 /* Assets.swift in Sources */,

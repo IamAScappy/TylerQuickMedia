@@ -9,6 +9,7 @@
 import Kingfisher
 import PinterestLayout
 import ReactorKit
+import RxCocoa
 import RxOptional
 import RxSwift
 import SnapKit
@@ -16,6 +17,11 @@ import Then
 import UIEmptyState
 import UIKit
 
+extension UIScrollView {
+    func isNearBottomEdge(edgeOffset: CGFloat = 20.0) -> Bool {
+        return contentOffset.y + frame.size.height + edgeOffset > contentSize.height
+    }
+}
 class MediaViewController: UIViewController, HasDisposeBag, DeallocationView {
     @IBOutlet weak var uiCollectionView: UICollectionView!
     let searchController = UISearchController(searchResultsController: nil)
@@ -24,6 +30,7 @@ class MediaViewController: UIViewController, HasDisposeBag, DeallocationView {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         uiCollectionView.collectionViewLayout = pinterestLayout
         enableMemoryLeakCheck(disposeBag)
         self.emptyStateDataSource = self
@@ -43,7 +50,7 @@ class MediaViewController: UIViewController, HasDisposeBag, DeallocationView {
             $0.register(MediaCollectionCell.self, forCellWithReuseIdentifier: MediaCollectionCell.swiftIdentifier)
             $0.prefetchDataSource = self
             $0.dataSource = self
-            $0.delegate = self
+            $0.rx.setDelegate(self).disposed(by: disposeBag)
             $0.backgroundColor = UIColor.white
         }
         pinterestLayout.do {
@@ -71,7 +78,10 @@ extension MediaViewController: PinterestLayoutDelegate {
     }
 }
 
-extension MediaViewController: UICollectionViewDataSourcePrefetching, UICollectionViewDataSource, UICollectionViewDelegate {
+extension MediaViewController: UIScrollViewDelegate {
+    
+}
+extension MediaViewController: UICollectionViewDataSourcePrefetching, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? MediaCollectionCell else { return }
 //        guard let item = items?[indexPath.row] else { return }
