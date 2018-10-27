@@ -10,6 +10,6 @@ import Foundation
 
 protocol RateLimitable {
     var freshTime: Int { get }
-    func shouldFetch()
+    
+    func shouldFetch(lastestDate: Date) -> Bool
 }
-

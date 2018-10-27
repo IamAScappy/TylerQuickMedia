@@ -22,12 +22,12 @@ struct NaverMediumRequest: DictionarySerializable {
     }
     
     let query: String
-    let display: Int8
-    let start: Int8 // max 1000
+    let display: Int
+    let start: Int // max 1000
     let sort: String // sim or date
     let filter: String
 
-    public init(query: String, start: Int8, display: Int8, filter: FilterType = .all, sort: SortType = .date) {
+    public init(query: String, start: Int, display: Int, filter: FilterType = .all, sort: SortType = .date) {
         self.query = query
         self.display = display
         self.start = start

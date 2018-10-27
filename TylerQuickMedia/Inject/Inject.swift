@@ -29,18 +29,17 @@ let rootContainer: Container = {
         manager: DefaultAlamofireManager.sharedManager,
         plugins: moyaPlugins)
 
-    container.register(KakaoServiceType.self) { _ in KakaoService(kakaoProvider) }.inObjectScope(.container)
-    container.register(NaverServiceType.self) { _ in NaverService(naverProvider) }.inObjectScope(.container)
-    container.register(MediumServiceType.self) { r in
-        MediumService(kakaoService: r.resolve(KakaoServiceType.self)!, naverService: r.resolve(NaverServiceType.self)!)
-    }.inObjectScope(.container)
+    container.register(KakaoDataSourceType.self) { _ in KakaoDataSource(kakaoProvider) }.inObjectScope(.container)
+    container.register(NaverDataSourceType.self) { _ in NaverDataSource(naverProvider) }.inObjectScope(.container)
+    container.register(MediumServiceType.self) { r in MediumService(kakaoService: r.resolve(KakaoDataSourceType.self)!, naverService: r.resolve(NaverDataSourceType.self)!) }.inObjectScope(.container)
+    
+    container.register(MediumRepositoryType.self) { r in MediumRepository(r.resolve(MediumServiceType.self)!) }.inObjectScope(.container)
     return container
 }()
 
 let mediaContainer: Container = {
     let container = Container(parent: rootContainer)
 
-    container.register(MediaReactor.self) { r in
-        return MediaReactor(r.resolve(MediumServiceType.self)!, mapper: MediumMapper()) }
+    container.register(MediaReactor.self) { r in return MediaReactor(r.resolve(MediumRepositoryType.self)!, mapper: MediumMapper()) }
     return container
 }()

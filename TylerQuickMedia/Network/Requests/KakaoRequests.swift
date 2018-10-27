@@ -13,10 +13,10 @@ struct KakaoMediumRequest: DictionarySerializable {
 
     let query: String
     let sort: String
-    let page: UInt8
-    let size: UInt8
+    let page: Int
+    let size: Int
 
-    public init(query: String, page: UInt8, size: UInt8, sort: SortType = SortType.recency) {
+    public init(query: String, page: Int, size: Int, sort: SortType = SortType.recency) {
         self.query = query
         self.sort = sort.rawValue
         self.page = page

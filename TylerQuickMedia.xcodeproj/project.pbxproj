@@ -7,19 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		880BDA025598B15BD91C76AB /* Pods_TylerQuickMediaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D47B958AB465AB6CE4EA2 /* Pods_TylerQuickMediaTests.framework */; };
+		95EEF02C777E9EBA95F8B987 /* Pods_TylerQuickMediaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BBE427C94E9BF8D0DA48BA /* Pods_TylerQuickMediaTests.framework */; };
+		BD068C102183F9EB00E62382 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD068C0F2183F9EB00E62382 /* Response.swift */; };
 		BD15DDEC217C521800978A3B /* DeallocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDEB217C521800978A3B /* DeallocationView.swift */; };
 		BD15DDEF217C53CB00978A3B /* Medium.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDEE217C53CB00978A3B /* Medium.swift */; };
 		BD15DDF4217C599000978A3B /* NaverApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDF3217C599000978A3B /* NaverApi.swift */; };
 		BD15DDF6217C5ADA00978A3B /* NaverRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDF5217C5ADA00978A3B /* NaverRequests.swift */; };
 		BD15DDF8217C5C0900978A3B /* NaverResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDF7217C5C0900978A3B /* NaverResponses.swift */; };
-		BD15DDFA217C5D9700978A3B /* NaverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDF9217C5D9700978A3B /* NaverService.swift */; };
+		BD15DDFA217C5D9700978A3B /* NaverDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDF9217C5D9700978A3B /* NaverDataSource.swift */; };
+		BD25702A2183808600A8804E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD65EDA121817DB40001B2B0 /* RealmSwift.framework */; };
+		BD25702C2183823B00A8804E /* MediumRepositoryRealmTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD25702B2183823B00A8804E /* MediumRepositoryRealmTest.swift */; };
+		BD2570332183875C00A8804E /* naverResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BD2570322183875C00A8804E /* naverResponse.json */; };
+		BD2570352183879E00A8804E /* Test.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD2570342183879E00A8804E /* Test.xcassets */; };
+		BD25703A21838E3C00A8804E /* ResourcesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD25703921838E3C00A8804E /* ResourcesLoader.swift */; };
+		BD25703C218397C800A8804E /* kakaoVclipResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BD25703B218397C800A8804E /* kakaoVclipResponse.json */; };
+		BD2570402183982400A8804E /* kakaoImageResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BD25703F2183982400A8804E /* kakaoImageResponse.json */; };
+		BD257042218399B100A8804E /* DataSourcesFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD257041218399B100A8804E /* DataSourcesFixture.swift */; };
 		BD34F009217C19A60066023E /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F008217C19A60066023E /* Enviroment.swift */; };
 		BD34F00D217C1B080066023E /* SwinjectStoryboard+setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F00C217C1B080066023E /* SwinjectStoryboard+setup.swift */; };
 		BD34F00F217C1CB00066023E /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F00E217C1CB00066023E /* Inject.swift */; };
 		BD34F012217C1F370066023E /* KakaoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F011217C1F360066023E /* KakaoApi.swift */; };
-		BD34F016217C1F650066023E /* KakaoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F015217C1F650066023E /* KakaoService.swift */; };
-		BD34F018217C1F7B0066023E /* ServiceTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F017217C1F7B0066023E /* ServiceTypes.swift */; };
+		BD34F016217C1F650066023E /* KakaoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F015217C1F650066023E /* KakaoDataSource.swift */; };
 		BD34F01B217C26C80066023E /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F01A217C26C80066023E /* MediaViewController.swift */; };
 		BD34F01D217C26D10066023E /* MediaReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F01C217C26D10066023E /* MediaReactor.swift */; };
 		BD34F01F217C2AE40066023E /* ViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F01E217C2AE40066023E /* ViewController+Rx.swift */; };
@@ -30,9 +38,10 @@
 		BD65707D217F41E3001F715A /* MediumSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65707C217F41E3001F715A /* MediumSearchResult.swift */; };
 		BD657080217F43F9001F715A /* MediumRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65707F217F43F9001F715A /* MediumRepositoryType.swift */; };
 		BD657084217F4482001F715A /* RateLimitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD657083217F4482001F715A /* RateLimitable.swift */; };
-		BD657086217F46F6001F715A /* MediumSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD657085217F46F6001F715A /* MediumSearchResult.swift */; };
 		BD657087217F48BA001F715A /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD657076217F3A87001F715A /* GeneratedMocks.swift */; };
 		BD6A9DE9217D8CCD001952E8 /* MediaCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6A9DE8217D8CCD001952E8 /* MediaCollectionCell.swift */; };
+		BD82C8722181E6450078081D /* RealmSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD82C8712181E6450078081D /* RealmSpec.swift */; };
+		BD82C87F2181FCC60078081D /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD82C87E2181FCC60078081D /* Defaults.swift */; };
 		BD8C0569217D8D7200F24EA2 /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8C0568217D8D7200F24EA2 /* Dimens.swift */; };
 		BD945121217C8CF2001733B7 /* Media.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD945120217C8CF2001733B7 /* Media.storyboard */; };
 		BD945123217C8D46001733B7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD945122217C8D46001733B7 /* Router.swift */; };
@@ -41,8 +50,8 @@
 		BD94512B217CA0A5001733B7 /* MediumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD94512A217CA0A5001733B7 /* MediumModel.swift */; };
 		BD94512D217CA6EE001733B7 /* MediumService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD94512C217CA6EE001733B7 /* MediumService.swift */; };
 		BD94512F217CB2F3001733B7 /* MediumMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD94512E217CB2F3001733B7 /* MediumMapper.swift */; };
-		BD945131217CBC40001733B7 /* UIEmptyState.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD945130217CBC40001733B7 /* UIEmptyState.framework */; };
 		BD945133217CC068001733B7 /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD945132217CC068001733B7 /* UIImage+GIF.swift */; };
+		BDBDB96221802CCC00B1863C /* MediumRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBDB96121802CCC00B1863C /* MediumRepositoryTest.swift */; };
 		BDC2C263217B666600A30107 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C262217B666600A30107 /* AppDelegate.swift */; };
 		BDC2C268217B666600A30107 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C266217B666600A30107 /* Main.storyboard */; };
 		BDC2C26D217B666700A30107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C26C217B666700A30107 /* Assets.xcassets */; };
@@ -53,7 +62,6 @@
 		BDC2C29D217B6A5E00A30107 /* color.txt in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C29C217B6A5E00A30107 /* color.txt */; };
 		BDC2C2A3217B6C9400A30107 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C2A2217B6C9400A30107 /* swiftgen.yml */; };
 		BDC2C2A6217B6CE700A30107 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C2A4217B6CE700A30107 /* Localizable.strings */; };
-		BDC2C2AD217B715000A30107 /* Pods_TylerQuickMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC2C2AC217B715000A30107 /* Pods_TylerQuickMedia.framework */; };
 		BDC2C2B2217B726300A30107 /* MyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C2AE217B726300A30107 /* MyColor.swift */; };
 		BDC2C2B3217B726300A30107 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C2AF217B726300A30107 /* Fonts.swift */; };
 		BDC2C2B4217B726300A30107 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C2B0217B726300A30107 /* Assets.swift */; };
@@ -69,7 +77,8 @@
 		BDDF4D00217DDEC900B6C4EC /* MediaViewController+Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDF4CFF217DDEC900B6C4EC /* MediaViewController+Reactor.swift */; };
 		BDDF4D02217DDF0600B6C4EC /* MediaViewController+EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDF4D01217DDF0600B6C4EC /* MediaViewController+EmptyState.swift */; };
 		BDF99638217EE4900064D40B /* MediumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF99637217EE4900064D40B /* MediumViewModel.swift */; };
-		CFC25D1DBB02C4FCD6654D00 /* Pods_TylerQuickMediaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58BC8CA288ADE69F0BD0DD5 /* Pods_TylerQuickMediaUITests.framework */; };
+		D2C32F498C871787892966F5 /* Pods_TylerQuickMediaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D7F9967528AA00BF4A5F75 /* Pods_TylerQuickMediaUITests.framework */; };
+		E7EC312036583B10B8C96108 /* Pods_TylerQuickMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08DAA366D9F4DA1519C93346 /* Pods_TylerQuickMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,20 +99,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08DAA366D9F4DA1519C93346 /* Pods_TylerQuickMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TylerQuickMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E825EA20243572C6B079A1 /* Pods-TylerQuickMediaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMediaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMediaTests/Pods-TylerQuickMediaTests.release.xcconfig"; sourceTree = "<group>"; };
+		54BBE427C94E9BF8D0DA48BA /* Pods_TylerQuickMediaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TylerQuickMediaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABCC3E19CABE4F69A2855DE2 /* Pods-TylerQuickMedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMedia.release.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMedia/Pods-TylerQuickMedia.release.xcconfig"; sourceTree = "<group>"; };
+		BD068C0F2183F9EB00E62382 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		BD15DDEB217C521800978A3B /* DeallocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeallocationView.swift; sourceTree = "<group>"; };
 		BD15DDEE217C53CB00978A3B /* Medium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medium.swift; sourceTree = "<group>"; };
 		BD15DDF3217C599000978A3B /* NaverApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverApi.swift; sourceTree = "<group>"; };
 		BD15DDF5217C5ADA00978A3B /* NaverRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverRequests.swift; sourceTree = "<group>"; };
 		BD15DDF7217C5C0900978A3B /* NaverResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverResponses.swift; sourceTree = "<group>"; };
-		BD15DDF9217C5D9700978A3B /* NaverService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverService.swift; sourceTree = "<group>"; };
+		BD15DDF9217C5D9700978A3B /* NaverDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverDataSource.swift; sourceTree = "<group>"; };
+		BD25702B2183823B00A8804E /* MediumRepositoryRealmTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumRepositoryRealmTest.swift; sourceTree = "<group>"; };
+		BD2570322183875C00A8804E /* naverResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = naverResponse.json; sourceTree = "<group>"; };
+		BD2570342183879E00A8804E /* Test.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Test.xcassets; sourceTree = "<group>"; };
+		BD25703921838E3C00A8804E /* ResourcesLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourcesLoader.swift; sourceTree = "<group>"; };
+		BD25703B218397C800A8804E /* kakaoVclipResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kakaoVclipResponse.json; sourceTree = "<group>"; };
+		BD25703F2183982400A8804E /* kakaoImageResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kakaoImageResponse.json; sourceTree = "<group>"; };
+		BD257041218399B100A8804E /* DataSourcesFixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourcesFixture.swift; sourceTree = "<group>"; };
 		BD34F008217C19A60066023E /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		BD34F00C217C1B080066023E /* SwinjectStoryboard+setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+setup.swift"; sourceTree = "<group>"; };
 		BD34F00E217C1CB00066023E /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		BD34F011217C1F360066023E /* KakaoApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakaoApi.swift; sourceTree = "<group>"; };
-		BD34F015217C1F650066023E /* KakaoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoService.swift; sourceTree = "<group>"; };
-		BD34F017217C1F7B0066023E /* ServiceTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTypes.swift; sourceTree = "<group>"; };
+		BD34F015217C1F650066023E /* KakaoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoDataSource.swift; sourceTree = "<group>"; };
 		BD34F01A217C26C80066023E /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		BD34F01C217C26D10066023E /* MediaReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaReactor.swift; sourceTree = "<group>"; };
 		BD34F01E217C2AE40066023E /* ViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Rx.swift"; sourceTree = "<group>"; };
@@ -115,8 +133,11 @@
 		BD65707C217F41E3001F715A /* MediumSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumSearchResult.swift; sourceTree = "<group>"; };
 		BD65707F217F43F9001F715A /* MediumRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumRepositoryType.swift; sourceTree = "<group>"; };
 		BD657083217F4482001F715A /* RateLimitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateLimitable.swift; sourceTree = "<group>"; };
-		BD657085217F46F6001F715A /* MediumSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumSearchResult.swift; sourceTree = "<group>"; };
+		BD65ED9F21817DAA0001B2B0 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		BD65EDA121817DB40001B2B0 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		BD6A9DE8217D8CCD001952E8 /* MediaCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionCell.swift; sourceTree = "<group>"; };
+		BD82C8712181E6450078081D /* RealmSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSpec.swift; sourceTree = "<group>"; };
+		BD82C87E2181FCC60078081D /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		BD8C0568217D8D7200F24EA2 /* Dimens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
 		BD945120217C8CF2001733B7 /* Media.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Media.storyboard; sourceTree = "<group>"; };
 		BD945122217C8D46001733B7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -127,6 +148,7 @@
 		BD94512E217CB2F3001733B7 /* MediumMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumMapper.swift; sourceTree = "<group>"; };
 		BD945130217CBC40001733B7 /* UIEmptyState.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIEmptyState.framework; path = Carthage/Build/iOS/UIEmptyState.framework; sourceTree = "<group>"; };
 		BD945132217CC068001733B7 /* UIImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
+		BDBDB96121802CCC00B1863C /* MediumRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumRepositoryTest.swift; sourceTree = "<group>"; };
 		BDC2C25F217B666600A30107 /* TylerQuickMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TylerQuickMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC2C262217B666600A30107 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDC2C267217B666600A30107 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -143,8 +165,6 @@
 		BDC2C29C217B6A5E00A30107 /* color.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = color.txt; sourceTree = "<group>"; };
 		BDC2C2A2217B6C9400A30107 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgen.yml; sourceTree = "<group>"; };
 		BDC2C2A5217B6CE700A30107 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BDC2C2A9217B6D4400A30107 /* Pods_TylerQuickMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_TylerQuickMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDC2C2AC217B715000A30107 /* Pods_TylerQuickMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_TylerQuickMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC2C2AE217B726300A30107 /* MyColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyColor.swift; sourceTree = "<group>"; };
 		BDC2C2AF217B726300A30107 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		BDC2C2B0217B726300A30107 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
@@ -181,9 +201,8 @@
 		C195F91F40CC13CBDF4880E3 /* Pods-TylerQuickMedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMedia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMedia/Pods-TylerQuickMedia.debug.xcconfig"; sourceTree = "<group>"; };
 		C6296536AB41DFE8360D4291 /* Pods-TylerQuickMediaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMediaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMediaUITests/Pods-TylerQuickMediaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7CADA137F115014A33D05BF /* Pods-TylerQuickMediaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMediaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMediaUITests/Pods-TylerQuickMediaUITests.release.xcconfig"; sourceTree = "<group>"; };
-		E58BC8CA288ADE69F0BD0DD5 /* Pods_TylerQuickMediaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TylerQuickMediaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC8D47B958AB465AB6CE4EA2 /* Pods_TylerQuickMediaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TylerQuickMediaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F797908061889DDB672E5688 /* Pods-TylerQuickMediaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMediaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMediaTests/Pods-TylerQuickMediaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F9D7F9967528AA00BF4A5F75 /* Pods_TylerQuickMediaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TylerQuickMediaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,8 +210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDC2C2AD217B715000A30107 /* Pods_TylerQuickMedia.framework in Frameworks */,
-				BD945131217CBC40001733B7 /* UIEmptyState.framework in Frameworks */,
+				E7EC312036583B10B8C96108 /* Pods_TylerQuickMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +218,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				880BDA025598B15BD91C76AB /* Pods_TylerQuickMediaTests.framework in Frameworks */,
+				BD25702A2183808600A8804E /* RealmSwift.framework in Frameworks */,
+				95EEF02C777E9EBA95F8B987 /* Pods_TylerQuickMediaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,7 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFC25D1DBB02C4FCD6654D00 /* Pods_TylerQuickMediaUITests.framework in Frameworks */,
+				D2C32F498C871787892966F5 /* Pods_TylerQuickMediaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,10 +266,30 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BD2570312183875000A8804E /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BD2570322183875C00A8804E /* naverResponse.json */,
+				BD25703B218397C800A8804E /* kakaoVclipResponse.json */,
+				BD25703F2183982400A8804E /* kakaoImageResponse.json */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		BD25703621838C6100A8804E /* Fixture */ = {
+			isa = PBXGroup;
+			children = (
+				BD25703921838E3C00A8804E /* ResourcesLoader.swift */,
+				BD257041218399B100A8804E /* DataSourcesFixture.swift */,
+			);
+			path = Fixture;
+			sourceTree = "<group>";
+		};
 		BD34F00A217C19AB0066023E /* Config */ = {
 			isa = PBXGroup;
 			children = (
 				BD34F008217C19A60066023E /* Enviroment.swift */,
+				BD82C87E2181FCC60078081D /* Defaults.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -293,6 +332,7 @@
 			children = (
 				BD34F021217C2C150066023E /* KakaoResponses.swift */,
 				BD15DDF7217C5C0900978A3B /* NaverResponses.swift */,
+				BD068C0F2183F9EB00E62382 /* Response.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -300,9 +340,8 @@
 		BD34F02A217C46CC0066023E /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				BD34F017217C1F7B0066023E /* ServiceTypes.swift */,
-				BD34F015217C1F650066023E /* KakaoService.swift */,
-				BD15DDF9217C5D9700978A3B /* NaverService.swift */,
+				BD34F015217C1F650066023E /* KakaoDataSource.swift */,
+				BD15DDF9217C5D9700978A3B /* NaverDataSource.swift */,
 				BD94512C217CA6EE001733B7 /* MediumService.swift */,
 			);
 			path = Service;
@@ -390,10 +429,15 @@
 		BDC2C279217B666800A30107 /* TylerQuickMediaTests */ = {
 			isa = PBXGroup;
 			children = (
-				BD657085217F46F6001F715A /* MediumSearchResult.swift */,
+				BD25703621838C6100A8804E /* Fixture */,
+				BD2570312183875000A8804E /* Resource */,
+				BDBDB96121802CCC00B1863C /* MediumRepositoryTest.swift */,
+				BD25702B2183823B00A8804E /* MediumRepositoryRealmTest.swift */,
 				BD657076217F3A87001F715A /* GeneratedMocks.swift */,
 				BDC2C27A217B666800A30107 /* TylerQuickMediaTests.swift */,
 				BDC2C27C217B666800A30107 /* Info.plist */,
+				BD82C8712181E6450078081D /* RealmSpec.swift */,
+				BD2570342183879E00A8804E /* Test.xcassets */,
 			);
 			path = TylerQuickMediaTests;
 			sourceTree = "<group>";
@@ -454,6 +498,8 @@
 		BDC2C2A8217B6D4400A30107 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BD65EDA121817DB40001B2B0 /* RealmSwift.framework */,
+				BD65ED9F21817DAA0001B2B0 /* Realm.framework */,
 				BD945130217CBC40001733B7 /* UIEmptyState.framework */,
 				BDC2C2D1217B73D400A30107 /* Alamofire.framework */,
 				BDC2C2CE217B73D400A30107 /* DeallocationChecker.framework */,
@@ -473,10 +519,9 @@
 				BDC2C2C6217B73D400A30107 /* SnapKit.framework */,
 				BDC2C2C7217B73D400A30107 /* SwiftRichString.framework */,
 				BDC2C2D0217B73D400A30107 /* SwiftyBeaver.framework */,
-				BDC2C2AC217B715000A30107 /* Pods_TylerQuickMedia.framework */,
-				BDC2C2A9217B6D4400A30107 /* Pods_TylerQuickMedia.framework */,
-				EC8D47B958AB465AB6CE4EA2 /* Pods_TylerQuickMediaTests.framework */,
-				E58BC8CA288ADE69F0BD0DD5 /* Pods_TylerQuickMediaUITests.framework */,
+				08DAA366D9F4DA1519C93346 /* Pods_TylerQuickMedia.framework */,
+				54BBE427C94E9BF8D0DA48BA /* Pods_TylerQuickMediaTests.framework */,
+				F9D7F9967528AA00BF4A5F75 /* Pods_TylerQuickMediaUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -524,7 +569,6 @@
 			buildPhases = (
 				6D7070C91755DFE90A4844BC /* [CP] Check Pods Manifest.lock */,
 				BDC2C2AB217B6DB900A30107 /* SwiftGen */,
-				BD657075217F396E001F715A /* Cuckoo */,
 				BDC2C25B217B666600A30107 /* Sources */,
 				BDC2C25C217B666600A30107 /* Frameworks */,
 				BDC2C25D217B666600A30107 /* Resources */,
@@ -533,6 +577,7 @@
 				67461388F25BF1C7E554A73D /* [CP] Copy Pods Resources */,
 				BDC2C2A1217B6B7D00A30107 /* SwiftLint */,
 				BD15DDF0217C582C00978A3B /* Mark */,
+				BD657075217F396E001F715A /* Cuckoo */,
 			);
 			buildRules = (
 			);
@@ -648,6 +693,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD2570402183982400A8804E /* kakaoImageResponse.json in Resources */,
+				BD2570332183875C00A8804E /* naverResponse.json in Resources */,
+				BD25703C218397C800A8804E /* kakaoVclipResponse.json in Resources */,
+				BD2570352183879E00A8804E /* Test.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,6 +779,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TylerQuickMedia/Pods-TylerQuickMedia-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cuckoo/Cuckoo.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/PinterestLayout/PinterestLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
@@ -741,6 +791,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cuckoo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinterestLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
@@ -852,7 +903,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "OUTPUT_FILE=\"$PROJECT_DIR/${TARGET_NAME}Tests/GeneratedMocks.swift\"\n\necho \"Generated Mocks File = $OUTPUT_FILE\"\n\nINPUT_DIR=\"${PROJECT_DIR}/${TARGET_NAME}\"\n\n\n\"Carthage/Checkouts/Cuckoo/run\" generate --testable \"$PROJECT_NAME\" \\\n--output \"$OUTPUT_FILE\" \\\n\"$INPUT_DIR/Network/Service/ServiceTypes.swift\" \\\n\n\n";
+			shellScript = "OUTPUT_FILE=\"$PROJECT_DIR/${TARGET_NAME}Tests/GeneratedMocks.swift\"\n\necho \"Generated Mocks File = $OUTPUT_FILE\"\n\nINPUT_DIR=\"${PROJECT_DIR}/${TARGET_NAME}\"\n\n\n\"Carthage/Checkouts/Cuckoo/run\" generate --testable \"$PROJECT_NAME\" \\\n--output \"$OUTPUT_FILE\" \\\n\"$INPUT_DIR/Network/Service/KakaoDataSource.swift\" \\\n\"$INPUT_DIR/Network/Service/NaverDataSource.swift\" \\\n\"$INPUT_DIR/Network/Service/MediumService.swift\" \\\n\n\n\n";
 		};
 		BDC2C296217B695000A30107 /* [CP] Copy Carthage Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -862,8 +913,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftRichString.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxOptional.framework",
@@ -884,9 +935,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/UIEmptyState.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Diff.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Cuckoo.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftRichString.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 			);
 			name = "[CP] Copy Carthage Resources";
 			outputFileListPaths = (
@@ -992,13 +1042,13 @@
 				BD945128217C9237001733B7 /* CGUtils.swift in Sources */,
 				BD94512F217CB2F3001733B7 /* MediumMapper.swift in Sources */,
 				BD34F00D217C1B080066023E /* SwinjectStoryboard+setup.swift in Sources */,
+				BD068C102183F9EB00E62382 /* Response.swift in Sources */,
 				BD34F009217C19A60066023E /* Enviroment.swift in Sources */,
 				BD34F022217C2C150066023E /* KakaoResponses.swift in Sources */,
 				BD6A9DE9217D8CCD001952E8 /* MediaCollectionCell.swift in Sources */,
 				BD94512B217CA0A5001733B7 /* MediumModel.swift in Sources */,
 				BDF99638217EE4900064D40B /* MediumViewModel.swift in Sources */,
 				BD15DDEC217C521800978A3B /* DeallocationView.swift in Sources */,
-				BD34F018217C1F7B0066023E /* ServiceTypes.swift in Sources */,
 				BDC2C2C1217B72B700A30107 /* HasDisposeBag.swift in Sources */,
 				BDDF4D02217DDF0600B6C4EC /* MediaViewController+EmptyState.swift in Sources */,
 				BDC2C2B3217B726300A30107 /* Fonts.swift in Sources */,
@@ -1015,6 +1065,7 @@
 				BDC2C2BF217B72B700A30107 /* StoryboardInitializable.swift in Sources */,
 				BDC2C2C0217B72B700A30107 /* NibWithSwiftName.swift in Sources */,
 				BDC2C2BE217B72B700A30107 /* SwiftNameIdentifier.swift in Sources */,
+				BD82C87F2181FCC60078081D /* Defaults.swift in Sources */,
 				BDC2C2F4217B7D8C00A30107 /* KakaoRequests.swift in Sources */,
 				BD945126217C91BB001733B7 /* ReplicateActivityIndicator.swift in Sources */,
 				BDC2C263217B666600A30107 /* AppDelegate.swift in Sources */,
@@ -1023,13 +1074,13 @@
 				BDC2C2F6217B843F00A30107 /* DictionarySerializable.swift in Sources */,
 				BD34F012217C1F370066023E /* KakaoApi.swift in Sources */,
 				BD945133217CC068001733B7 /* UIImage+GIF.swift in Sources */,
-				BD34F016217C1F650066023E /* KakaoService.swift in Sources */,
+				BD34F016217C1F650066023E /* KakaoDataSource.swift in Sources */,
 				BD657080217F43F9001F715A /* MediumRepositoryType.swift in Sources */,
 				BD15DDEF217C53CB00978A3B /* Medium.swift in Sources */,
 				BD65707D217F41E3001F715A /* MediumSearchResult.swift in Sources */,
 				BD34F01F217C2AE40066023E /* ViewController+Rx.swift in Sources */,
 				BD34F02E217C49AA0066023E /* AccessTokenPlugin.swift in Sources */,
-				BD15DDFA217C5D9700978A3B /* NaverService.swift in Sources */,
+				BD15DDFA217C5D9700978A3B /* NaverDataSource.swift in Sources */,
 				BDC2C299217B69E600A30107 /* Logger.swift in Sources */,
 				BDC2C2F8217B8A8A00A30107 /* ThreadInfo.swift in Sources */,
 				BD94512D217CA6EE001733B7 /* MediumService.swift in Sources */,
@@ -1041,8 +1092,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD25702C2183823B00A8804E /* MediumRepositoryRealmTest.swift in Sources */,
 				BDC2C27B217B666800A30107 /* TylerQuickMediaTests.swift in Sources */,
-				BD657086217F46F6001F715A /* MediumSearchResult.swift in Sources */,
+				BDBDB96221802CCC00B1863C /* MediumRepositoryTest.swift in Sources */,
+				BD82C8722181E6450078081D /* RealmSpec.swift in Sources */,
+				BD257042218399B100A8804E /* DataSourcesFixture.swift in Sources */,
+				BD25703A21838E3C00A8804E /* ResourcesLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1148,8 +1203,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1204,7 +1259,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1219,10 +1274,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C195F91F40CC13CBDF4880E3 /* Pods-TylerQuickMedia.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 576T8HK6X4;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1243,10 +1298,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ABCC3E19CABE4F69A2855DE2 /* Pods-TylerQuickMedia.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 576T8HK6X4;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1271,6 +1326,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 576T8HK6X4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TylerQuickMediaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1293,6 +1352,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 576T8HK6X4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TylerQuickMediaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -11,11 +11,11 @@ import RxSwift
 
 class MediaReactor: Reactor {
     let initialState: State = State()
-    let service: MediumServiceType
+    let repository: MediumRepositoryType
     let mapper: MediumMapper
     
-    init(_ service: MediumServiceType, mapper: MediumMapper) {
-        self.service = service
+    init(_ repository: MediumRepositoryType, mapper: MediumMapper) {
+        self.repository = repository
         self.mapper = mapper
     }
 
@@ -37,12 +37,9 @@ class MediaReactor: Reactor {
         
         switch action {
         case .searchMedium(let keyword):
-            let kakaoRequest = KakaoMediumRequest(query: keyword, page: 1, size: 10)
-            let naverRequest = NaverMediumRequest(query: keyword, start: 1, display: 10)
-            
             return Observable.concat([
                 Observable.just(.setLoading(true)),
-                self.service.searchMedium(naverRequest: naverRequest, kakaoRequest: kakaoRequest)
+                self.repository.searchMedium(keyword)
                     .map { medium in medium.map(self.mapper.map) }
                     .map { r in return Mutation.setMedium(r) }
                     .asObservable(),

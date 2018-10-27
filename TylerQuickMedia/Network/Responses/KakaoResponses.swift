@@ -46,11 +46,20 @@ extension KakaoVclip: MediumConvetableModel {
         return MediumModel(type: .vclip, thumbnail: self.thumbnail, origin: self.url, title: self.title, width: width, height: height, dateTime: self.datetime)
     }
 }
-struct KakaoImageResponse: Decodable, Equatable {
+struct KakaoImageResponse: Decodable, Equatable, MediumResponsable {
+    func isEnd() -> Bool {
+        return self.meta.is_end
+    }
+
     let meta: Meta
     let documents: [KakaoImage]
 }
-struct KakaoVclipResponse: Decodable, Equatable {
+struct KakaoVclipResponse: Decodable, Equatable, MediumResponsable {
+    func isEnd() -> Bool {
+        return self.meta.is_end
+    }
+
     let meta: Meta
     let documents: [KakaoVclip]
 }
+

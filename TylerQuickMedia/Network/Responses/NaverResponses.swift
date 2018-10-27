@@ -16,18 +16,26 @@ struct NaverImage: Decodable, Medium {
     let sizewidth: String
 }
 
-struct NaverImageResponse: Decodable {
-    let display: Int
-    let start: Int
-    let total: Int
-    let lastBuildDate: String
-    let items: [NaverImage]
-}
-
 extension NaverImage: MediumConvetableModel {
     func toMediumViewModel() -> MediumModel {
         let width = Int(self.sizewidth) ?? 0
         let height = Int(self.sizeheight) ?? 0
         return MediumModel(type: .image, thumbnail: self.thumbnail, origin: self.link, title: self.title, width: width, height: height, dateTime: "")
     }
+}
+
+
+struct NaverImageResponse: Decodable, MediumResponsable {
+    func isEnd() -> Bool {
+        return self.isEnd() || start >= NaverImageResponse.limitPage
+    }
+    
+    let display: Int
+    let start: Int
+    let total: Int
+    let lastBuildDate: String
+    let items: [NaverImage]
+}
+extension NaverImageResponse {
+    static var limitPage = 1000
 }

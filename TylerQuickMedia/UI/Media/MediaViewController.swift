@@ -7,6 +7,7 @@
 //
 
 import Kingfisher
+import PinterestLayout
 import ReactorKit
 import RxOptional
 import RxSwift
@@ -14,7 +15,7 @@ import SnapKit
 import Then
 import UIEmptyState
 import UIKit
-import PinterestLayout
+
 class MediaViewController: UIViewController, HasDisposeBag, DeallocationView {
     @IBOutlet weak var uiCollectionView: UICollectionView!
     let searchController = UISearchController(searchResultsController: nil)
