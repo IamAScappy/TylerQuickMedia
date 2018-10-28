@@ -17,7 +17,7 @@ extension Results {
                 array.append(result)
             }
         }
-        
+
         return array
     }
 }
@@ -30,7 +30,15 @@ extension List {
                 array.append(result)
             }
         }
-        
+
         return array
+    }
+}
+
+extension Realm {
+    func filter<ParentType: Object>(parentType: ParentType.Type, subclasses: [ParentType.Type], predicate: NSPredicate) -> [ParentType] {
+        return ([parentType] + subclasses).flatMap { classType in
+            return Array(self.objects(classType).filter(predicate))
+        }
     }
 }

@@ -21,7 +21,7 @@ class KakaoImage: Medium, Decodable {
 }
 
 extension KakaoImage: MediumConvetableModel {
-    func toMediumViewModel() -> MediumModel {
+    func toMediumModel() -> MediumModel {
         return MediumModel(type: .image, thumbnail: self.thumbnail_url, origin: self.image_url, title: self.display_sitename, width: self.width, height: self.height, dateTime: self.datetime)
     }
 }

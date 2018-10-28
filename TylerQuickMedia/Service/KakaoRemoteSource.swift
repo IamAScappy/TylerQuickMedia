@@ -27,12 +27,7 @@ public enum KakaoErrors: String, Swift.Error, CustomDebugStringConvertible {
     }
 }
 
-protocol KakaoDataSourceType {
-    func searchImages(_ param: KakaoMediumRequest) -> Single<KakaoImageResponse>
-    func searchVclip(_ param: KakaoMediumRequest) -> Single<KakaoVClipResponse>
-}
-
-class KakaoDataSource: KakaoDataSourceType {
+class KakaoRemoteSource: KakaoRemoteSourceType {
     private let provider: MoyaProvider<KakaoApi>
 
     init(_ provider: MoyaProvider<KakaoApi>) {

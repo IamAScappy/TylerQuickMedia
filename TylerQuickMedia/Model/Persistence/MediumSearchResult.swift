@@ -10,16 +10,21 @@ import Foundation
 import RealmSwift
 
 class MediumSearchResult: Object {
-//    @objc dynamic var search_result_id: String = UUID().uuidString
     @objc dynamic var query: String = ""
     let medium_ids = List<String>()
-    let nexts = List<NextInfo>()
+    @objc dynamic var nextInfo: NextInfo? = NextInfo()
     @objc dynamic var updatedTime: Date = Date()
 
-    convenience init(query: String, nexts: [NextInfo], ids: [String]) {
+    convenience init(query: String) {
         self.init()
         self.query = query
-        self.nexts.append(objectsIn: nexts)
+        self.nextInfo = NextInfo()
+    }
+
+    convenience init(query: String, nextInfo: NextInfo, ids: [String]) {
+        self.init()
+        self.query = query
+        self.nextInfo = nextInfo
         self.medium_ids.append(objectsIn: ids)
     }
 
@@ -38,28 +43,41 @@ class MediumSearchResult: Object {
     case none
 }
 
-class NextInfo: Object, NSCopying {
-    func copy(with zone: NSZone? = nil) -> Any {
-        let copy = NextInfo(dataSourceType: dataSourceType, next: next, isEnd: isEnd)
-        return copy
-    }
-
+class PageInfo: Object {
     @objc dynamic var dataSourceType: DataSourceType = .none
     @objc dynamic var next: Int = 1
     @objc dynamic var isEnd: Bool = false
 
+    convenience init(dataSourceType: DataSourceType) {
+        self.init()
+        self.dataSourceType = dataSourceType
+    }
     convenience init(dataSourceType: DataSourceType, next: Int, isEnd: Bool) {
         self.init()
         self.dataSourceType = dataSourceType
         self.next = next
         self.isEnd = isEnd
     }
-    override static func primaryKey() -> String {
-        return "dataSourceType"
-    }
 }
-extension NextInfo {
-    class func generateInit(dataSourceType: DataSourceType) -> NextInfo {
-        return NextInfo(dataSourceType: dataSourceType, next: 1, isEnd: false)
+
+class NextInfo: Object {
+    @objc dynamic var kakaoImageNext: PageInfo? = PageInfo(dataSourceType: .kakaoImage)
+    @objc dynamic var kakaoVClipNext: PageInfo? = PageInfo(dataSourceType: .kakaoVClip)
+    @objc dynamic var naverImageNext: PageInfo? = PageInfo(dataSourceType: .naverImage)
+
+    convenience init(pageInfos: [PageInfo]) {
+        self.init()
+        
+        pageInfos.forEach { info in
+            switch info.dataSourceType {
+            case .naverImage:
+                self.naverImageNext = info
+            case .kakaoImage:
+                self.kakaoImageNext = info
+            case .kakaoVClip:
+                self.kakaoVClipNext = info
+            default: break
+            }
+        }
     }
 }

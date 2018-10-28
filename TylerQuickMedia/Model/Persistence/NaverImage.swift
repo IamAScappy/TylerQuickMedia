@@ -17,7 +17,7 @@ class NaverImage: Medium, Decodable {
 }
 
 extension NaverImage: MediumConvetableModel {
-    func toMediumViewModel() -> MediumModel {
+    func toMediumModel() -> MediumModel {
         let width = Int(self.sizewidth) ?? 0
         let height = Int(self.sizeheight) ?? 0
         return MediumModel(type: .image, thumbnail: self.thumbnail, origin: self.link, title: self.title, width: width, height: height, dateTime: "")
