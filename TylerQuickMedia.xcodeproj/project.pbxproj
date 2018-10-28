@@ -954,7 +954,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "OUTPUT_FILE=\"$PROJECT_DIR/${TARGET_NAME}Tests/GeneratedMocks.swift\"\n\necho \"Generated Mocks File = $OUTPUT_FILE\"\n\nINPUT_DIR=\"${PROJECT_DIR}/${TARGET_NAME}\"\n\n\n\"Carthage/Checkouts/Cuckoo/run\" generate --testable \"$PROJECT_NAME\" \\\n--output \"$OUTPUT_FILE\" \\\n\"$INPUT_DIR/Network/Types/MediumLocalSourceType.swift\" \\\n\"$INPUT_DIR/Network/Types/MediumRepositoryType.swift\" \\\n\"$INPUT_DIR/Network/Types/KakaoDataSourceType.swift\" \\\n\"$INPUT_DIR/Network/Types/NaverDataSourceType.swift\" \\\n\"$INPUT_DIR/Network/Types/MediumDataSourceType.swift\" \\\n\n\n\n\n";
+			shellScript = "OUTPUT_FILE=\"$PROJECT_DIR/${TARGET_NAME}Tests/GeneratedMocks.swift\"\n\necho \"Generated Mocks File = $OUTPUT_FILE\"\n\nINPUT_DIR=\"${PROJECT_DIR}/${TARGET_NAME}\"\n\n\n\"Carthage/Checkouts/Cuckoo/run\" generate --testable \"$PROJECT_NAME\" \\\n--output \"$OUTPUT_FILE\" \\\n\"$INPUT_DIR/Types/MediumLocalSourceType.swift\" \\\n\"$INPUT_DIR/Types/MediumRepositoryType.swift\" \\\n\"$INPUT_DIR/Types/KakaoRemoteSourceType.swift\" \\\n\"$INPUT_DIR/Types/NaverRemoteSourceType.swift\" \\\n\"$INPUT_DIR/Types/MediumRemoteSourceType.swift\" \\\n\n\n\n\n";
 		};
 		BDC2C296217B695000A30107 /* [CP] Copy Carthage Resources */ = {
 			isa = PBXShellScriptBuildPhase;
