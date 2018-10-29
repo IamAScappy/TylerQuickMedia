@@ -39,7 +39,7 @@ class MediaReactor: Reactor {
         case .searchMedium(let keyword):
             return Observable.concat([
                 Observable.just(.setLoading(true)),
-                self.repository.searchMedium(keyword, searchOptions: [.kakaoVClip])
+                self.repository.searchMedium(keyword, searchOptions: [.all])
                     .map { medium in medium.map(self.mapper.map) }
                     .map { r in return Mutation.setMedium(r) }
                     .asObservable(),

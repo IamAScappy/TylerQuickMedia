@@ -11,11 +11,7 @@ import Moya
 import Result
 import RxSwift
 
-protocol NaverDataSourceType {
-    func searchImages(_ param: NaverMediumRequest) -> Single<NaverImageResponse>
-}
-
-class NaverDataSource: NaverDataSourceType {
+class NaverRemoteSource: NaverRemoteSourceType {
     private let provider: MoyaProvider<NaverApi>
     
     init(_ provider: MoyaProvider<NaverApi>) {

@@ -24,7 +24,8 @@ class MediumRepositoryRealmTest: RealmSpec {
         beforeEach {
             realm = try! Realm()
             try! realm.write {
-                realm.add(MediumSearchResult(query: "test", isEnd: false, next: NextInfo(kakaoNext: 1, naverNext: 2)))
+                let searchResult = MediumSearchResult(query: "test", nexts: Array(MediumRepository.DEFAULT_NEXTINFO), ids: [])
+                realm.add(searchResult)
             }
             kakaoService = MockKakaoDataSourceType()
             naverService = MockNaverDataSourceType()
@@ -41,8 +42,9 @@ class MediumRepositoryRealmTest: RealmSpec {
                     .toBlocking()
                     .materialize()
                 
-                verify(kakaoService, times(1)).searchMedium(any())
-                verify(naverService, times(1)).searchMedium(any())
+                verify(kakaoService, times(1)).searchImages(any())
+                verify(kakaoService, times(1)).searchVclip(any())
+                verify(naverService, times(1)).searchImages(any())
                 switch result {
                 case .completed(let items):
 //                    naverResponse.json + kakaoVclipResponse.json + kakaoImageResponse.json
@@ -58,9 +60,11 @@ class MediumRepositoryRealmTest: RealmSpec {
                     .materialize()
                 
                 let savedData = realm.objects(MediumSearchResult.self).last
-                ///  preset: NextInfo(kakaoNext: 1, naverNext: 2)))
-                expect(savedData?.next?.kakaoNext) == 2
-                expect(savedData?.next?.naverNext) == 3
+                let next2Page = savedData?.nexts.allSatisfy({ nextInfo in
+                    nextInfo.next == 2
+                })
+                
+                expect(next2Page) == true
             })
         }
     }

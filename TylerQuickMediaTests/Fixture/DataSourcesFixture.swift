@@ -15,16 +15,16 @@ import RxSwift
 extension MockKakaoDataSourceType {
     func mockSample() {
         stub(self, block: { mock in
-            let vclipSample = ResourcesLoader<KakaoVclipResponse>().loadJson("kakaoVclipResponse")
+            let vclipSample = ResourcesLoader<KakaoVClipResponse>().loadJson("kakaoVclipResponse")
             let imageSample = ResourcesLoader<KakaoImageResponse>().loadJson("kakaoImageResponse")
-//            when(mock.searchImages(any())).thenReturn(Single.just(imageSample))
-//            when(mock.searchVclip(any())).thenReturn(Single.just(vclipSample))
-            when(mock.searchMedium(any())).then({ req in
-                var medium: [Medium] = []
-                medium.append(contentsOf: vclipSample.documents)
-                medium.append(contentsOf: imageSample.documents)
-                return Single.just(medium)
-            })
+            when(mock.searchImages(any())).thenReturn(Single.just(imageSample))
+            when(mock.searchVclip(any())).thenReturn(Single.just(vclipSample))
+//            when(mock.searchMedium(any())).then({ req in
+//                var medium: [Medium] = []
+//                medium.append(contentsOf: vclipSample.documents)
+//                medium.append(contentsOf: imageSample.documents)
+//                return Single.just(medium)
+//            })
         })
     }
 }
@@ -32,9 +32,9 @@ extension MockKakaoDataSourceType {
 extension MockNaverDataSourceType {
     func mockSample() {
         stub(self, block: { mock in
-            when(mock.searchMedium(any())).then({ req in
+            when(mock.searchImages(any())).then({ req in
                 let sample = ResourcesLoader<NaverImageResponse>().loadJson("naverResponse")
-                return Single.just(sample.items)
+                return Single.just(sample)
             })
         })
     }

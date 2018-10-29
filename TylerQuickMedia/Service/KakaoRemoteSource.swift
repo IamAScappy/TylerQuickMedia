@@ -27,50 +27,39 @@ public enum KakaoErrors: String, Swift.Error, CustomDebugStringConvertible {
     }
 }
 
-protocol KakaoDataSourceType {
-    func searchImages(_ param: KakaoMediumRequest) -> Single<KakaoResponse>
-    func searchVclip(_ param: KakaoMediumRequest) -> Single<KakaoResponse>
-}
-
-class KakaoDataSource: KakaoDataSourceType {
-//    func searchMedium(_ param: KakaoMediumRequest) -> Single<[Medium]> {
-//        return Single.zip(
-//            self.searchImages(param),
-//            self.searchVclip(param)) { (images, vclips) in
-//            var results: [Medium] = []
-//            results.append(contentsOf: images.documents)
-//            results.append(contentsOf: vclips.documents)
-//            return results
-//        }
-//    }
-
+class KakaoRemoteSource: KakaoRemoteSourceType {
     private let provider: MoyaProvider<KakaoApi>
 
     init(_ provider: MoyaProvider<KakaoApi>) {
         self.provider = provider
     }
 
-    func searchImages(_ param: KakaoMediumRequest) -> Single<KakaoResponse> {
+    func searchImages(_ param: KakaoMediumRequest) -> Single<KakaoImageResponse> {
         return self.provider.rx.request(.image(param))
             .network()
-            .catchHitEnd()
+            .catchHitEnd({
+                Single.just(KakaoImageResponse(meta: Meta.INSTANCE_END, documents: []))
+            })
     }
-    func searchVclip(_ param: KakaoMediumRequest) -> Single<KakaoResponse> {
+    
+    func searchVclip(_ param: KakaoMediumRequest) -> Single<KakaoVClipResponse> {
         return self.provider.rx.request(.vclip(param))
             .network()
-            .catchHitEnd()
+            .catchHitEnd({
+                Single.just(KakaoVClipResponse(meta: Meta.INSTANCE_END, documents: []))
+            })
+
     }
 }
 
-private extension PrimitiveSequence where TraitType == SingleTrait, ElementType == KakaoResponse {
-    func catchHitEnd() -> PrimitiveSequence<SingleTrait, KakaoResponse> {
+private extension PrimitiveSequence where TraitType == SingleTrait {
+    func catchHitEnd(_ concreateType: @escaping () -> PrimitiveSequence<SingleTrait, Element>) -> PrimitiveSequence<SingleTrait, Element> {
         return self.catchError({ error in
             if let moyaError = error as? MoyaError {
                 let res = moyaError.response
                 let errorData = try res?.map(KakakoErrorData.self)
                 if res?.statusCode == 400 && errorData?.errorType == KakaoErrors.hitEnd.rawValue {
-                    let meta = Meta.INSTANCE_END
-                    return Single.just(KakaoResponse(meta: meta, documents: []))
+                    return concreateType()
                 }
             }
             throw error

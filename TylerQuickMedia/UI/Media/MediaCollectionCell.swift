@@ -39,7 +39,7 @@ class MediaCollectionCell: UICollectionViewCell, SwiftNameIdentifier {
 extension MediaCollectionCell {
     func configCell(_ item: MediumModel) {
         switch item.type {
-        case MediumType.vclip.rawValue:
+        case MediumType.vclip:
             self.playButton.isHidden = false
         default:
             self.playButton.isHidden = true

@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol RateLimitable {
+protocol TimeRateLimitable {
     var freshTime: Int { get }
     
-    func shouldFetch(lastestDate: Date) -> Bool
+    func needFresh(lastestDate: Date) -> Bool
 }

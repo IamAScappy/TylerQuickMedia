@@ -9,7 +9,8 @@
 import Foundation
 import Moya
 struct Enviroment {
-    static let networkTimeout: TimeInterval = 3
+    static let networkTimeoutSecond: TimeInterval = 3
+    
     struct Kakao {
         static let API_KEY = "8c84f32197bb0fb2ccba0d7d73c57863"
     }

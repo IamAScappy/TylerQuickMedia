@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import RealmSwift
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        checkDeallocation()
+        printEmulatorInfo()
         // Override point for customization after application launch.
         // Now let’s log!
         UserDefaults.standard.defaultRegister()
@@ -39,5 +43,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
+    }
+}
+
+extension AppDelegate {
+    func printEmulatorInfo() {
+        logger.debug("Library: \(FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first!.path)")
+        logger.debug("Realm: \(String(describing: Realm.Configuration.defaultConfiguration.fileURL))")
     }
 }

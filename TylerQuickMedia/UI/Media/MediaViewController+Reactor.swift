@@ -5,8 +5,18 @@ import RxSwift
 import UIKit
 
 extension MediaViewController: View, StoryboardView {
+    // swiftlint:disable:next function_body_length
     func bind(reactor: MediaReactor) {
         logger.debug("bind")
+
+        uiCollectionView.rx.reachedBottom
+            .withLatestFrom(reactor.state.map { $0.isLoading })
+            .filter { !$0 }
+            .withLatestFrom(searchController.searchBar.rx.text.orEmpty)
+            .filter({ !$0.isEmpty })
+            .map { Reactor.Action.searchMedium(keyword: $0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
 
         searchController.searchBar.rx.text
             .orEmpty
@@ -17,34 +27,24 @@ extension MediaViewController: View, StoryboardView {
             .map { Reactor.Action.searchMedium(keyword: $0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
-        let dataSource = RxCollectionViewSectionedAnimatedDataSource<MediumViewModel>(
-            configureCell: configureCell
-        )
 
         reactor.state.map { $0.mediumModel }
             .distinctUntilChanged()
             .asDriver(onErrorJustReturn: [])
             .filterNil()
-//            .do(onNext: { models in
-//                logger.debug("medium: \(String(describing: models.count))")
-//            })
-//            .map({ models in
-//                return [MediumViewModel(header: "1", items: models)]
-//            })
-//            .drive(self.uiCollectionView.rx.items(dataSource: dataSource))
             .drive(onNext: { [weak self] medium in
                 guard let self = self else { return }
-                
+
                 logger.debug("medium: \(String(describing: medium.count))")
                 self.items = medium
                 self.uiCollectionView.reloadData()
-//                self.uiCollectionView.reloadData()
             })
             .disposed(by: disposeBag)
         reactor.state.map { $0.isLoading }
             .asDriver(onErrorJustReturn: false)
             .distinctUntilChanged()
             .drive(onNext: { [weak self] isLoading in
+                guard let _ = self else { return }
                 logger.debug("isLoading: \(isLoading)")
             })
             .disposed(by: disposeBag)
@@ -59,7 +59,7 @@ extension MediaViewController: View, StoryboardView {
 }
 
 private extension MediaViewController {
-    func configureCell(dataSource: UICollectionViewDataSource, collectionView:UICollectionView, indexPath:IndexPath, element: MediumModel) -> UICollectionViewCell  {
+    func configureCell(dataSource: UICollectionViewDataSource, collectionView: UICollectionView, indexPath: IndexPath, element: MediumModel) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MediaCollectionCell.swiftIdentifier, for: indexPath) as? MediaCollectionCell else { fatalError() }
         guard let item = items?[indexPath.row] else { return cell }
         cell.configCell(item)

@@ -11,11 +11,11 @@ import Foundation
 class MediumMapper {
     func map(media: Medium) -> MediumModel {
         if let kakaoImage = media as? KakaoImage {
-            return kakaoImage.toMediumViewModel()
+            return kakaoImage.toMediumModel()
         } else if let kakaoVclip = media as? KakaoVclip {
-            return kakaoVclip.toMediumViewModel()
+            return kakaoVclip.toMediumModel()
         } else if let naverImage = media as? NaverImage {
-            return naverImage.toMediumViewModel()
+            return naverImage.toMediumModel()
         } else {
             fatalError()
         }

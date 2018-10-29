@@ -14,7 +14,10 @@ import SwinjectStoryboard
 let rootContainer: Container = {
     let container = Container()
     #if DEBUG
-    let loggerPlugin = NetworkLoggerPlugin(verbose: true)
+//    let loggerPlugin = NetworkLoggerPlugin(verbose: true)
+    class ProxyPlugin: PluginType { }
+    
+    let loggerPlugin = ProxyPlugin()
     #else
     class ProxyPlugin: PluginType { }
     
@@ -29,11 +32,12 @@ let rootContainer: Container = {
         manager: DefaultAlamofireManager.sharedManager,
         plugins: moyaPlugins)
 
-    container.register(KakaoDataSourceType.self) { _ in KakaoDataSource(kakaoProvider) }.inObjectScope(.container)
-    container.register(NaverDataSourceType.self) { _ in NaverDataSource(naverProvider) }.inObjectScope(.container)
-    container.register(MediumServiceType.self) { r in MediumService(kakaoService: r.resolve(KakaoDataSourceType.self)!, naverService: r.resolve(NaverDataSourceType.self)!) }.inObjectScope(.container)
+    container.register(KakaoRemoteSourceType.self) { _ in KakaoRemoteSource(kakaoProvider) }.inObjectScope(.container)
+    container.register(NaverRemoteSourceType.self) { _ in NaverRemoteSource(naverProvider) }.inObjectScope(.container)
+    container.register(MediumRemoteSourceType.self) { r in MediumRemoteSource(kakaoService: r.resolve(KakaoRemoteSourceType.self)!, naverService: r.resolve(NaverRemoteSourceType.self)!) }.inObjectScope(.container)
     
-    container.register(MediumRepositoryType.self) { r in MediumRepository(r.resolve(MediumServiceType.self)!) }.inObjectScope(.container)
+    container.register(MediumLocalSourceType.self, factory: { r in MediumLocalSource() })
+    container.register(MediumRepositoryType.self) { r in MediumRepository(remote: r.resolve(MediumRemoteSourceType.self)!, local: r.resolve(MediumLocalSourceType.self)!) }.inObjectScope(.container)
     return container
 }()
 
