@@ -51,6 +51,8 @@
 		BD4C25F32185F69700E30B93 /* KakaoRemoteSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C25F22185F69700E30B93 /* KakaoRemoteSourceType.swift */; };
 		BD4C25F52185F6C100E30B93 /* NaverRemoteSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C25F42185F6C100E30B93 /* NaverRemoteSourceType.swift */; };
 		BD4C25F72185F71800E30B93 /* MediumRemoteSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C25F62185F71800E30B93 /* MediumRemoteSourceType.swift */; };
+		BD4C25F92185FEB600E30B93 /* DataBoundResourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C25F82185FEB600E30B93 /* DataBoundResourceType.swift */; };
+		BD4C25FB218600FC00E30B93 /* MediumBoundResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C25FA218600FC00E30B93 /* MediumBoundResource.swift */; };
 		BD65707D217F41E3001F715A /* MediumSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65707C217F41E3001F715A /* MediumSearchResult.swift */; };
 		BD657080217F43F9001F715A /* MediumRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65707F217F43F9001F715A /* MediumRepository.swift */; };
 		BD657084217F4482001F715A /* RateLimitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD657083217F4482001F715A /* RateLimitable.swift */; };
@@ -160,6 +162,8 @@
 		BD4C25F22185F69700E30B93 /* KakaoRemoteSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoRemoteSourceType.swift; sourceTree = "<group>"; };
 		BD4C25F42185F6C100E30B93 /* NaverRemoteSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverRemoteSourceType.swift; sourceTree = "<group>"; };
 		BD4C25F62185F71800E30B93 /* MediumRemoteSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumRemoteSourceType.swift; sourceTree = "<group>"; };
+		BD4C25F82185FEB600E30B93 /* DataBoundResourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBoundResourceType.swift; sourceTree = "<group>"; };
+		BD4C25FA218600FC00E30B93 /* MediumBoundResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumBoundResource.swift; sourceTree = "<group>"; };
 		BD65707C217F41E3001F715A /* MediumSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumSearchResult.swift; sourceTree = "<group>"; };
 		BD65707F217F43F9001F715A /* MediumRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumRepository.swift; sourceTree = "<group>"; };
 		BD657083217F4482001F715A /* RateLimitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateLimitable.swift; sourceTree = "<group>"; };
@@ -392,6 +396,7 @@
 				BD4C25F22185F69700E30B93 /* KakaoRemoteSourceType.swift */,
 				BD4C25F42185F6C100E30B93 /* NaverRemoteSourceType.swift */,
 				BD4C25F62185F71800E30B93 /* MediumRemoteSourceType.swift */,
+				BD4C25F82185FEB600E30B93 /* DataBoundResourceType.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				BD65707F217F43F9001F715A /* MediumRepository.swift */,
+				BD4C25FA218600FC00E30B93 /* MediumBoundResource.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1095,6 +1101,7 @@
 				BD94512F217CB2F3001733B7 /* MediumMapper.swift in Sources */,
 				BD41860E2184730700C6B5C4 /* ApplicationErrors.swift in Sources */,
 				BD34F00D217C1B080066023E /* SwinjectStoryboard+setup.swift in Sources */,
+				BD4C25FB218600FC00E30B93 /* MediumBoundResource.swift in Sources */,
 				BD068C102183F9EB00E62382 /* Response.swift in Sources */,
 				BD4186142184C12600C6B5C4 /* KakaoImage.swift in Sources */,
 				BD34F009217C19A60066023E /* Enviroment.swift in Sources */,
@@ -1124,6 +1131,7 @@
 				BD15DDF8217C5C0900978A3B /* NaverResponses.swift in Sources */,
 				BDC2C2B2217B726300A30107 /* MyColor.swift in Sources */,
 				BD4C25EC2185F4FB00E30B93 /* MediumLocalSource.swift in Sources */,
+				BD4C25F92185FEB600E30B93 /* DataBoundResourceType.swift in Sources */,
 				BD34F01D217C26D10066023E /* MediaReactor.swift in Sources */,
 				BDC2C2B5217B726300A30107 /* L10n.swift in Sources */,
 				BDC2C2BF217B72B700A30107 /* StoryboardInitializable.swift in Sources */,

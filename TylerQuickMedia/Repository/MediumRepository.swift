@@ -10,29 +10,13 @@ import Foundation
 import RealmSwift
 import RxSwift
 
-class MediumRepository: MediumRepositoryType, RateLimitable {
-    private let service: MediumRemoteSourceType
-
-    init(_ service: MediumRemoteSourceType) {
-        self.service = service
+class MediumRepository: MediumRepositoryType {
+    private let remote: MediumRemoteSourceType
+    private let local: MediumLocalSourceType
+    init(remote: MediumRemoteSourceType, local: MediumLocalSourceType) {
+        self.remote = remote
+        self.local = local
     }
-
-    func mustFresh(_ fresh: Bool) {
-        if fresh {
-            freshTime = -1
-        } else {
-            freshTime = 20 * 60
-        }
-    }
-    func shouldFetch(lastestDate: Date) -> Bool {
-        if lastestDate.timeIntervalSinceNow.advanced(by: Double(-freshTime)) < 0 {
-            return false
-        } else {
-            return true
-        }
-    }
-
-    var freshTime: Int = 20 * 60 // 20 minute
 
     private func getNextInfo(_ keyword: String) throws -> NextInfo? {
         let realm = try Realm()
@@ -51,14 +35,16 @@ class MediumRepository: MediumRepositoryType, RateLimitable {
         sortOptions: SearchSortType = .recency) -> Single<[Medium]> {
         guard !keyword.isEmpty else { return Single.just([]) }
 
+        self.local.getMedium(keyword)
         var nextInfo: NextInfo?
         do {
             nextInfo = try getNextInfo(keyword)
         } catch let error {
             logger.error("error: \(error)")
         }
+        
         guard let next = nextInfo else { return Single.just([]) }
-        return self.service.searchMedium(keyword, nextInfo: next, sortOptions: sortOptions, searchOptions: searchOptions)
+        return self.remote.searchMedium(keyword, nextInfo: next, sortOptions: sortOptions, searchOptions: searchOptions)
             .observeOn(SerialDispatchQueueScheduler(qos: .userInteractive))
             .map { proccessingMediums in
                 var viewItems: [Medium] = []

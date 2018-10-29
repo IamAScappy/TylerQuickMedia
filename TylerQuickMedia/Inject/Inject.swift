@@ -36,7 +36,8 @@ let rootContainer: Container = {
     container.register(NaverRemoteSourceType.self) { _ in NaverRemoteSource(naverProvider) }.inObjectScope(.container)
     container.register(MediumRemoteSourceType.self) { r in MediumRemoteSource(kakaoService: r.resolve(KakaoRemoteSourceType.self)!, naverService: r.resolve(NaverRemoteSourceType.self)!) }.inObjectScope(.container)
     
-    container.register(MediumRepositoryType.self) { r in MediumRepository(r.resolve(MediumRemoteSourceType.self)!) }.inObjectScope(.container)
+    container.register(MediumLocalSourceType.self, factory: { r in MediumLocalSource() })
+    container.register(MediumRepositoryType.self) { r in MediumRepository(remote: r.resolve(MediumRemoteSourceType.self)!, local: r.resolve(MediumLocalSourceType.self)!) }.inObjectScope(.container)
     return container
 }()
 

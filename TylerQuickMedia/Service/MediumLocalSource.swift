@@ -9,4 +9,5 @@
 import Foundation
 
 class MediumLocalSource: MediumLocalSourceType {
+
 }
