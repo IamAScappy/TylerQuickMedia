@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wE2-mW-asC">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Media View Controller-->
+        <scene sceneID="MKJ-MI-gh3">
+            <objects>
+                <viewController id="CdF-sb-EvI" customClass="MediaViewController" customModule="TylerQuickMedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eK1-He-MmH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2NB-o8-Usq">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WTY-vb-2bR">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2NB-o8-Usq" firstAttribute="top" secondItem="qPg-gk-Z22" secondAttribute="top" id="EYL-b1-EdL"/>
+                            <constraint firstItem="2NB-o8-Usq" firstAttribute="centerY" secondItem="qPg-gk-Z22" secondAttribute="centerY" id="Hwk-gG-lU8"/>
+                            <constraint firstItem="2NB-o8-Usq" firstAttribute="leading" secondItem="qPg-gk-Z22" secondAttribute="leading" id="MJi-c1-wRu"/>
+                            <constraint firstItem="2NB-o8-Usq" firstAttribute="centerX" secondItem="qPg-gk-Z22" secondAttribute="centerX" id="kEN-ci-gzI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qPg-gk-Z22"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5BB-IT-VVq"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="vBZ-9i-LtJ" id="bzA-xV-eZR"/>
+                        <outlet property="uiCollectionView" destination="2NB-o8-Usq" id="cVb-Yc-RWy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nhe-Aw-QH3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="vBZ-9i-LtJ">
+                    <connections>
+                        <outlet property="delegate" destination="CdF-sb-EvI" id="W6l-Jq-Qys"/>
+                        <outlet property="searchContentsController" destination="CdF-sb-EvI" id="KfG-U9-orH"/>
+                        <outlet property="searchResultsDataSource" destination="CdF-sb-EvI" id="orN-B6-RVx"/>
+                        <outlet property="searchResultsDelegate" destination="CdF-sb-EvI" id="zmF-GO-Ucz"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="831.20000000000005" y="214.54272863568218"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OOB-y9-z1x">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wE2-mW-asC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Oii-f3-lI5">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CdF-sb-EvI" kind="relationship" relationship="rootViewController" id="ALq-dy-hRr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HGy-O3-60I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-108" y="214.54272863568218"/>
+        </scene>
+    </scenes>
+</document>

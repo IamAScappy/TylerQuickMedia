@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import RealmSwift
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        checkDeallocation()
+        printEmulatorInfo()
         // Override point for customization after application launch.
+        // Now let’s log!
+        UserDefaults.standard.defaultRegister()
         return true
     }
 
@@ -41,3 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension AppDelegate {
+    func printEmulatorInfo() {
+        logger.debug("Library: \(FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first!.path)")
+        logger.debug("Realm: \(String(describing: Realm.Configuration.defaultConfiguration.fileURL))")
+    }
+}
