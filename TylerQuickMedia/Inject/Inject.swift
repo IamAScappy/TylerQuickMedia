@@ -38,9 +38,7 @@ let rootContainer: Container = {
     
     container.register(RxDispatchQueue.self, factory: { _ in RxDispatchQueue() })
     
-    container.register(MediumLocalSourceType.self, factory: { r in MediumLocalSource() })
-    container.register(MediumBoundResource.self, factory: { r in MediumBoundResource(remote: r.resolve(MediumRemoteSourceType.self)!, local: r.resolve(MediumLocalSourceType.self)!) })
-    container.register(MediumRepositoryType.self) { r in MediumRepository(boundResource: r.resolve(MediumBoundResource.self)!) }.inObjectScope(.container)
+    container.register(MediumRepositoryType.self) { r in MediumRepository(remote: r.resolve(MediumRemoteSourceType.self)!, scheduler: r.resolve(RxDispatchQueue.self)!) }.inObjectScope(.container)
     
     return container
 }()
@@ -48,6 +46,6 @@ let rootContainer: Container = {
 let mediaContainer: Container = {
     let container = Container(parent: rootContainer)
 
-    container.register(MediaReactor.self) { r in return MediaReactor(r.resolve(MediumRepositoryType.self)!, mapper: MediumMapper()) }
+    container.register(MediaReactor.self) { r in return MediaReactor(r.resolve(MediumRepositoryType.self)!) }
     return container
 }()

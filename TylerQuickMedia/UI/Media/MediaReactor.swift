@@ -12,11 +12,9 @@ import RxSwift
 class MediaReactor: Reactor {
     let initialState: State = State()
     let repository: MediumRepositoryType
-    let mapper: MediumMapper
-
-    init(_ repository: MediumRepositoryType, mapper: MediumMapper) {
+    let mapper = MediumMapper()
+    init(_ repository: MediumRepositoryType) {
         self.repository = repository
-        self.mapper = mapper
     }
 
     enum Action {

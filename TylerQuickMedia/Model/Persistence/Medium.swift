@@ -11,7 +11,7 @@ import RealmSwift
 
 class Medium: Object {
     @objc dynamic var id: String = UUID().uuidString
-    
+
     override static func primaryKey() -> String {
         return "id"
     }

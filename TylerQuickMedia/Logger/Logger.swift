@@ -21,4 +21,3 @@ let logger: SwiftyBeaver.Type = {
     $0.addDestination(cloud)
     return $0
 }(SwiftyBeaver.self)
-

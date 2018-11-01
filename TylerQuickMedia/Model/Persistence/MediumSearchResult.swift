@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 class MediumSearchResult: Object {
+    @objc dynamic var id: String = UUID().uuidString
     @objc dynamic var query: String = ""
     @objc dynamic var sortType: SearchSortType = .recency
     @objc dynamic var categoryType: Int = SearchCategoryOptionType.all.rawValue
@@ -17,69 +18,36 @@ class MediumSearchResult: Object {
     @objc dynamic var nextInfo: NextInfo? = NextInfo()
     @objc dynamic var updatedTime: Date = Date()
 
-    convenience init(query: String) {
+    convenience init(query: String, sortType: SearchSortType) {
         self.init()
+        self.id = makeIdString(query: query, sortType: sortType)
         self.query = query
         self.nextInfo = NextInfo()
     }
 
-    convenience init(query: String, nextInfo: NextInfo, ids: [String]) {
+    convenience init(query: String, sortType: SearchSortType, nextInfo: NextInfo, ids: [String]) {
         self.init()
+        self.id = makeIdString(query: query, sortType: sortType)
         self.query = query
         self.nextInfo = nextInfo
         self.medium_ids.append(objectsIn: ids)
     }
 
+    func makeIdString(query: String, sortType: SearchSortType) -> String {
+        return "\(query)_\(sortType.rawValue)"
+    }
+    
     override static func primaryKey() -> String {
-        return "query"
+        return "id"
     }
     override static func indexedProperties() -> [String] {
         return ["query"]
     }
 }
 
-@objc enum DataSourceType: Int {
-    case naverImage
-    case kakaoImage
-    case kakaoVClip
-    case none
-}
-
-class PageInfo: Object {
-    @objc dynamic var dataSourceType: DataSourceType = .none
-    @objc dynamic var next: Int = 1
-    @objc dynamic var isEnd: Bool = false
-
-    convenience init(dataSourceType: DataSourceType) {
-        self.init()
-        self.dataSourceType = dataSourceType
-    }
-    convenience init(dataSourceType: DataSourceType, next: Int, isEnd: Bool) {
-        self.init()
-        self.dataSourceType = dataSourceType
-        self.next = next
-        self.isEnd = isEnd
-    }
-}
-
-class NextInfo: Object {
-    @objc dynamic var kakaoImageNext: PageInfo? = PageInfo(dataSourceType: .kakaoImage)
-    @objc dynamic var kakaoVClipNext: PageInfo? = PageInfo(dataSourceType: .kakaoVClip)
-    @objc dynamic var naverImageNext: PageInfo? = PageInfo(dataSourceType: .naverImage)
-
-    convenience init(pageInfos: [PageInfo]) {
-        self.init()
-        
-        pageInfos.forEach { info in
-            switch info.dataSourceType {
-            case .naverImage:
-                self.naverImageNext = info
-            case .kakaoImage:
-                self.kakaoImageNext = info
-            case .kakaoVClip:
-                self.kakaoVClipNext = info
-            default: break
-            }
-        }
+extension MediumSearchResult {
+    static func query(_ query: String) -> [MediumSearchResult] {
+        let realm = try? Realm()
+        return realm?.objects(MediumSearchResult.self).filter({ result in result.query == query }) ?? []
     }
 }

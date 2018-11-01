@@ -38,22 +38,19 @@
 		BD34F027217C38680066023E /* Single+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F026217C38680066023E /* Single+Network.swift */; };
 		BD34F029217C45C50066023E /* DefaultAlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F028217C45C50066023E /* DefaultAlamofireManager.swift */; };
 		BD34F02E217C49AA0066023E /* AccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F02D217C49A90066023E /* AccessTokenPlugin.swift */; };
+		BD3EFE05218B1A3100C8D69C /* MediumMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EFE04218B1A3100C8D69C /* MediumMapper.swift */; };
+		BD3EFE07218B1DF300C8D69C /* RequestParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EFE06218B1DF300C8D69C /* RequestParam.swift */; };
 		BD41860C2184718400C6B5C4 /* AppDelegate+Deallocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41860B2184718400C6B5C4 /* AppDelegate+Deallocation.swift */; };
 		BD41860E2184730700C6B5C4 /* ApplicationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41860D2184730700C6B5C4 /* ApplicationErrors.swift */; };
-		BD41861021848C0100C6B5C4 /* Realm+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41860F21848C0100C6B5C4 /* Realm+.swift */; };
 		BD418612218499D500C6B5C4 /* UIScrollView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD418611218499D500C6B5C4 /* UIScrollView+Rx.swift */; };
 		BD4186142184C12600C6B5C4 /* KakaoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4186132184C12600C6B5C4 /* KakaoImage.swift */; };
 		BD4186162184C14900C6B5C4 /* KakaoVclip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4186152184C14900C6B5C4 /* KakaoVclip.swift */; };
 		BD4186182184C19300C6B5C4 /* NaverImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4186172184C19300C6B5C4 /* NaverImage.swift */; };
 		BD4A4D662185679B00D18303 /* ProccessingMedium.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4A4D652185679B00D18303 /* ProccessingMedium.swift */; };
-		BD4C25EC2185F4FB00E30B93 /* MediumLocalSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C25EB2185F4FB00E30B93 /* MediumLocalSource.swift */; };
-		BD4C25EF2185F60600E30B93 /* MediumLocalSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C25EE2185F60600E30B93 /* MediumLocalSourceType.swift */; };
 		BD4C25F12185F62C00E30B93 /* MediumRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C25F02185F62C00E30B93 /* MediumRepositoryType.swift */; };
 		BD4C25F32185F69700E30B93 /* KakaoRemoteSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C25F22185F69700E30B93 /* KakaoRemoteSourceType.swift */; };
 		BD4C25F52185F6C100E30B93 /* NaverRemoteSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C25F42185F6C100E30B93 /* NaverRemoteSourceType.swift */; };
 		BD4C25F72185F71800E30B93 /* MediumRemoteSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C25F62185F71800E30B93 /* MediumRemoteSourceType.swift */; };
-		BD4C25F92185FEB600E30B93 /* DataBoundResourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C25F82185FEB600E30B93 /* DataBoundResourceType.swift */; };
-		BD4C25FB218600FC00E30B93 /* MediumBoundResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C25FA218600FC00E30B93 /* MediumBoundResource.swift */; };
 		BD65707D217F41E3001F715A /* MediumSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65707C217F41E3001F715A /* MediumSearchResult.swift */; };
 		BD657080217F43F9001F715A /* MediumRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65707F217F43F9001F715A /* MediumRepository.swift */; };
 		BD657084217F4482001F715A /* RateLimitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD657083217F4482001F715A /* RateLimitable.swift */; };
@@ -68,9 +65,9 @@
 		BD945128217C9237001733B7 /* CGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD945127217C9237001733B7 /* CGUtils.swift */; };
 		BD94512B217CA0A5001733B7 /* MediumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD94512A217CA0A5001733B7 /* MediumModel.swift */; };
 		BD94512D217CA6EE001733B7 /* MediumRemoteSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD94512C217CA6EE001733B7 /* MediumRemoteSource.swift */; };
-		BD94512F217CB2F3001733B7 /* MediumMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD94512E217CB2F3001733B7 /* MediumMapper.swift */; };
 		BD945133217CC068001733B7 /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD945132217CC068001733B7 /* UIImage+GIF.swift */; };
 		BD9CD42E218A954B00FEF924 /* MediumBoundResourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CD42D218A954B00FEF924 /* MediumBoundResourceTest.swift */; };
+		BDB8A735218AC367001594A4 /* MediumSearchResultTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB8A734218AC367001594A4 /* MediumSearchResultTest.swift */; };
 		BDBDB96221802CCC00B1863C /* MediumRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBDB96121802CCC00B1863C /* MediumRepositoryTest.swift */; };
 		BDC2C263217B666600A30107 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C262217B666600A30107 /* AppDelegate.swift */; };
 		BDC2C268217B666600A30107 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C266217B666600A30107 /* Main.storyboard */; };
@@ -96,6 +93,8 @@
 		BDC2C2F8217B8A8A00A30107 /* ThreadInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C2F7217B8A8A00A30107 /* ThreadInfo.swift */; };
 		BDDF4D00217DDEC900B6C4EC /* MediaViewController+Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDF4CFF217DDEC900B6C4EC /* MediaViewController+Reactor.swift */; };
 		BDDF4D02217DDF0600B6C4EC /* MediaViewController+EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDF4D01217DDF0600B6C4EC /* MediaViewController+EmptyState.swift */; };
+		BDEB7171218B0D5A00927A09 /* NextInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB7170218B0D5A00927A09 /* NextInfo.swift */; };
+		BDEB7173218B170300927A09 /* Realm+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB7172218B170300927A09 /* Realm+.swift */; };
 		BDF99638217EE4900064D40B /* MediumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF99637217EE4900064D40B /* MediumViewModel.swift */; };
 		D2C32F498C871787892966F5 /* Pods_TylerQuickMediaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D7F9967528AA00BF4A5F75 /* Pods_TylerQuickMediaUITests.framework */; };
 		E7EC312036583B10B8C96108 /* Pods_TylerQuickMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08DAA366D9F4DA1519C93346 /* Pods_TylerQuickMedia.framework */; };
@@ -152,22 +151,19 @@
 		BD34F026217C38680066023E /* Single+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Network.swift"; sourceTree = "<group>"; };
 		BD34F028217C45C50066023E /* DefaultAlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlamofireManager.swift; sourceTree = "<group>"; };
 		BD34F02D217C49A90066023E /* AccessTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenPlugin.swift; sourceTree = "<group>"; };
+		BD3EFE04218B1A3100C8D69C /* MediumMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumMapper.swift; sourceTree = "<group>"; };
+		BD3EFE06218B1DF300C8D69C /* RequestParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestParam.swift; sourceTree = "<group>"; };
 		BD41860B2184718400C6B5C4 /* AppDelegate+Deallocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Deallocation.swift"; sourceTree = "<group>"; };
 		BD41860D2184730700C6B5C4 /* ApplicationErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationErrors.swift; sourceTree = "<group>"; };
-		BD41860F21848C0100C6B5C4 /* Realm+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+.swift"; sourceTree = "<group>"; };
 		BD418611218499D500C6B5C4 /* UIScrollView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Rx.swift"; sourceTree = "<group>"; };
 		BD4186132184C12600C6B5C4 /* KakaoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoImage.swift; sourceTree = "<group>"; };
 		BD4186152184C14900C6B5C4 /* KakaoVclip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoVclip.swift; sourceTree = "<group>"; };
 		BD4186172184C19300C6B5C4 /* NaverImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverImage.swift; sourceTree = "<group>"; };
 		BD4A4D652185679B00D18303 /* ProccessingMedium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProccessingMedium.swift; sourceTree = "<group>"; };
-		BD4C25EB2185F4FB00E30B93 /* MediumLocalSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumLocalSource.swift; sourceTree = "<group>"; };
-		BD4C25EE2185F60600E30B93 /* MediumLocalSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumLocalSourceType.swift; sourceTree = "<group>"; };
 		BD4C25F02185F62C00E30B93 /* MediumRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumRepositoryType.swift; sourceTree = "<group>"; };
 		BD4C25F22185F69700E30B93 /* KakaoRemoteSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoRemoteSourceType.swift; sourceTree = "<group>"; };
 		BD4C25F42185F6C100E30B93 /* NaverRemoteSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverRemoteSourceType.swift; sourceTree = "<group>"; };
 		BD4C25F62185F71800E30B93 /* MediumRemoteSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumRemoteSourceType.swift; sourceTree = "<group>"; };
-		BD4C25F82185FEB600E30B93 /* DataBoundResourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBoundResourceType.swift; sourceTree = "<group>"; };
-		BD4C25FA218600FC00E30B93 /* MediumBoundResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumBoundResource.swift; sourceTree = "<group>"; };
 		BD65707C217F41E3001F715A /* MediumSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumSearchResult.swift; sourceTree = "<group>"; };
 		BD65707F217F43F9001F715A /* MediumRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumRepository.swift; sourceTree = "<group>"; };
 		BD657083217F4482001F715A /* RateLimitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateLimitable.swift; sourceTree = "<group>"; };
@@ -184,10 +180,10 @@
 		BD945127217C9237001733B7 /* CGUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGUtils.swift; sourceTree = "<group>"; };
 		BD94512A217CA0A5001733B7 /* MediumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumModel.swift; sourceTree = "<group>"; };
 		BD94512C217CA6EE001733B7 /* MediumRemoteSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumRemoteSource.swift; sourceTree = "<group>"; };
-		BD94512E217CB2F3001733B7 /* MediumMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumMapper.swift; sourceTree = "<group>"; };
 		BD945130217CBC40001733B7 /* UIEmptyState.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIEmptyState.framework; path = Carthage/Build/iOS/UIEmptyState.framework; sourceTree = "<group>"; };
 		BD945132217CC068001733B7 /* UIImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
 		BD9CD42D218A954B00FEF924 /* MediumBoundResourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumBoundResourceTest.swift; sourceTree = "<group>"; };
+		BDB8A734218AC367001594A4 /* MediumSearchResultTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumSearchResultTest.swift; sourceTree = "<group>"; };
 		BDBDB96121802CCC00B1863C /* MediumRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumRepositoryTest.swift; sourceTree = "<group>"; };
 		BDC2C25F217B666600A30107 /* TylerQuickMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TylerQuickMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC2C262217B666600A30107 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +233,8 @@
 		BDC2C2F7217B8A8A00A30107 /* ThreadInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadInfo.swift; sourceTree = "<group>"; };
 		BDDF4CFF217DDEC900B6C4EC /* MediaViewController+Reactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MediaViewController+Reactor.swift"; sourceTree = "<group>"; };
 		BDDF4D01217DDF0600B6C4EC /* MediaViewController+EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MediaViewController+EmptyState.swift"; sourceTree = "<group>"; };
+		BDEB7170218B0D5A00927A09 /* NextInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextInfo.swift; sourceTree = "<group>"; };
+		BDEB7172218B170300927A09 /* Realm+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+.swift"; sourceTree = "<group>"; };
 		BDF99637217EE4900064D40B /* MediumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumViewModel.swift; sourceTree = "<group>"; };
 		C195F91F40CC13CBDF4880E3 /* Pods-TylerQuickMedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMedia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMedia/Pods-TylerQuickMedia.debug.xcconfig"; sourceTree = "<group>"; };
 		C6296536AB41DFE8360D4291 /* Pods-TylerQuickMediaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TylerQuickMediaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TylerQuickMediaUITests/Pods-TylerQuickMediaUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -294,8 +292,10 @@
 				BD4186152184C14900C6B5C4 /* KakaoVclip.swift */,
 				BD15DDEE217C53CB00978A3B /* Medium.swift */,
 				BD94512A217CA0A5001733B7 /* MediumModel.swift */,
-				BD65707C217F41E3001F715A /* MediumSearchResult.swift */,
 				BD4186172184C19300C6B5C4 /* NaverImage.swift */,
+				BD65707C217F41E3001F715A /* MediumSearchResult.swift */,
+				BDEB7170218B0D5A00927A09 /* NextInfo.swift */,
+				BDEB7172218B170300927A09 /* Realm+.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -304,7 +304,6 @@
 			isa = PBXGroup;
 			children = (
 				BD068C122184290D00E62382 /* SearchOptions.swift */,
-				BD41860F21848C0100C6B5C4 /* Realm+.swift */,
 				BD657083217F4482001F715A /* RateLimitable.swift */,
 				BD067002217F375A00B3F1AF /* Persistence */,
 			);
@@ -360,13 +359,13 @@
 		BD34F019217C26A10066023E /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				BD3EFE04218B1A3100C8D69C /* MediumMapper.swift */,
 				BD34F01A217C26C80066023E /* MediaViewController.swift */,
 				BDDF4CFF217DDEC900B6C4EC /* MediaViewController+Reactor.swift */,
 				BDDF4D01217DDF0600B6C4EC /* MediaViewController+EmptyState.swift */,
 				BD34F01C217C26D10066023E /* MediaReactor.swift */,
 				BD945120217C8CF2001733B7 /* Media.storyboard */,
 				BDF99637217EE4900064D40B /* MediumViewModel.swift */,
-				BD94512E217CB2F3001733B7 /* MediumMapper.swift */,
 				BD6A9DE8217D8CCD001952E8 /* MediaCollectionCell.swift */,
 			);
 			path = Media;
@@ -389,7 +388,6 @@
 				BD15DDF9217C5D9700978A3B /* NaverRemoteSource.swift */,
 				BD94512C217CA6EE001733B7 /* MediumRemoteSource.swift */,
 				BD4A4D652185679B00D18303 /* ProccessingMedium.swift */,
-				BD4C25EB2185F4FB00E30B93 /* MediumLocalSource.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -397,12 +395,10 @@
 		BD4C25ED2185F52200E30B93 /* Types */ = {
 			isa = PBXGroup;
 			children = (
-				BD4C25EE2185F60600E30B93 /* MediumLocalSourceType.swift */,
 				BD4C25F02185F62C00E30B93 /* MediumRepositoryType.swift */,
 				BD4C25F22185F69700E30B93 /* KakaoRemoteSourceType.swift */,
 				BD4C25F42185F6C100E30B93 /* NaverRemoteSourceType.swift */,
 				BD4C25F62185F71800E30B93 /* MediumRemoteSourceType.swift */,
-				BD4C25F82185FEB600E30B93 /* DataBoundResourceType.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -411,7 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				BD65707F217F43F9001F715A /* MediumRepository.swift */,
-				BD4C25FA218600FC00E30B93 /* MediumBoundResource.swift */,
+				BD3EFE06218B1DF300C8D69C /* RequestParam.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -494,6 +490,7 @@
 		BDC2C279217B666800A30107 /* TylerQuickMediaTests */ = {
 			isa = PBXGroup;
 			children = (
+				BDB8A734218AC367001594A4 /* MediumSearchResultTest.swift */,
 				BD068C5121843AE200E62382 /* GeneratedMocks.swift */,
 				BD25703621838C6100A8804E /* Fixture */,
 				BD2570312183875000A8804E /* Resource */,
@@ -1108,11 +1105,10 @@
 				BD945128217C9237001733B7 /* CGUtils.swift in Sources */,
 				BD4A4D662185679B00D18303 /* ProccessingMedium.swift in Sources */,
 				BD4186162184C14900C6B5C4 /* KakaoVclip.swift in Sources */,
-				BD94512F217CB2F3001733B7 /* MediumMapper.swift in Sources */,
 				BD41860E2184730700C6B5C4 /* ApplicationErrors.swift in Sources */,
+				BDEB7173218B170300927A09 /* Realm+.swift in Sources */,
 				BD0A7344218819FD00E4E2B1 /* RxDispatchQueue.swift in Sources */,
 				BD34F00D217C1B080066023E /* SwinjectStoryboard+setup.swift in Sources */,
-				BD4C25FB218600FC00E30B93 /* MediumBoundResource.swift in Sources */,
 				BD068C102183F9EB00E62382 /* Response.swift in Sources */,
 				BD4186142184C12600C6B5C4 /* KakaoImage.swift in Sources */,
 				BD34F009217C19A60066023E /* Enviroment.swift in Sources */,
@@ -1124,7 +1120,6 @@
 				BDF99638217EE4900064D40B /* MediumViewModel.swift in Sources */,
 				BD15DDEC217C521800978A3B /* DeallocationView.swift in Sources */,
 				BDC2C2C1217B72B700A30107 /* HasDisposeBag.swift in Sources */,
-				BD41861021848C0100C6B5C4 /* Realm+.swift in Sources */,
 				BD4186182184C19300C6B5C4 /* NaverImage.swift in Sources */,
 				BD4C25F32185F69700E30B93 /* KakaoRemoteSourceType.swift in Sources */,
 				BDDF4D02217DDF0600B6C4EC /* MediaViewController+EmptyState.swift in Sources */,
@@ -1135,14 +1130,11 @@
 				BD34F029217C45C50066023E /* DefaultAlamofireManager.swift in Sources */,
 				BD41860C2184718400C6B5C4 /* AppDelegate+Deallocation.swift in Sources */,
 				BD418612218499D500C6B5C4 /* UIScrollView+Rx.swift in Sources */,
-				BD4C25EF2185F60600E30B93 /* MediumLocalSourceType.swift in Sources */,
 				BD34F027217C38680066023E /* Single+Network.swift in Sources */,
 				BD657084217F4482001F715A /* RateLimitable.swift in Sources */,
 				BDC2C2B4217B726300A30107 /* Assets.swift in Sources */,
 				BD15DDF8217C5C0900978A3B /* NaverResponses.swift in Sources */,
 				BDC2C2B2217B726300A30107 /* MyColor.swift in Sources */,
-				BD4C25EC2185F4FB00E30B93 /* MediumLocalSource.swift in Sources */,
-				BD4C25F92185FEB600E30B93 /* DataBoundResourceType.swift in Sources */,
 				BD7AF792218ABCD50025FB63 /* RealmLocalSourceType.swift in Sources */,
 				BD34F01D217C26D10066023E /* MediaReactor.swift in Sources */,
 				BDC2C2B5217B726300A30107 /* L10n.swift in Sources */,
@@ -1155,9 +1147,12 @@
 				BDC2C263217B666600A30107 /* AppDelegate.swift in Sources */,
 				BD15DDF6217C5ADA00978A3B /* NaverRequests.swift in Sources */,
 				BD4C25F12185F62C00E30B93 /* MediumRepositoryType.swift in Sources */,
+				BDEB7171218B0D5A00927A09 /* NextInfo.swift in Sources */,
 				BDDF4D00217DDEC900B6C4EC /* MediaViewController+Reactor.swift in Sources */,
+				BD3EFE07218B1DF300C8D69C /* RequestParam.swift in Sources */,
 				BDC2C2F6217B843F00A30107 /* DictionarySerializable.swift in Sources */,
 				BD34F012217C1F370066023E /* KakaoApi.swift in Sources */,
+				BD3EFE05218B1A3100C8D69C /* MediumMapper.swift in Sources */,
 				BD945133217CC068001733B7 /* UIImage+GIF.swift in Sources */,
 				BD34F016217C1F650066023E /* KakaoRemoteSource.swift in Sources */,
 				BD657080217F43F9001F715A /* MediumRepository.swift in Sources */,
@@ -1182,6 +1177,7 @@
 				BD25702C2183823B00A8804E /* MediumRepositoryRealmTest.swift in Sources */,
 				BDC2C27B217B666800A30107 /* TylerQuickMediaTests.swift in Sources */,
 				BDBDB96221802CCC00B1863C /* MediumRepositoryTest.swift in Sources */,
+				BDB8A735218AC367001594A4 /* MediumSearchResultTest.swift in Sources */,
 				BD82C8722181E6450078081D /* RealmSpec.swift in Sources */,
 				BD257042218399B100A8804E /* DataSourcesFixture.swift in Sources */,
 				BD25703A21838E3C00A8804E /* ResourcesLoader.swift in Sources */,

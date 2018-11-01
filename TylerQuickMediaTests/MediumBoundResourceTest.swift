@@ -12,6 +12,7 @@ import Quick
 
 class MediumBoundResourceTest: QuickSpec {
     override func spec() {
+        
         var subject: MediumBoundResource!
         var remote: MockMediumRemoteSourceType!
         var local: MockMediumLocalSourceType!
@@ -22,7 +23,6 @@ class MediumBoundResourceTest: QuickSpec {
         }
         describe("") {
             it("", closure: {
-                
             })
         }
     }

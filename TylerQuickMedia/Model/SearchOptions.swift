@@ -24,3 +24,6 @@ struct SearchCategoryOptionType: OptionSet {
     case accuracy
     case recency
 }
+extension SearchSortType {
+    static var defaultType = recency
+}
