@@ -12,6 +12,7 @@ import Nimble
 import Quick
 import RxBlocking
 import Cuckoo
+import Then
 @testable import TylerQuickMedia
 class MediumRemoteSourceTest: QuickSpec {
     override func spec() {
@@ -25,39 +26,57 @@ class MediumRemoteSourceTest: QuickSpec {
             kakaoService = MockKakaoRemoteSourceType()
             naverService = MockNaverRemoteSourceType()
             subject = MediumRemoteSource(kakaoService: kakaoService, naverService: naverService)
-            kakaoService.mockSample()
-            naverService.mockSample()
         }
         func categoryTest(_ categoryType: SearchCategoryOptionType, test: () -> Void) {
             let searchResult = MediumSearchResult(query: "test", sortType: SearchSortType.recency, categoryType: categoryType)
             subject.searchMedium(searchResult: searchResult)
                 .asObservable()
                 .toBlocking(timeout: 0.1)
-            test()
+            
         }
-        describe("MediumRemoteSource") {
-            it("Category all", closure: {
+        describe("Sort Test") {
+            beforeEach {
+                kakaoService.sortSample()
+                naverService.sortSample()
+            }
+            it("Kakao Image Sort [Recency]", closure: {
+                let searchResult = MediumSearchResult(query: "test", sortType: SearchSortType.recency, categoryType: .kakaoImage)
+                let data = subject.searchMedium(searchResult: searchResult)
+                    .asObservable()
+                    .toBlocking(timeout: 0.1)
+                let actualData = try! data.last()?.1.excludeObjectId()
+                let expectData = kakaoService.sortRecencyImage.documents.excludeObjectId()
+                
+                expect(actualData?.last!) == expectData.last
+            })
+        }
+        describe("Category Test") {
+            beforeEach {
+                kakaoService.mockSample()
+                naverService.mockSample()
+            }
+            it("[all]", closure: {
                 categoryTest([.all], test: {
                     verify(naverService, times(1)).searchImages(any())
                     verify(kakaoService, times(1)).searchImages(any())
                     verify(kakaoService, times(1)).searchVclip(any())
                 })
             })
-            it("Category kakako", closure: {
+            it("[kakako]", closure: {
                 categoryTest([.kakao], test: {
                     verify(naverService, never()).searchImages(any())
                     verify(kakaoService, times(1)).searchImages(any())
                     verify(kakaoService, times(1)).searchVclip(any())
                 })
             })
-            it("Category naver", closure: {
+            it("[naver]", closure: {
                 categoryTest([.naver], test: {
                     verify(naverService, times(1)).searchImages(any())
                     verify(kakaoService, never()).searchImages(any())
                     verify(kakaoService, never()).searchVclip(any())
                 })
             })
-            it("Category kakakoImage naverImage", closure: {
+            it("[kakakoImage naverImage]", closure: {
                 categoryTest([.naver, .kakaoImage], test: {
                     verify(naverService, times(1)).searchImages(any())
                     verify(kakaoService, times(1)).searchImages(any())
