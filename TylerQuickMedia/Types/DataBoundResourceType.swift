@@ -12,15 +12,15 @@ import Result
 import RxSwift
 
 protocol DataBoundResourceType {
-    associatedtype RESULT
+    associatedtype REQ
+    associatedtype NEXTREQ
     associatedtype DATA
-    
-    func saveResult(data: DATA) throws
-    
-    func shouldFetch(result: RESULT) -> Bool
-    
-    func loadFromLocal() -> DATA
-    
-    func createRemoteCall() -> Single<DATA>
-}
+
+    func request(_ requestParam: REQ) -> PrimitiveSequence<SingleTrait, DATA>
+    func nextPage(_ nextParam: NEXTREQ) -> PrimitiveSequence<SingleTrait, DATA>
+//    func shouldFetch(_ req: REQ) -> Bool
+//    func saveResult(data: DATA) throws
+//    func loadFromLocal(_ req: REQ, mediumIds: [String]) -> DATA
+//    func createRemoteCall(_ req: REQ) -> Single<DATA>
+    }
 

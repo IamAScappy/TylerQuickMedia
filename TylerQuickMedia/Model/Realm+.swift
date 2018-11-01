@@ -9,36 +9,10 @@
 import Foundation
 import RealmSwift
 
-extension Results {
-    func toArray<T>(ofType: T.Type) -> [T] {
-        var array = [T]()
-        for i in 0 ..< count {
-            if let result = self[i] as? T {
-                array.append(result)
-            }
-        }
-
-        return array
-    }
-}
-
-extension List {
-    func toArray<T>(ofType: T.Type) -> [T] {
-        var array = [T]()
-        for i in 0 ..< count {
-            if let result = self[i] as? T {
-                array.append(result)
-            }
-        }
-
-        return array
-    }
-}
-
 extension Realm {
     func filter<ParentType: Object>(parentType: ParentType.Type, subclasses: [ParentType.Type], predicate: NSPredicate) -> [ParentType] {
         return ([parentType] + subclasses).flatMap { classType in
-            return Array(self.objects(classType).filter(predicate))
+            return self.objects(classType).filter(predicate)
         }
     }
 }

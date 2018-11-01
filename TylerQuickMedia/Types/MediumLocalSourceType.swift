@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import RealmSwift
 import RxSwift
 
-protocol MediumLocalSourceType {
-    func getMedium(_ keyword: String) -> Single<[Medium]>
-    func getSearchResult(_ keyword: String) -> MediumSearchResult
-    func saveMedium(_ medium: [Medium])
-    func saveSearchResult(_ searchResult: MediumSearchResult)
+protocol MediumLocalSourceType: RealmLocalSourceType {
+    func getMedium(_ mediumIds: [String]) -> [Medium]
+    func getSearchResult(_ keyword: String) -> MediumSearchResult?
+//    func save<T: Object>(obj: T, update: Bool) -> T
+//    func save<T: Object>(obj: [T], update: Bool)
 }

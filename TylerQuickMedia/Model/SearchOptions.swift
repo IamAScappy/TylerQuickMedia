@@ -10,16 +10,17 @@ import Foundation
 
 struct SearchCategoryOptionType: OptionSet {
     let rawValue: Int
-    static let kakaoImage = SearchCategoryOptionType(rawValue: 0)
-    static let  kakaoVClip = SearchCategoryOptionType(rawValue: 1)
-    static let  naverImage = SearchCategoryOptionType(rawValue: 2)
+    static let kakaoImage = SearchCategoryOptionType(rawValue: 1)
+    static let  kakaoVClip = SearchCategoryOptionType(rawValue: 2)
+    static let  naverImage = SearchCategoryOptionType(rawValue: 4)
     
     static let kakao: SearchCategoryOptionType = [.kakaoImage, .kakaoVClip]
     static let naver: SearchCategoryOptionType = [.naverImage]
     static let all: SearchCategoryOptionType = [.kakaoImage, .kakaoVClip, .naverImage]
+    
 }
 
-enum SearchSortType: String {
+@objc enum SearchSortType: Int {
     case accuracy
     case recency
 }

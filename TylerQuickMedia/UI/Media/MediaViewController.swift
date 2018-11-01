@@ -30,7 +30,6 @@ class MediaViewController: UIViewController, HasDisposeBag, DeallocationView {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         uiCollectionView.collectionViewLayout = pinterestLayout
         enableMemoryLeakCheck(disposeBag)
         self.emptyStateDataSource = self

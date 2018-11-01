@@ -12,7 +12,7 @@ import RxSwift
 
 @testable import TylerQuickMedia
 
-extension MockKakaoDataSourceType {
+extension MockKakaoRemoteSourceType {
     func mockSample() {
         stub(self, block: { mock in
             let vclipSample = ResourcesLoader<KakaoVClipResponse>().loadJson("kakaoVclipResponse")
@@ -29,7 +29,7 @@ extension MockKakaoDataSourceType {
     }
 }
 
-extension MockNaverDataSourceType {
+extension MockNaverRemoteSourceType {
     func mockSample() {
         stub(self, block: { mock in
             when(mock.searchImages(any())).then({ req in

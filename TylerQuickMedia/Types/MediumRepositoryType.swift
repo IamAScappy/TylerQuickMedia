@@ -11,8 +11,12 @@ import RxSwift
 
 protocol MediumRepositoryType {
     func searchMedium(_ keyword: String, searchOptions: SearchCategoryOptionType, sortOptions: SearchSortType) -> Single<[Medium]>
+    func nextMedium(_ keyword: String) -> Single<[Medium]>
 }
 extension MediumRepositoryType {
+    func nextMedium(_ keyword: String) -> Single<[Medium]> {
+        return nextMedium(keyword)
+    }
     func searchMedium(
         _ keyword: String,
         searchOptions: SearchCategoryOptionType = SearchCategoryOptionType.all,

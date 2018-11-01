@@ -1,30 +1,29 @@
 import Diff
+import Moya
 import ReactorKit
 import RxDataSources
 import RxSwift
 import UIKit
-
+import SwiftyBeaver
 extension MediaViewController: View, StoryboardView {
-    // swiftlint:disable:next function_body_length
     func bind(reactor: MediaReactor) {
         logger.debug("bind")
 
+        let sc = SerialDispatchQueueScheduler(internalSerialQueueName: "test")
         uiCollectionView.rx.reachedBottom
             .withLatestFrom(reactor.state.map { $0.isLoading })
             .filter { !$0 }
-            .withLatestFrom(searchController.searchBar.rx.text.orEmpty)
-            .filter({ !$0.isEmpty })
-            .map { Reactor.Action.searchMedium(keyword: $0) }
+            .map { _ in Reactor.Action.nextPage }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
 
         searchController.searchBar.rx.text
             .orEmpty
-            .debounce(1, scheduler: MainScheduler.asyncInstance)
+            .debounce(1, scheduler: sc)
             .distinctUntilChanged()
             .filter({ !$0.isEmpty })
             .do(onNext: { keyword in logger.debug("Media query: \(keyword)") })
-            .map { Reactor.Action.searchMedium(keyword: $0) }
+            .map { Reactor.Action.searchMedium($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
 

@@ -11,6 +11,8 @@ import RealmSwift
 
 class MediumSearchResult: Object {
     @objc dynamic var query: String = ""
+    @objc dynamic var sortType: SearchSortType = .recency
+    @objc dynamic var categoryType: Int = SearchCategoryOptionType.all.rawValue
     let medium_ids = List<String>()
     @objc dynamic var nextInfo: NextInfo? = NextInfo()
     @objc dynamic var updatedTime: Date = Date()
