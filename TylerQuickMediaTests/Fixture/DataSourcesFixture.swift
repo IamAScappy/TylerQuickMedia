@@ -12,6 +12,22 @@ import RxSwift
 
 @testable import TylerQuickMedia
 
+extension MockMediumRemoteSourceType {
+//    func category() {
+//        stub(self, block: { mock in
+//            let kakaoVclip = ResourcesLoader<KakaoVClipResponse>().loadJson("category_kakao_vclip")
+//            let kakaoImage = ResourcesLoader<KakaoImageResponse>().loadJson("category_kakao_image")
+//            let naverImage = ResourcesLoader<NaverImageResponse>().loadJson("category_naver_image")
+//            when(mock.searchMedium(
+//                any(),
+//                nextInfo: any(),
+//                sortOptions: any(),
+//                searchOptions: any()).searchImages(any())).thenReturn(Single.just(imageSample))
+//        })
+//    }
+}
+
+
 extension MockKakaoRemoteSourceType {
     func mockSample() {
         stub(self, block: { mock in

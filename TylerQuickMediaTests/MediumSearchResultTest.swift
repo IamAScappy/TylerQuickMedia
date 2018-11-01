@@ -12,8 +12,8 @@ import Nimble
 import Quick
 import RealmSwift
 import Realm
-
 @testable import TylerQuickMedia
+
 class MediumSearchResultTest: RealmSpec {
     override func spec() {
         super.spec()
@@ -34,18 +34,5 @@ class MediumSearchResultTest: RealmSpec {
                 expect(results.last?.id) == a1.makeIdString(query: a1.query, sortType: a1.sortType)
             })
         }
-//        describe("같은 Query 같은 SortType") {
-//            it("중복 체크", closure: {
-//                do {
-//                    try! realm.write {
-//                        realm.add(a1, update: true)
-//                        realm.add(a2)
-//                    }
-//                    fail()
-//                } catch let e {
-//                    succeed()
-//                }
-//            })
-//        }
     }
 }

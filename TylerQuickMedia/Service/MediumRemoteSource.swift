@@ -9,7 +9,13 @@
 import Foundation
 import RxSwift
 
+struct ProccessingMedium {
+    let pageInfo: PageInfo
+    let items: [Medium]
+}
+
 class MediumRemoteSource: MediumRemoteSourceType {
+    
     private let kakaoService: KakaoRemoteSourceType
     private let naverService: NaverRemoteSourceType
 
@@ -18,24 +24,28 @@ class MediumRemoteSource: MediumRemoteSourceType {
         self.naverService = naverService
     }
 
-    func searchMedium(_ keyword: String, nextInfo: NextInfo, sortOptions: SearchSortType, searchOptions: SearchCategoryOptionType) -> Single<[ProccessingMedium]> {
+    func searchMedium(searchResult: MediumSearchResult) -> Single<(NextInfo, [Medium])> {
         let pageSize = UserDefaults.standard.getPageSize()
-        let pageInfos = [nextInfo.kakaoImageNext, nextInfo.kakaoVClipNext, nextInfo.naverImageNext]
+        let pageInfos = [searchResult.nextInfo?.kakaoImageNext, searchResult.nextInfo?.kakaoVClipNext, searchResult.nextInfo?.naverImageNext]
+        let keyword = searchResult.query
+        let categoryOptions = SearchCategoryOptionType(rawValue: searchResult.categoryType)
+        let sortOptions = searchResult.sortType
+        
         let requests = pageInfos.compactMap { page -> Single<ProccessingMedium>? in
             guard let page = page else { return nil }
             switch page.dataSourceType {
             case DataSourceType.kakaoImage:
-                guard searchOptions.contains(.kakaoImage) else { return nil }
+                guard categoryOptions.contains(.kakaoImage) else { return nil }
                 return self.kakaoService.searchImages(
                     KakaoMediumRequest(query: keyword, page: page.next, size: pageSize, sort: KakaoMediumRequest.mapSortType(sortOptions)))
                     .map { ProccessingMedium(pageInfo: page.increase(isEnd: $0.isEnd()), items: $0.documents) }
             case DataSourceType.kakaoVClip:
-                guard searchOptions.contains(.kakaoVClip) else { return nil }
+                guard categoryOptions.contains(.kakaoVClip) else { return nil }
                 return self.kakaoService.searchVclip(
                     KakaoMediumRequest(query: keyword, page: page.next, size: pageSize, sort: KakaoMediumRequest.mapSortType(sortOptions)))
                     .map { ProccessingMedium(pageInfo: page.increase(isEnd: $0.isEnd()), items: $0.documents) }
             case DataSourceType.naverImage:
-                guard searchOptions.contains(.naverImage) else { return nil }
+                guard categoryOptions.contains(.naverImage) else { return nil }
                 return self.naverService.searchImages(
                     NaverMediumRequest(query: keyword, start: page.next, display: pageSize, sort: NaverMediumRequest.mapSortType(sortOptions)))
                     .map { ProccessingMedium(pageInfo: page.increase(isEnd: $0.isEnd()), items: $0.items) }
@@ -43,6 +53,11 @@ class MediumRemoteSource: MediumRemoteSourceType {
             }
         }
         return Single.zip(requests)
+            .map({ proccessingMediums in
+                let pageInfos = proccessingMediums.map { $0.pageInfo }
+                let mediums = proccessingMediums.flatMap({ $0.items })
+                return (NextInfo(pageInfos: pageInfos), mediums)
+            })
     }
 }
 

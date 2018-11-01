@@ -4,7 +4,7 @@ import ReactorKit
 import RxDataSources
 import RxSwift
 import UIKit
-import SwiftyBeaver
+
 extension MediaViewController: View, StoryboardView {
     func bind(reactor: MediaReactor) {
         logger.debug("bind")

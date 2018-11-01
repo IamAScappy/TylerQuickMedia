@@ -6,10 +6,11 @@
 //  Copyright © 2018년 tskim. All rights reserved.
 //
 
-import UIKit
 import RealmSwift
-import SwiftyBeaver
 import RxSwift
+import SwiftyBeaver
+import UIKit
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?

@@ -11,19 +11,19 @@ import Quick
 @testable import TylerQuickMedia
 
 class MediumBoundResourceTest: QuickSpec {
-    override func spec() {
-        
-        var subject: MediumBoundResource!
-        var remote: MockMediumRemoteSourceType!
-        var local: MockMediumLocalSourceType!
-        beforeEach {
-            remote = MockMediumRemoteSourceType()
-            local = MockMediumLocalSourceType()
-            subject = MediumBoundResource(remote: remote, local: local)
-        }
-        describe("") {
-            it("", closure: {
-            })
-        }
-    }
+//    override func spec() {
+//        
+//        var subject: MediumBoundResource!
+//        var remote: MockMediumRemoteSourceType!
+//        var local: MockMediumLocalSourceType!
+//        beforeEach {
+//            remote = MockMediumRemoteSourceType()
+//            local = MockMediumLocalSourceType()
+//            subject = MediumBoundResource(remote: remote, local: local)
+//        }
+//        describe("") {
+//            it("", closure: {
+//            })
+//        }
+//    }
 }
