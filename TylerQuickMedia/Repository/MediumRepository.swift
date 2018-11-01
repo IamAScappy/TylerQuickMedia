@@ -33,12 +33,11 @@ class MediumRepository: MediumRepositoryType {
         sortOptions: SearchSortType = .recency) -> Single<[Medium]> {
         guard !keyword.isEmpty else { return Single.just([]) }
         logger.debug("request keyword: [\(keyword)] searchOptions: [\(searchOptions)] sortOptions: [\(sortOptions)]")
-        let request = RequestParam(keyword: keyword, sortOptions: sortOptions, searchOptions: searchOptions)
-        guard let searchResult = MediumSearchResult.query(keyword).last else { return self.createRemoteCall(searchResult: MediumSearchResult(query: keyword, sortType: SearchSortType.defaultType)) }
-        if shouldFetch(request, searchResult: searchResult) {
+        guard let searchResult = MediumSearchResult.query(keyword).last else { return self.createRemoteCall(searchResult: MediumSearchResult(query: keyword)) }
+        if shouldFetch(searchResult: searchResult) {
             return self.createRemoteCall(searchResult: searchResult)
         } else {
-            let data = self.loadFromLocal(request, mediumIds: Array(searchResult.medium_ids))
+            let data = self.loadFromLocal(mediumIds: Array(searchResult.medium_ids))
             if data.isEmpty {
                 return self.createRemoteCall(searchResult: searchResult)
             } else {
@@ -53,13 +52,13 @@ extension MediumRepository {
         data.save()
     }
 
-    func shouldFetch(_ req: RequestParam, searchResult: MediumSearchResult?) -> Bool {
+    func shouldFetch(searchResult: MediumSearchResult?) -> Bool {
         guard let result = searchResult else { return true }
         return self.needFresh(lastestDate: result.updatedTime)
     }
 
-    func loadFromLocal(_ req: RequestParam, mediumIds: [String]) -> [Medium] {
-        logger.debug("loadFromLocal request: [\(req)]")
+    func loadFromLocal(mediumIds: [String]) -> [Medium] {
+        logger.debug("loadFromLocal request")
         return mediumIds.getMediumFromIds()
     }
 

@@ -22,7 +22,7 @@ class MediumSearchResultTest: RealmSpec {
             var a1: MediumSearchResult!
             var results: [MediumSearchResult]!
             beforeEach {
-                a1 = MediumSearchResult(query: query, sortType: SearchSortType.defaultType)
+                a1 = MediumSearchResult(query: query)
                 a1.save(update: true)
                 results = MediumSearchResult.query(query)
             }

@@ -18,19 +18,11 @@ class MediumSearchResult: Object {
     @objc dynamic var nextInfo: NextInfo? = NextInfo()
     @objc dynamic var updatedTime: Date = Date()
 
-    convenience init(query: String, sortType: SearchSortType) {
+    convenience init(query: String, sortType: SearchSortType = .recency, categoryType: SearchCategoryOptionType = [.all]) {
         self.init()
         self.id = makeIdString(query: query, sortType: sortType)
+        self.categoryType = categoryType.rawValue
         self.query = query
-        self.nextInfo = NextInfo()
-    }
-
-    convenience init(query: String, sortType: SearchSortType, nextInfo: NextInfo, ids: [String]) {
-        self.init()
-        self.id = makeIdString(query: query, sortType: sortType)
-        self.query = query
-        self.nextInfo = nextInfo
-        self.medium_ids.append(objectsIn: ids)
     }
 
     func makeIdString(query: String, sortType: SearchSortType) -> String {
