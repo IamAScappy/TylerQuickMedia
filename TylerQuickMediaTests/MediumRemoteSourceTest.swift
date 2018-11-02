@@ -32,7 +32,6 @@ class MediumRemoteSourceTest: QuickSpec {
             subject.searchMedium(searchResult: searchResult)
                 .asObservable()
                 .toBlocking(timeout: 0.1)
-            
         }
         describe("Sort Test") {
             beforeEach {

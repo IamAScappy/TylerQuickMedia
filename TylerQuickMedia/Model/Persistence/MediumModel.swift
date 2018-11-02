@@ -24,7 +24,7 @@ struct MediumModel: Equatable, HasMedia {
     let title: String
     let width: Int
     let height: Int
-    let dateTime: String
+    let dateTime: Date
 }
 
 //extension MediumModel: IdentifiableType {

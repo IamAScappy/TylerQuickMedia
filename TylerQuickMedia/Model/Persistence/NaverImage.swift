@@ -38,6 +38,6 @@ extension NaverImage: MediumConvetableModel {
     func toMediumModel() -> MediumModel {
         let width = Int(self.sizewidth) ?? 0
         let height = Int(self.sizeheight) ?? 0
-        return MediumModel(type: .image, thumbnail: self.thumbnail, origin: self.origin, title: self.title, width: width, height: height, dateTime: "")
+        return MediumModel(type: .image, thumbnail: self.thumbnail, origin: self.origin, title: self.title, width: width, height: height, dateTime: Date())
     }
 }

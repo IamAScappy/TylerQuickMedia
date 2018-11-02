@@ -18,7 +18,7 @@ class KakaoImage: Medium, Decodable, HasMedia {
     @objc dynamic var height: Int = 0
     @objc dynamic var displaySiteName: String = ""
     @objc dynamic var doc_url: String = ""
-    @objc dynamic var datetime: String = ""
+    @objc dynamic var datetime: Date? = nil
 
     enum CodingKeys: String, CodingKey {
         case collection
@@ -40,12 +40,13 @@ class KakaoImage: Medium, Decodable, HasMedia {
         height = try values.decode(Int.self, forKey: .height)
         displaySiteName = try values.decode(String.self, forKey: .displaySiteName)
         doc_url = try values.decode(String.self, forKey: .doc_url)
-        datetime = try values.decode(String.self, forKey: .datetime)
+        datetime = DateFormatter.iso8601Format(try values.decode(String.self, forKey: .datetime))
+        
     }
 }
 
 extension KakaoImage: MediumConvetableModel {
     func toMediumModel() -> MediumModel {
-        return MediumModel(type: .image, thumbnail: self.thumbnail, origin: self.origin, title: self.displaySiteName, width: self.width, height: self.height, dateTime: self.datetime)
+        return MediumModel(type: .image, thumbnail: self.thumbnail, origin: self.origin, title: self.displaySiteName, width: self.width, height: self.height, dateTime: self.datetime ?? Date())
     }
 }

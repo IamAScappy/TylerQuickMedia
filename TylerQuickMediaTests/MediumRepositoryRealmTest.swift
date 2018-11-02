@@ -15,7 +15,14 @@ import RxBlocking
 @testable import TylerQuickMedia
 
 class MediumRepositoryRealmTest: RealmSpec {
-//    override func spec() {
+    override func spec() {
+        super.spec()
+        var realm: Realm!
+        var repository: MediumRepository!
+        beforeEach {
+//            realm = Realm()
+        }
+    }
 //        var realm: Realm!
 //        var repository: MediumRepository!
 //        var service: MediumServiceType!
