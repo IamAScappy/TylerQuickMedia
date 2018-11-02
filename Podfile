@@ -12,6 +12,7 @@ target 'TylerQuickMedia' do
   pod 'Then', '~> 2.4.0'
   pod 'PinterestLayout', '~> 1.0.3'
   pod 'Firebase/Core'
+  
   # Pods for ShowMap
   post_install do |installer|
       installer.pods_project.targets.each do |target|
