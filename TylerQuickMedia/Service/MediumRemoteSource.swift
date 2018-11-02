@@ -36,15 +36,18 @@ class MediumRemoteSource: MediumRemoteSourceType {
             switch page.dataSourceType {
             case DataSourceType.kakaoImage:
                 guard categoryOptions.contains(.kakaoImage) else { return nil }
+                if page.isEnd { return Observable.empty().asSingle() }
                 return self.kakaoService.searchImages(
                     KakaoMediumRequest(query: keyword, page: page.next, size: pageSize, sort: KakaoMediumRequest.mapSortType(sortOptions)))
                     .map { ProccessingMedium(pageInfo: page.increase(isEnd: $0.isEnd()), items: $0.documents) }
             case DataSourceType.kakaoVClip:
+                if page.isEnd { return Observable.empty().asSingle() }
                 guard categoryOptions.contains(.kakaoVClip) else { return nil }
                 return self.kakaoService.searchVclip(
                     KakaoMediumRequest(query: keyword, page: page.next, size: pageSize, sort: KakaoMediumRequest.mapSortType(sortOptions)))
                     .map { ProccessingMedium(pageInfo: page.increase(isEnd: $0.isEnd()), items: $0.documents) }
             case DataSourceType.naverImage:
+                if page.isEnd { return Observable.empty().asSingle() }
                 guard categoryOptions.contains(.naverImage) else { return nil }
                 return self.naverService.searchImages(
                     NaverMediumRequest(query: keyword, start: page.next, display: pageSize, sort: NaverMediumRequest.mapSortType(sortOptions)))

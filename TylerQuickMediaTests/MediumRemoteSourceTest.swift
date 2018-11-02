@@ -83,6 +83,19 @@ class MediumRemoteSourceTest: QuickSpec {
                 expect(try! data.last()?.0.kakaoVClipNext?.next) == 2
                 expect(try! data.last()?.0.naverImageNext?.next) == 1
             })
+            it("isEnd = true 인 경우 요청하지 않음", closure: {
+                let searchResult = MediumSearchResult(query: "test", sortType: SearchSortType.accuracy, categoryType: .kakao)
+                searchResult.nextInfo?.naverImageNext?.isEnd = true
+                searchResult.nextInfo?.kakaoImageNext?.isEnd = true
+                let data = subject.searchMedium(searchResult: searchResult)
+                    .asObservable()
+                    .toBlocking(timeout: 0.1)
+                
+                verify(kakaoService, never()).searchImages(any())
+                verify(naverService, never()).searchImages(any())
+                
+                verify(kakaoService, times(1)).searchVclip(any())
+            })
         }
         describe("Category Test") {
             beforeEach {
