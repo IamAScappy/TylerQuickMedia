@@ -10,7 +10,7 @@ import Foundation
 
 struct NaverImageResponse: Decodable, MediumResponsable {
     func isEnd() -> Bool {
-        return self.start == self.total || start >= NaverImageResponse.limitPage
+        return self.start == self.total || start > NaverImageResponse.limitPage || items.isEmpty
     }
 
     let display: Int
@@ -20,5 +20,5 @@ struct NaverImageResponse: Decodable, MediumResponsable {
     let items: [NaverImage]
 }
 extension NaverImageResponse {
-    static var limitPage = 1000
+    static var limitPage = 1_000
 }
