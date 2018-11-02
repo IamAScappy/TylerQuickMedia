@@ -39,13 +39,23 @@ class MediumRemoteSourceTest: QuickSpec {
                 kakaoService.sortSample()
                 naverService.sortSample()
             }
-            it("Kakao Image Sort [Recency]", closure: {
+            it("Kakao Image [recency]", closure: {
                 let searchResult = MediumSearchResult(query: "test", sortType: SearchSortType.recency, categoryType: .kakaoImage)
                 let data = subject.searchMedium(searchResult: searchResult)
                     .asObservable()
                     .toBlocking(timeout: 0.1)
                 let actualData = try! data.last()?.1.excludeObjectId()
                 let expectData = kakaoService.sortRecencyImage.documents.excludeObjectId()
+                expect(actualData?.first!.equalMedia(expectData.first!)) == true
+                expect(actualData?.last!.equalMedia(expectData.last!)) == true
+            })
+            it("Naver Image [accuracy]", closure: {
+                let searchResult = MediumSearchResult(query: "test", sortType: SearchSortType.accuracy, categoryType: .naver)
+                let data = subject.searchMedium(searchResult: searchResult)
+                    .asObservable()
+                    .toBlocking(timeout: 0.1)
+                let actualData = try! data.last()?.1.excludeObjectId()
+                let expectData = naverService.sortDateImage.items.excludeObjectId()
                 expect(actualData?.last!.equalMedia(expectData.last!)) == true
             })
         }
