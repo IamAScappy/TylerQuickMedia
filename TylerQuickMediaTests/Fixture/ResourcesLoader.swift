@@ -8,9 +8,9 @@
 import Foundation
 @testable import TylerQuickMedia
 
-class ResourcesLoader<T: Decodable> {
-    func loadJson(_ resource: String) -> T {
-        let testBundle = Bundle(for: type(of: self))
+class ResourcesLoader {
+    static func loadJson<T: Decodable>(_ resource: String) -> T {
+        let testBundle = Bundle(for: self)
         if let path = testBundle.path(forResource: resource, ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
@@ -20,5 +20,16 @@ class ResourcesLoader<T: Decodable> {
             }
         }
         fatalError("can't decode \(T.self)")
+    }
+    static func readData(_ resource: String) -> Data {
+        let testBundle = Bundle(for: self)
+        if let path = testBundle.path(forResource: resource, ofType: "json") {
+            do {
+                return try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            } catch {
+                
+            }
+        }
+        fatalError("can't read data")
     }
 }

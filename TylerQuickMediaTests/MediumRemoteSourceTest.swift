@@ -13,6 +13,8 @@ import Quick
 import RxBlocking
 import Cuckoo
 import Then
+import RxSwift
+import Moya
 @testable import TylerQuickMedia
 class MediumRemoteSourceTest: QuickSpec {
     override func spec() {
@@ -58,6 +60,30 @@ class MediumRemoteSourceTest: QuickSpec {
                 expect(actualData?.last!.equalMedia(expectData.last!)) == true
             })
         }
+        describe("Next page Test") {
+            beforeEach {
+                kakaoService.pageSample()
+                naverService.pageSample()
+            }
+            it("네트워크 요청 성공 [모두 Next 2]", closure: {
+                let searchResult = MediumSearchResult(query: "test", sortType: SearchSortType.accuracy, categoryType: .all)
+                let data = subject.searchMedium(searchResult: searchResult)
+                    .asObservable()
+                    .toBlocking(timeout: 0.1)
+                expect(try! data.last()?.0.kakaoImageNext?.next) == 2
+                expect(try! data.last()?.0.kakaoVClipNext?.next) == 2
+                expect(try! data.last()?.0.naverImageNext?.next) == 2
+            })
+            it("카카오 네트워크 요청 성공 [카카오만 Next 2]", closure: {
+                let searchResult = MediumSearchResult(query: "test", sortType: SearchSortType.accuracy, categoryType: .kakao)
+                let data = subject.searchMedium(searchResult: searchResult)
+                    .asObservable()
+                    .toBlocking(timeout: 0.1)
+                expect(try! data.last()?.0.kakaoImageNext?.next) == 2
+                expect(try! data.last()?.0.kakaoVClipNext?.next) == 2
+                expect(try! data.last()?.0.naverImageNext?.next) == 1
+            })
+        }
         describe("Category Test") {
             beforeEach {
                 kakaoService.mockSample()
@@ -65,31 +91,31 @@ class MediumRemoteSourceTest: QuickSpec {
             }
             it("[all]", closure: {
                 categoryTest([.all], test: {
-                    verify(naverService, times(1)).searchImages(any())
-                    verify(kakaoService, times(1)).searchImages(any())
-                    verify(kakaoService, times(1)).searchVclip(any())
-                })
+                        verify(naverService, times(1)).searchImages(any())
+                        verify(kakaoService, times(1)).searchImages(any())
+                        verify(kakaoService, times(1)).searchVclip(any())
+                    })
             })
             it("[kakako]", closure: {
                 categoryTest([.kakao], test: {
-                    verify(naverService, never()).searchImages(any())
-                    verify(kakaoService, times(1)).searchImages(any())
-                    verify(kakaoService, times(1)).searchVclip(any())
-                })
+                        verify(naverService, never()).searchImages(any())
+                        verify(kakaoService, times(1)).searchImages(any())
+                        verify(kakaoService, times(1)).searchVclip(any())
+                    })
             })
             it("[naver]", closure: {
                 categoryTest([.naver], test: {
-                    verify(naverService, times(1)).searchImages(any())
-                    verify(kakaoService, never()).searchImages(any())
-                    verify(kakaoService, never()).searchVclip(any())
-                })
+                        verify(naverService, times(1)).searchImages(any())
+                        verify(kakaoService, never()).searchImages(any())
+                        verify(kakaoService, never()).searchVclip(any())
+                    })
             })
             it("[kakakoImage naverImage]", closure: {
                 categoryTest([.naver, .kakaoImage], test: {
-                    verify(naverService, times(1)).searchImages(any())
-                    verify(kakaoService, times(1)).searchImages(any())
-                    verify(kakaoService, never()).searchVclip(any())
-                })
+                        verify(naverService, times(1)).searchImages(any())
+                        verify(kakaoService, times(1)).searchImages(any())
+                        verify(kakaoService, never()).searchVclip(any())
+                    })
             })
         }
     }
