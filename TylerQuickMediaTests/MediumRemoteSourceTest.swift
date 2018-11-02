@@ -46,8 +46,7 @@ class MediumRemoteSourceTest: QuickSpec {
                     .toBlocking(timeout: 0.1)
                 let actualData = try! data.last()?.1.excludeObjectId()
                 let expectData = kakaoService.sortRecencyImage.documents.excludeObjectId()
-                
-                expect(actualData?.last!) == expectData.last
+                expect(actualData?.last!.equalMedia(expectData.last!)) == true
             })
         }
         describe("Category Test") {
@@ -86,4 +85,3 @@ class MediumRemoteSourceTest: QuickSpec {
         }
     }
 }
-

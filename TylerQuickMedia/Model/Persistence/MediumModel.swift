@@ -17,10 +17,10 @@ enum MediumType: String {
     case image
 }
 
-struct MediumModel: Equatable {
+struct MediumModel: Equatable, HasMedia {
     let type: MediumType
     let thumbnail: String
-    let  origin: String
+    let origin: String
     let title: String
     let width: Int
     let height: Int

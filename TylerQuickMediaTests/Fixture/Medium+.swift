@@ -10,3 +10,11 @@ extension Array where Element: Medium {
         }
     }
 }
+
+extension Medium {
+    func equalMedia<T: Medium>(_ other: T) -> Bool {
+        guard let my = self as? HasMedia else { return false }
+        guard let other = other as? HasMedia else { return false }
+        return my.origin == other.origin && my.thumbnail == other.thumbnail
+    }
+}
