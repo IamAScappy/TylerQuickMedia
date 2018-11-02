@@ -13,17 +13,18 @@ import RxSwift
 class MediumRepository: MediumRepositoryType {
     private let remote: MediumRemoteSourceType
     private let scheduler: RxDispatchQueue
+    
     init(remote: MediumRemoteSourceType, scheduler: RxDispatchQueue) {
         self.remote = remote
         self.scheduler = scheduler
     }
 
     func nextMedium(
-        _ keyword: String) -> Single<[Medium]> {
+        _ keyword: String, sortOptions: SearchSortType) -> Single<[Medium]> {
         guard !keyword.isEmpty else { return Single.just([]) }
         logger.debug("next page keyword: [\(keyword)]")
 
-        guard let searchResult = MediumSearchResult.query(keyword).last else { return Single.just([]) }
+        guard let searchResult = MediumSearchResult.findSearchResultById(keyword, sortType: sortOptions) else { return Single.just([]) }
         return self.createRemoteCall(searchResult: searchResult)
     }
     
@@ -33,7 +34,7 @@ class MediumRepository: MediumRepositoryType {
         sortOptions: SearchSortType = .recency) -> Single<[Medium]> {
         guard !keyword.isEmpty else { return Single.just([]) }
         logger.debug("request keyword: [\(keyword)] searchOptions: [\(searchOptions)] sortOptions: [\(sortOptions)]")
-        guard let searchResult = MediumSearchResult.query(keyword).last else { return self.createRemoteCall(searchResult: MediumSearchResult(query: keyword)) }
+        guard let searchResult = MediumSearchResult.findSearchResultById(keyword, sortType: sortOptions) else { return self.createRemoteCall(searchResult: MediumSearchResult(query: keyword)) }
         if shouldFetch(searchResult: searchResult) {
             return self.createRemoteCall(searchResult: searchResult)
         } else {

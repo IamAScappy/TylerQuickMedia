@@ -20,15 +20,11 @@ class MediumSearchResult: Object {
 
     convenience init(query: String, sortType: SearchSortType = .recency, categoryType: SearchCategoryOptionType = [.all]) {
         self.init()
-        self.id = makeIdString(query: query, sortType: sortType)
+        self.id = MediumSearchResult.makeIdString(query: query, sortType: sortType)
         self.categoryType = categoryType.rawValue
         self.query = query
     }
 
-    func makeIdString(query: String, sortType: SearchSortType) -> String {
-        return "\(query)_\(sortType.rawValue)"
-    }
-    
     override static func primaryKey() -> String {
         return "id"
     }
@@ -38,8 +34,12 @@ class MediumSearchResult: Object {
 }
 
 extension MediumSearchResult {
-    static func query(_ query: String) -> [MediumSearchResult] {
+    static func findSearchResultById(_ query: String, sortType: SearchSortType) -> MediumSearchResult? {
+        let id = makeIdString(query: query, sortType: sortType)
         let realm = try? Realm()
-        return realm?.objects(MediumSearchResult.self).filter({ result in result.query == query }) ?? []
+        return realm?.objects(MediumSearchResult.self).filter("id == %@", id).last
+    }
+    static func makeIdString(query: String, sortType: SearchSortType) -> String {
+        return "\(query)_\(sortType.rawValue)"
     }
 }
