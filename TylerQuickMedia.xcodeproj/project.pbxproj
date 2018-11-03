@@ -37,7 +37,6 @@
 		BD34F027217C38680066023E /* Single+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F026217C38680066023E /* Single+Network.swift */; };
 		BD34F029217C45C50066023E /* DefaultAlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F028217C45C50066023E /* DefaultAlamofireManager.swift */; };
 		BD34F02E217C49AA0066023E /* AccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F02D217C49A90066023E /* AccessTokenPlugin.swift */; };
-		BD3EFE05218B1A3100C8D69C /* MediumMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EFE04218B1A3100C8D69C /* MediumMapper.swift */; };
 		BD3EFE07218B1DF300C8D69C /* RequestParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EFE06218B1DF300C8D69C /* RequestParam.swift */; };
 		BD3EFE09218B1EE900C8D69C /* MediumRemoteSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EFE08218B1EE900C8D69C /* MediumRemoteSourceTest.swift */; };
 		BD41860C2184718400C6B5C4 /* AppDelegate+Deallocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41860B2184718400C6B5C4 /* AppDelegate+Deallocation.swift */; };
@@ -171,7 +170,6 @@
 		BD34F026217C38680066023E /* Single+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Network.swift"; sourceTree = "<group>"; };
 		BD34F028217C45C50066023E /* DefaultAlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlamofireManager.swift; sourceTree = "<group>"; };
 		BD34F02D217C49A90066023E /* AccessTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenPlugin.swift; sourceTree = "<group>"; };
-		BD3EFE04218B1A3100C8D69C /* MediumMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumMapper.swift; sourceTree = "<group>"; };
 		BD3EFE06218B1DF300C8D69C /* RequestParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestParam.swift; sourceTree = "<group>"; };
 		BD3EFE08218B1EE900C8D69C /* MediumRemoteSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumRemoteSourceTest.swift; sourceTree = "<group>"; };
 		BD41860B2184718400C6B5C4 /* AppDelegate+Deallocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Deallocation.swift"; sourceTree = "<group>"; };
@@ -405,7 +403,6 @@
 		BD34F019217C26A10066023E /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				BD3EFE04218B1A3100C8D69C /* MediumMapper.swift */,
 				BD34F01A217C26C80066023E /* MediaViewController.swift */,
 				BDDF4CFF217DDEC900B6C4EC /* MediaViewController+Reactor.swift */,
 				BDDF4D01217DDF0600B6C4EC /* MediaViewController+EmptyState.swift */,
@@ -1277,7 +1274,6 @@
 				BD3EFE07218B1DF300C8D69C /* RequestParam.swift in Sources */,
 				BDC2C2F6217B843F00A30107 /* DictionarySerializable.swift in Sources */,
 				BD34F012217C1F370066023E /* KakaoApi.swift in Sources */,
-				BD3EFE05218B1A3100C8D69C /* MediumMapper.swift in Sources */,
 				BD945133217CC068001733B7 /* UIImage+GIF.swift in Sources */,
 				BD34F016217C1F650066023E /* KakaoRemoteSource.swift in Sources */,
 				BD657080217F43F9001F715A /* MediumRepository.swift in Sources */,

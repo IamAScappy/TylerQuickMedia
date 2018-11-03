@@ -21,3 +21,17 @@ class Medium: Object {
         return "id"
     }
 }
+
+extension Medium {
+    var viewModel: MediumModel {
+        if let kakaoImage = self as? KakaoImage {
+            return kakaoImage.toMediumModel()
+        } else if let kakaoVclip = self as? KakaoVclip {
+            return kakaoVclip.toMediumModel()
+        } else if let naverImage = self as? NaverImage {
+            return naverImage.toMediumModel()
+        } else {
+            fatalError()
+        }
+    }
+}

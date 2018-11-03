@@ -20,7 +20,7 @@ class MediumRepository: MediumRepositoryType {
     func nextMedium(
         _ keyword: String,
         searchOptions: SearchCategoryOptionType = SearchCategoryOptionType.all,
-        sortOptions: SearchSortType = .recency) -> Single<[Medium]> {
+        sortOptions: SearchSortType = .recency) -> Single<[MediumModel]> {
         guard !keyword.isEmpty else { return Single.just([]) }
         logger.debug("next page keyword: [\(getThreadName())] [\(keyword)]")
 
@@ -31,7 +31,7 @@ class MediumRepository: MediumRepositoryType {
     func searchMedium(
         _ keyword: String,
         searchOptions: SearchCategoryOptionType = SearchCategoryOptionType.all,
-        sortOptions: SearchSortType = .recency) -> Single<[Medium]> {
+        sortOptions: SearchSortType = .recency) -> Single<[MediumModel]> {
         guard !keyword.isEmpty else { return Single.just([]) }
         logger.debug("[\(getThreadName())] request keyword: [\(keyword)] searchOptions: [\(searchOptions)] sortOptions: [\(sortOptions.rawValue)]")
         guard let searchResult = MediumSearchResult.findSearchResultById(keyword, sortType: sortOptions) else {
@@ -47,7 +47,7 @@ class MediumRepository: MediumRepositoryType {
             if data.isEmpty {
                 return self.createRemoteCall(searchResult: searchResult)
             } else {
-                return Single.just(data)
+                return Single.just(data.map { $0.viewModel })
             }
         }
     }
@@ -68,11 +68,11 @@ extension MediumRepository {
         return mediumIds.getMediumFromIds()
     }
 
-    func createRemoteCall(searchResult: MediumSearchResult) -> PrimitiveSequence<SingleTrait, [Medium]> {
+    func createRemoteCall(searchResult: MediumSearchResult) -> PrimitiveSequence<SingleTrait, [MediumModel]> {
         logger.info("\(getThreadName())")
         let searchResultRef = ThreadSafeReference(to: searchResult)
         return self.remote.searchMedium(searchResult: searchResult)
-            .map { [unowned self] (nextInfo, mediums) in
+            .map { (nextInfo, mediums) in
                 logger.info("\(getThreadName())")
                 let realm = try? Realm()
                 guard let searchResult = realm?.resolve(searchResultRef) else { return [] }
@@ -84,10 +84,11 @@ extension MediumRepository {
                 }
                 let data = Array(searchResult.medium_ids).getMediumFromIds()
                 logger.debug("realm added query: [\(getThreadName())] [\(searchResult.query)] pages: [\(String(describing: searchResult.nextInfo))] ids: [\(String(describing: searchResult.medium_ids.count))] medium: [\(data.count)]")
-                return data
+                return data.map { $0.viewModel }
         }
     }
 }
+
 extension MediumRepository: TimeRateLimitable {
     var freshTime: Int {
         return 20 * 60 // 20 minute

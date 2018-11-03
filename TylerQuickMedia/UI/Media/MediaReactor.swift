@@ -12,7 +12,6 @@ import RxSwift
 class MediaReactor: Reactor {
     let initialState: State = State()
     private let repository: MediumRepositoryType
-    private let mapper = MediumMapper()
     private let scheduler: RxDispatchQueue
     
     init(_ repository: MediumRepositoryType, scheduler: RxDispatchQueue) {
@@ -50,10 +49,9 @@ class MediaReactor: Reactor {
             guard let keyword = self.currentState.keyword else { return Observable.just(.setLoading(false)) }
             return Observable.concat([
                 Observable.just(.setLoading(true)),
-                self.repository.nextMedium(keyword, searchOptions: [.all])
+                self.repository.nextMedium(keyword, searchOptions: [.all], sortOptions: .recency)
                     .subscribeOn(scheduler.io)
-                    .map { medium in medium.map(self.mapper.map) }
-                    .map { r in return Mutation.setMedium(r) }.asObservable(),
+                    .map { Mutation.setMedium($0) }.asObservable(),
                 Observable.just(.setLoading(false))
                 ])
                 .catchError { .just(.setError($0)) }
@@ -62,10 +60,9 @@ class MediaReactor: Reactor {
             return Observable.concat([
                 Observable.just(.setKeyword(keyword)),
                 Observable.just(.setLoading(true)),
-                self.repository.searchMedium(keyword, searchOptions: [.all])
+                self.repository.searchMedium(keyword, searchOptions: [.all], sortOptions: .recency)
                     .subscribeOn(scheduler.io)
-                    .map { medium in medium.map(self.mapper.map) }
-                    .map { r in return Mutation.setMedium(r) }.asObservable(),
+                    .map { Mutation.setMedium($0) }.asObservable(),
                 Observable.just(.setLoading(false))
                 ])
                 .catchError { .just(.setError($0)) }
