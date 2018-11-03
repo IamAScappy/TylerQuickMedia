@@ -11,11 +11,13 @@ import RxSwift
 
 class MediaReactor: Reactor {
     let initialState: State = State()
-    let repository: MediumRepositoryType
-    let mapper = MediumMapper()
+    private let repository: MediumRepositoryType
+    private let mapper = MediumMapper()
+    private let scheduler: RxDispatchQueue
     
-    init(_ repository: MediumRepositoryType) {
+    init(_ repository: MediumRepositoryType, scheduler: RxDispatchQueue) {
         self.repository = repository
+        self.scheduler = scheduler
     }
 
     enum Action {
@@ -48,7 +50,8 @@ class MediaReactor: Reactor {
             guard let keyword = self.currentState.keyword else { return Observable.just(.setLoading(false)) }
             return Observable.concat([
                 Observable.just(.setLoading(true)),
-                self.repository.nextMedium(keyword)
+                self.repository.nextMedium(keyword, searchOptions: [.all])
+                    .subscribeOn(scheduler.io)
                     .map { medium in medium.map(self.mapper.map) }
                     .map { r in return Mutation.setMedium(r) }.asObservable(),
                 Observable.just(.setLoading(false))
@@ -60,12 +63,12 @@ class MediaReactor: Reactor {
                 Observable.just(.setKeyword(keyword)),
                 Observable.just(.setLoading(true)),
                 self.repository.searchMedium(keyword, searchOptions: [.all])
+                    .subscribeOn(scheduler.io)
                     .map { medium in medium.map(self.mapper.map) }
                     .map { r in return Mutation.setMedium(r) }.asObservable(),
                 Observable.just(.setLoading(false))
                 ])
                 .catchError { .just(.setError($0)) }
-
         }
     }
     func reduce(state: State, mutation: Mutation) -> State {
@@ -85,16 +88,5 @@ class MediaReactor: Reactor {
             newState.keyword = keyword
         }
         return newState
-    }
-}
-
-extension MediaReactor {
-    private func searchMedium(_ keyword: String) -> Observable<Mutation> {
-        return self.repository.searchMedium(keyword, searchOptions: [.all])
-            .map { medium in medium.map(self.mapper.map) }
-            .map {
-                r in return Mutation.setMedium(r)
-            }
-            .asObservable()
     }
 }

@@ -10,12 +10,14 @@ import Foundation
 import RxSwift
 
 struct ProccessingMedium {
-    let pageInfo: PageInfo
+//    let pageInfo: PageInfo
+    let dataSourceType: DataSourceType
+    let next: Int
+    let isEnd: Bool
     let items: [Medium]
 }
 
 class MediumRemoteSource: MediumRemoteSourceType {
-    
     private let kakaoService: KakaoRemoteSourceType
     private let naverService: NaverRemoteSourceType
 
@@ -30,34 +32,42 @@ class MediumRemoteSource: MediumRemoteSourceType {
         let keyword = searchResult.query
         let categoryOptions = SearchCategoryOptionType(rawValue: searchResult.categoryType)
         let sortOptions = searchResult.sortType
-        
+        logger.info("\(getThreadName())")
         let requests = pageInfos.compactMap { page -> Single<ProccessingMedium>? in
+            logger.info("\(getThreadName())")
             guard let page = page else { return nil }
+            let nextPage = page.next
+            let dataSourceType = page.dataSourceType
             switch page.dataSourceType {
             case DataSourceType.kakaoImage:
                 guard categoryOptions.contains(.kakaoImage) else { return nil }
-                if page.isEnd { return Observable.empty().asSingle() }
-                return self.kakaoService.searchImages(
-                    KakaoMediumRequest(query: keyword, page: page.next, size: pageSize, sort: KakaoMediumRequest.mapSortType(sortOptions)))
-                    .map { ProccessingMedium(pageInfo: page.increase(isEnd: $0.isEnd()), items: $0.documents) }
+                guard !page.isEnd else { return nil }
+                return self.kakaoService.searchImages(KakaoMediumRequest(query: keyword, page: page.next, size: pageSize, sort: KakaoMediumRequest.mapSortType(sortOptions)))
+                    .map { ProccessingMedium(dataSourceType: dataSourceType, next: nextPage.increase(isEnd: $0.isEnd()), isEnd: $0.isEnd(), items: $0.documents) }
             case DataSourceType.kakaoVClip:
-                if page.isEnd { return Observable.empty().asSingle() }
                 guard categoryOptions.contains(.kakaoVClip) else { return nil }
+                guard !page.isEnd else { return nil }
                 return self.kakaoService.searchVclip(
                     KakaoMediumRequest(query: keyword, page: page.next, size: pageSize, sort: KakaoMediumRequest.mapSortType(sortOptions)))
-                    .map { ProccessingMedium(pageInfo: page.increase(isEnd: $0.isEnd()), items: $0.documents) }
+                    .map { ProccessingMedium(dataSourceType: dataSourceType, next: nextPage.increase(isEnd: $0.isEnd()), isEnd: $0.isEnd(), items: $0.documents) }
             case DataSourceType.naverImage:
-                if page.isEnd { return Observable.empty().asSingle() }
                 guard categoryOptions.contains(.naverImage) else { return nil }
+                guard !page.isEnd else { return nil }
                 return self.naverService.searchImages(
                     NaverMediumRequest(query: keyword, start: page.next, display: pageSize, sort: NaverMediumRequest.mapSortType(sortOptions)))
-                    .map { ProccessingMedium(pageInfo: page.increase(isEnd: $0.isEnd()), items: $0.items) }
+                    .map { ProccessingMedium(dataSourceType: dataSourceType, next: nextPage.increase(isEnd: $0.isEnd()), isEnd: $0.isEnd(), items: $0.items) }
             case .none: return nil
             }
         }
         return Single.zip(requests)
+            .do(onSuccess: { _ in
+                logger.info("\(getThreadName())")
+            })
             .map({ proccessingMediums in
-                let pageInfos = proccessingMediums.map { $0.pageInfo }
+                logger.info("\(getThreadName())")
+                let pageInfos = proccessingMediums.map {
+                    PageInfo(dataSourceType: $0.dataSourceType, next: $0.next, isEnd: $0.isEnd)
+                }
                 let mediums = proccessingMediums.flatMap({ $0.items })
                 return (NextInfo(pageInfos: pageInfos), mediums)
             })
@@ -85,5 +95,11 @@ private extension NaverMediumRequest {
 private extension PageInfo {
     func increase(isEnd: Bool) -> PageInfo {
         return PageInfo(dataSourceType: self.dataSourceType, next: isEnd ? next : next + 1, isEnd: isEnd)
+    }
+}
+
+private extension Int {
+    func increase(isEnd: Bool) -> Int {
+        return isEnd ? self : self + 1
     }
 }

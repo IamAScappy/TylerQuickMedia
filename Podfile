@@ -26,6 +26,7 @@ target 'TylerQuickMedia' do
   def testing_pods
     pod 'Quick', '~> 1.3'
     pod 'Nimble', '~> 7.3'
+    pod 'RxExpect'
 #    pod 'Nimble-Snapshots'
   end
   target 'TylerQuickMediaTests' do

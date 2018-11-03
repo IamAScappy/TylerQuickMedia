@@ -12,29 +12,34 @@ import RxSwift
 
 class MediumRepository: MediumRepositoryType {
     private let remote: MediumRemoteSourceType
-    private let scheduler: RxDispatchQueue
     
-    init(remote: MediumRemoteSourceType, scheduler: RxDispatchQueue) {
+    init(remote: MediumRemoteSourceType) {
         self.remote = remote
-        self.scheduler = scheduler
     }
 
     func nextMedium(
-        _ keyword: String, sortOptions: SearchSortType) -> Single<[Medium]> {
+        _ keyword: String,
+        searchOptions: SearchCategoryOptionType = SearchCategoryOptionType.all,
+        sortOptions: SearchSortType = .recency) -> Single<[Medium]> {
         guard !keyword.isEmpty else { return Single.just([]) }
-        logger.debug("next page keyword: [\(keyword)]")
+        logger.debug("next page keyword: [\(getThreadName())] [\(keyword)]")
 
         guard let searchResult = MediumSearchResult.findSearchResultById(keyword, sortType: sortOptions) else { return Single.just([]) }
         return self.createRemoteCall(searchResult: searchResult)
     }
-    
+
     func searchMedium(
         _ keyword: String,
         searchOptions: SearchCategoryOptionType = SearchCategoryOptionType.all,
         sortOptions: SearchSortType = .recency) -> Single<[Medium]> {
         guard !keyword.isEmpty else { return Single.just([]) }
-        logger.debug("request keyword: [\(keyword)] searchOptions: [\(searchOptions)] sortOptions: [\(sortOptions)]")
-        guard let searchResult = MediumSearchResult.findSearchResultById(keyword, sortType: sortOptions) else { return self.createRemoteCall(searchResult: MediumSearchResult(query: keyword)) }
+        logger.debug("[\(getThreadName())] request keyword: [\(keyword)] searchOptions: [\(searchOptions)] sortOptions: [\(sortOptions.rawValue)]")
+        guard let searchResult = MediumSearchResult.findSearchResultById(keyword, sortType: sortOptions) else {
+            let searchResult = MediumSearchResult(query: keyword)
+            searchResult.save()
+            return createRemoteCall(searchResult: searchResult)
+        }
+        
         if shouldFetch(searchResult: searchResult) {
             return self.createRemoteCall(searchResult: searchResult)
         } else {
@@ -64,17 +69,21 @@ extension MediumRepository {
     }
 
     func createRemoteCall(searchResult: MediumSearchResult) -> PrimitiveSequence<SingleTrait, [Medium]> {
+        logger.info("\(getThreadName())")
+        let searchResultRef = ThreadSafeReference(to: searchResult)
         return self.remote.searchMedium(searchResult: searchResult)
-            .subscribeOn(self.scheduler.network)
-            .observeOn(self.scheduler.io)
             .map { [unowned self] (nextInfo, mediums) in
-                mediums.save()
-                let mediumIds = mediums.map { $0.id }
-                searchResult.medium_ids.append(objectsIn: mediumIds)
-                searchResult.nextInfo = nextInfo
-                searchResult.save()
-                let data = mediumIds.getMediumFromIds()
-                logger.debug("realm added query: [\(searchResult.query)] pages: [\(String(describing: searchResult.nextInfo))] ids: [\(String(describing: searchResult.medium_ids.count))] medium: [\(data.count)]")
+                logger.info("\(getThreadName())")
+                let realm = try? Realm()
+                guard let searchResult = realm?.resolve(searchResultRef) else { return [] }
+                try? realm?.write {
+                    realm?.add(mediums, update: true)
+                    searchResult.medium_ids.append(objectsIn: mediums.map { $0.id })
+                    searchResult.nextInfo = nextInfo
+                    realm?.add(searchResult, update: true)
+                }
+                let data = Array(searchResult.medium_ids).getMediumFromIds()
+                logger.debug("realm added query: [\(getThreadName())] [\(searchResult.query)] pages: [\(String(describing: searchResult.nextInfo))] ids: [\(String(describing: searchResult.medium_ids.count))] medium: [\(data.count)]")
                 return data
         }
     }

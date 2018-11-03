@@ -12,8 +12,7 @@ import RxSwift
 
 extension PrimitiveSequence where TraitType == SingleTrait, Element == Response {
     func network<T: Decodable>() -> Single<T> {
-        return self.observeOn(SerialDispatchQueueScheduler(qos: .userInteractive))
-            .filterSuccessfulStatusCodes()
+        return filterSuccessfulStatusCodes()
             .map(T.self)
     }
 }

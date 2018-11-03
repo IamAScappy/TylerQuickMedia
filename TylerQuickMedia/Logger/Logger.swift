@@ -21,3 +21,9 @@ let logger: SwiftyBeaver.Type = {
     $0.addDestination(cloud)
     return $0
 }(SwiftyBeaver.self)
+
+extension SwiftyBeaver {
+    static func threadName() {
+        logger.info("current thread: [\(getThreadName())]")
+    }
+}

@@ -75,6 +75,7 @@
 		BDA76B3E218B479100D83FFE /* sort_kakao_image_recency.json in Resources */ = {isa = PBXBuildFile; fileRef = BDA76B3D218B479100D83FFE /* sort_kakao_image_recency.json */; };
 		BDA76B40218B47B300D83FFE /* sort_kakao_image_accuracy.json in Resources */ = {isa = PBXBuildFile; fileRef = BDA76B3F218B47B300D83FFE /* sort_kakao_image_accuracy.json */; };
 		BDA76B42218B578500D83FFE /* Medium+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA76B41218B578500D83FFE /* Medium+.swift */; };
+		BDB1B518218DF3F1004CC692 /* ReactorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB1B517218DF3F1004CC692 /* ReactorTests.swift */; };
 		BDB576DC218C7B0700466BC1 /* DateFormatter+ISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB576DB218C7B0700466BC1 /* DateFormatter+ISO8601.swift */; };
 		BDB576DE218C7DD100466BC1 /* ISO8601DateFommaterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB576DD218C7DD100466BC1 /* ISO8601DateFommaterTest.swift */; };
 		BDB576E1218C86A800466BC1 /* page_kakao_vclip_first.json in Resources */ = {isa = PBXBuildFile; fileRef = BDB576E0218C86A800466BC1 /* page_kakao_vclip_first.json */; };
@@ -211,6 +212,7 @@
 		BDA76B3D218B479100D83FFE /* sort_kakao_image_recency.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sort_kakao_image_recency.json; sourceTree = "<group>"; };
 		BDA76B3F218B47B300D83FFE /* sort_kakao_image_accuracy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sort_kakao_image_accuracy.json; sourceTree = "<group>"; };
 		BDA76B41218B578500D83FFE /* Medium+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medium+.swift"; sourceTree = "<group>"; };
+		BDB1B517218DF3F1004CC692 /* ReactorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorTests.swift; sourceTree = "<group>"; };
 		BDB576DB218C7B0700466BC1 /* DateFormatter+ISO8601.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+ISO8601.swift"; sourceTree = "<group>"; };
 		BDB576DD218C7DD100466BC1 /* ISO8601DateFommaterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601DateFommaterTest.swift; sourceTree = "<group>"; };
 		BDB576E0218C86A800466BC1 /* page_kakao_vclip_first.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = page_kakao_vclip_first.json; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 				BDC2C27C217B666800A30107 /* Info.plist */,
 				BD82C8712181E6450078081D /* RealmSpec.swift */,
 				BDB576F6218CA43C00466BC1 /* MediaReactorTest.swift */,
+				BDB1B517218DF3F1004CC692 /* ReactorTests.swift */,
 			);
 			path = TylerQuickMediaTests;
 			sourceTree = "<group>";
@@ -1005,15 +1008,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TylerQuickMediaTests/Pods-TylerQuickMediaTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxExpect/RxExpect.framework",
+				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxExpect.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1107,7 +1118,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Diff.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftRichString.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxRealm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Cuckoo.framework",
 			);
 			name = "[CP] Copy Carthage Resources";
 			outputFileListPaths = (
@@ -1185,15 +1196,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TylerQuickMediaUITests/Pods-TylerQuickMediaUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxExpect/RxExpect.framework",
+				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxExpect.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1282,6 +1301,7 @@
 				BDB576F3218C97CA00466BC1 /* KakaoRemoteSourceTest.swift in Sources */,
 				BD068C5221843AE200E62382 /* GeneratedMocks.swift in Sources */,
 				BD25702C2183823B00A8804E /* MediumRepositoryRealmTest.swift in Sources */,
+				BDB1B518218DF3F1004CC692 /* ReactorTests.swift in Sources */,
 				BD3EFE09218B1EE900C8D69C /* MediumRemoteSourceTest.swift in Sources */,
 				BDBDB96221802CCC00B1863C /* MediumRepositoryTest.swift in Sources */,
 				BDB576DE218C7DD100466BC1 /* ISO8601DateFommaterTest.swift in Sources */,

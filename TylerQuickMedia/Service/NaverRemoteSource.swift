@@ -19,6 +19,9 @@ class NaverRemoteSource: NaverRemoteSourceType {
     }
     func searchImages(_ param: NaverMediumRequest) -> Single<NaverImageResponse> {
         return self.provider.rx.request(.image(param))
+            .do(onSuccess: { _ in
+                logger.info("\(getThreadName())")
+            })
             .network()
     }
 }
