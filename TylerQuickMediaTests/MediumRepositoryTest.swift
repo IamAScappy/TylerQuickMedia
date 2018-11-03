@@ -21,7 +21,7 @@ class MediumRepositoryTest: QuickSpec {
             kakaoService = MockKakaoRemoteSourceType()
             naverService = MockNaverRemoteSourceType()
             remote = MediumRemoteSource(kakaoService: kakaoService, naverService: naverService)
-            subject = MediumRepository(remote: remote, scheduler: RxDispatchQueue())
+            subject = MediumRepository(remote: remote)
             kakaoService.pageSample()
             naverService.pageSample()
         }

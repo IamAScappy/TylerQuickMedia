@@ -18,21 +18,23 @@ class MediaReactorTest: RealmSpec {
             kakaoService = MockKakaoRemoteSourceType()
             naverService = MockNaverRemoteSourceType()
             remote = MediumRemoteSource(kakaoService: kakaoService, naverService: naverService)
-            repository = MediumRepository(remote: remote, scheduler: RxDispatchQueue())
+            repository = MediumRepository(remote: remote)
             kakaoService.pageSample()
             naverService.pageSample()
         }
         describe("MediaReactorTest") {
-            it("", closure: {
+            it("서치 할 경우 item 로드", closure: {
                 let test = RxExpect()
                 let reactor = test.retain(MediaReactor(repository, scheduler: RxDispatchQueue()))
                 let actions = test.scheduler.createHotObservable([
                     next(100, MediaReactor.Action.searchMedium("test"))
                     ])
                 actions.subscribe(reactor.action).disposed(by: test.disposeBag)
-                print("!!!!!!!! \(reactor.currentState)")
+                
                 test.assert(reactor.state) { events in
-                    print("!!!!!!!! \(events.elements)")
+                    expect(reactor.currentState.keyword).toEventually(equal("test"))
+                    expect(reactor.currentState.mediumModel?.count).toEventually(equal(9))
+                    expect(reactor.currentState.isLoading).toEventually(equal(false))
                 }
             })
         }
