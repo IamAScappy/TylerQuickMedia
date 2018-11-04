@@ -23,7 +23,7 @@ class Medium: Object {
 }
 
 extension Medium {
-    var viewModel: MediumModel {
+    var viewModel: MediumViewModel {
         if let kakaoImage = self as? KakaoImage {
             return kakaoImage.toMediumModel()
         } else if let kakaoVclip = self as? KakaoVclip {

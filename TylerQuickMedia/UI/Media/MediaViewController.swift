@@ -26,7 +26,7 @@ class MediaViewController: UIViewController, HasDisposeBag, DeallocationView {
     @IBOutlet weak var uiCollectionView: UICollectionView!
     let searchController = UISearchController(searchResultsController: nil)
     lazy var pinterestLayout = PinterestLayout()
-    var items: [MediumModel]?
+    var items: [MediumViewModel]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,11 +46,10 @@ class MediaViewController: UIViewController, HasDisposeBag, DeallocationView {
             $0.searchBar.placeholder = "검색어를 입력해 주세요."
         }
         uiCollectionView.do {
-            $0.register(MediaCollectionCell.self, forCellWithReuseIdentifier: MediaCollectionCell.swiftIdentifier)
+            $0.register(MediaPreviewCell.self, forCellWithReuseIdentifier: MediaPreviewCell.swiftIdentifier)
             $0.prefetchDataSource = self
             $0.dataSource = self
             $0.rx.setDelegate(self).disposed(by: disposeBag)
-            $0.backgroundColor = UIColor.white
         }
         pinterestLayout.do {
             $0.delegate = self
@@ -71,22 +70,16 @@ extension MediaViewController: PinterestLayoutDelegate {
         let height = withWidth * scale
         return height
     }
-    
+
     func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: IndexPath, withWidth: CGFloat) -> CGFloat {
         return 0
     }
 }
 
 extension MediaViewController: UIScrollViewDelegate {
-    
+
 }
 extension MediaViewController: UICollectionViewDataSourcePrefetching, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let cell = cell as? MediaCollectionCell else { return }
-//        guard let item = items?[indexPath.row] else { return }
-        cell.layer.cornerRadius = 15
-        cell.clipsToBounds = true
-    }
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         let images = indexPaths.compactMap { indexPath -> URL? in
             guard let item = items?[indexPath.row] else { return nil }
@@ -100,14 +93,15 @@ extension MediaViewController: UICollectionViewDataSourcePrefetching, UICollecti
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MediaCollectionCell.swiftIdentifier, for: indexPath) as? MediaCollectionCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MediaPreviewCell.swiftIdentifier, for: indexPath) as? MediaPreviewCell else {
             fatalError()
         }
         guard let item = items?[indexPath.row] else { return cell }
+        
         cell.configCell(item)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        (cell as? MediaCollectionCell)?.thumbnailView.kf.cancelDownloadTask()
+        (cell as? MediaPreviewCell)?.cancelDownloadTask()
     }
 }

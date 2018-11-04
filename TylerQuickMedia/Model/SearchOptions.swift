@@ -26,7 +26,6 @@ extension SearchCategoryOptionType {
         case .kakaoVClip: return contains(SearchCategoryOptionType.kakaoVClip)
         case .kakaoImage: return contains(SearchCategoryOptionType.kakaoImage)
         case .naverImage: return contains(SearchCategoryOptionType.naverImage)
-        case .none: return false
         }
     }
 }

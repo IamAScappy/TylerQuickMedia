@@ -20,7 +20,7 @@ class MediumRepository: MediumRepositoryType {
     func nextMedium(
         _ keyword: String,
         searchOptions: SearchCategoryOptionType = SearchCategoryOptionType.all,
-        sortOptions: SearchSortType = .recency) -> Single<[MediumModel]> {
+        sortOptions: SearchSortType = .recency) -> Single<[MediumViewModel]> {
         guard !keyword.isEmpty else { return Single.just([]) }
         logger.debug("next page keyword: [\(getThreadName())] [\(keyword)]")
 
@@ -31,7 +31,7 @@ class MediumRepository: MediumRepositoryType {
     func searchMedium(
         _ keyword: String,
         searchOptions: SearchCategoryOptionType = SearchCategoryOptionType.all,
-        sortOptions: SearchSortType = .recency) -> Single<[MediumModel]> {
+        sortOptions: SearchSortType = .recency) -> Single<[MediumViewModel]> {
         guard !keyword.isEmpty else { return Single.just([]) }
         logger.debug("[\(getThreadName())] request keyword: [\(keyword)] searchOptions: [\(searchOptions)] sortOptions: [\(sortOptions.rawValue)]")
         guard let searchResult = MediumSearchResult.findSearchResultById(keyword, sortType: sortOptions) else {
@@ -68,7 +68,7 @@ extension MediumRepository {
         return mediumIds.getMediumFromIds()
     }
 
-    func createRemoteCall(searchResult: MediumSearchResult) -> PrimitiveSequence<SingleTrait, [MediumModel]> {
+    func createRemoteCall(searchResult: MediumSearchResult) -> PrimitiveSequence<SingleTrait, [MediumViewModel]> {
         logger.info("\(getThreadName())")
         let searchResultRef = ThreadSafeReference(to: searchResult)
         return self.remote.searchMedium(searchResult: searchResult)

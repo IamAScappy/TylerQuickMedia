@@ -13,11 +13,10 @@ import RealmSwift
     case naverImage
     case kakaoImage
     case kakaoVClip
-    case none
 }
 
 class PageInfo: Object {
-    @objc dynamic var dataSourceType: DataSourceType = .none
+    @objc dynamic var dataSourceType: DataSourceType = .kakaoImage
     @objc dynamic var next: Int = 1
     @objc dynamic var isEnd: Bool = false
     

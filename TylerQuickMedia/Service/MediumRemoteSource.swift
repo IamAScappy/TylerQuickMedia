@@ -56,7 +56,6 @@ class MediumRemoteSource: MediumRemoteSourceType {
                 return self.naverService.searchImages(
                     NaverMediumRequest(query: keyword, start: page.next, display: pageSize, sort: NaverMediumRequest.mapSortType(sortOptions)))
                     .map { ProccessingMedium(dataSourceType: dataSourceType, next: nextPage.increase(isEnd: $0.isEnd()), isEnd: $0.isEnd(), items: $0.items) }
-            case .none: return nil
             }
         }
         return Single.zip(requests)

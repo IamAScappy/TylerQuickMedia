@@ -27,14 +27,14 @@ class MediaReactor: Reactor {
     struct State {
         var isLoading: Bool = false
         var error: Error?
-        var mediumModel: [MediumModel]?
+        var mediumModel: [MediumViewModel]?
         var keyword: String?
         var sortOptions: SearchSortType = SearchSortType.recency
         var catogoryOptions: SearchCategoryOptionType = [.all]
     }
     enum Mutation {
         case setKeyword(String)
-        case setMedium([MediumModel])
+        case setMedium([MediumViewModel])
         case setError(Error)
         case setSearchOptions(SearchSortType, SearchCategoryOptionType)
         case setLoading(Bool)

@@ -39,9 +39,9 @@ class KakaoVclip: Medium, Decodable, HasMedia {
 }
 
 extension KakaoVclip: MediumConvetableModel {
-    func toMediumModel() -> MediumModel {
+    func toMediumModel() -> MediumViewModel {
         let height = Int(Dimens.Media.videoHeightMin.rawValue)
         let width = Int(Dimens.Media.videoWidthMin.rawValue)
-        return MediumModel(type: .vclip, thumbnail: self.thumbnail, origin: self.origin, title: self.title, width: width, height: height, dateTime: self.datetime ?? Date())
+        return MediumViewModel(type: .kakaoVClip, thumbnail: self.thumbnail, origin: self.origin, title: self.title, width: width, height: height, dateTime: self.datetime ?? Date())
     }
 }

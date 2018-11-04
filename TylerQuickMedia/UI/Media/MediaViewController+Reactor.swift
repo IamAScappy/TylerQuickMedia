@@ -61,12 +61,3 @@ extension MediaViewController: View, StoryboardView {
             .disposed(by: disposeBag)
     }
 }
-
-private extension MediaViewController {
-    func configureCell(dataSource: UICollectionViewDataSource, collectionView: UICollectionView, indexPath: IndexPath, element: MediumModel) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MediaCollectionCell.swiftIdentifier, for: indexPath) as? MediaCollectionCell else { fatalError() }
-        guard let item = items?[indexPath.row] else { return cell }
-        cell.configCell(item)
-        return cell
-    }
-}
