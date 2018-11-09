@@ -1,20 +1,18 @@
 import Diff
+import Moya
 import ReactorKit
 import RxDataSources
 import RxSwift
 import UIKit
 
 extension MediaViewController: View, StoryboardView {
-    // swiftlint:disable:next function_body_length
     func bind(reactor: MediaReactor) {
-        logger.debug("bind")
-
+        let scheduler = RxDispatchQueue()
         uiCollectionView.rx.reachedBottom
             .withLatestFrom(reactor.state.map { $0.isLoading })
             .filter { !$0 }
-            .withLatestFrom(searchController.searchBar.rx.text.orEmpty)
-            .filter({ !$0.isEmpty })
-            .map { Reactor.Action.searchMedium(keyword: $0) }
+            .observeOn(scheduler.io)
+            .map { _ in Reactor.Action.nextPage }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
 
@@ -22,9 +20,12 @@ extension MediaViewController: View, StoryboardView {
             .orEmpty
             .debounce(1, scheduler: MainScheduler.asyncInstance)
             .distinctUntilChanged()
+            .observeOn(scheduler.io)
             .filter({ !$0.isEmpty })
-            .do(onNext: { keyword in logger.debug("Media query: \(keyword)") })
-            .map { Reactor.Action.searchMedium(keyword: $0) }
+            .do(onNext: { keyword in
+                logger.debug("Media query: \(getThreadName()) \(keyword)")
+            })
+            .map { Reactor.Action.searchMedium($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
 
@@ -55,14 +56,5 @@ extension MediaViewController: View, StoryboardView {
                 logger.error("error: \(error)")
             })
             .disposed(by: disposeBag)
-    }
-}
-
-private extension MediaViewController {
-    func configureCell(dataSource: UICollectionViewDataSource, collectionView: UICollectionView, indexPath: IndexPath, element: MediumModel) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MediaCollectionCell.swiftIdentifier, for: indexPath) as? MediaCollectionCell else { fatalError() }
-        guard let item = items?[indexPath.row] else { return cell }
-        cell.configCell(item)
-        return cell
     }
 }

@@ -10,5 +10,5 @@ import Foundation
 import RxSwift
 
 protocol MediumRemoteSourceType {
-    func searchMedium(_ keyword: String, nextInfo: NextInfo, sortOptions: SearchSortType, searchOptions: SearchCategoryOptionType) -> Single<[ProccessingMedium]>
+    func searchMedium(searchResult: MediumSearchResult) -> Single<(NextInfo, [Medium])>
 }

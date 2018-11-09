@@ -1,28 +1,41 @@
 //
-//  MediaViewModel.swift
+//  MediumModel.swift
 //  TylerQuickMedia
 //
-//  Created by tskim on 2018. 10. 23..
+//  Created by tskim on 2018. 10. 21..
 //  Copyright © 2018년 tskim. All rights reserved.
 //
 
 import Foundation
-import RxDataSources
 
-//struct MediumViewModel {
-//    var header: String
-//    var items: [Item]
-//}
+protocol MediumConvetableModel {
+    func toMediumModel() -> MediumViewModel
+}
 
-//extension MediumViewModel: AnimatableSectionModelType {
-//    typealias Item = MediumModel
-//
+struct MediumViewModel: Equatable, HasMedia {
+    let type: DataSourceType
+    let thumbnail: String
+    let origin: String
+    let title: String
+    let width: Int
+    let height: Int
+    let dateTime: Date
+}
+
+//extension MediumModel: IdentifiableType {
 //    var identity: String {
-//        return header
+//        return origin
+//    }
+//}
+//
+//extension MediumModel: ListDiffable {
+//    func diffIdentifier() -> NSObjectProtocol {
+//        return medium_id as NSObjectProtocol
 //    }
 //
-//    init(original: MediumViewModel, items: [Item]) {
-//        self = original
-//        self.items = items
+//    func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+//        guard self !== object else { return true }
+//        guard let object = object as? MediumModel else { return false }
+//        return self == object
 //    }
 //}

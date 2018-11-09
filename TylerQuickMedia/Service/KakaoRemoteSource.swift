@@ -29,26 +29,33 @@ public enum KakaoErrors: String, Swift.Error, CustomDebugStringConvertible {
 
 class KakaoRemoteSource: KakaoRemoteSourceType {
     private let provider: MoyaProvider<KakaoApi>
-
+    
     init(_ provider: MoyaProvider<KakaoApi>) {
         self.provider = provider
     }
 
     func searchImages(_ param: KakaoMediumRequest) -> Single<KakaoImageResponse> {
+        logger.info("\(getThreadName())")
         return self.provider.rx.request(.image(param))
             .network()
+            .do(onSuccess: { _ in
+                logger.info("\(getThreadName())")
+            })
             .catchHitEnd({
                 Single.just(KakaoImageResponse(meta: Meta.INSTANCE_END, documents: []))
             })
     }
-    
+
     func searchVclip(_ param: KakaoMediumRequest) -> Single<KakaoVClipResponse> {
+        logger.info("\(getThreadName())")
         return self.provider.rx.request(.vclip(param))
+            .do(onSuccess: { _ in
+                logger.info("\(getThreadName())")
+            })
             .network()
             .catchHitEnd({
                 Single.just(KakaoVClipResponse(meta: Meta.INSTANCE_END, documents: []))
             })
-
     }
 }
 

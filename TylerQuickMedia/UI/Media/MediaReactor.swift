@@ -11,38 +11,58 @@ import RxSwift
 
 class MediaReactor: Reactor {
     let initialState: State = State()
-    let repository: MediumRepositoryType
-    let mapper: MediumMapper
+    private let repository: MediumRepositoryType
+    private let scheduler: RxDispatchQueue
     
-    init(_ repository: MediumRepositoryType, mapper: MediumMapper) {
+    init(_ repository: MediumRepositoryType, scheduler: RxDispatchQueue) {
         self.repository = repository
-        self.mapper = mapper
+        self.scheduler = scheduler
     }
 
     enum Action {
-        case searchMedium(keyword: String)
+        case searchMedium(String)
+        case nextPage
+        case setSearchOption(SearchSortType, SearchCategoryOptionType)
     }
     struct State {
         var isLoading: Bool = false
         var error: Error?
-        var mediumModel: [MediumModel]?
+        var mediumModel: [MediumViewModel]?
+        var keyword: String?
+        var sortOptions: SearchSortType = SearchSortType.recency
+        var catogoryOptions: SearchCategoryOptionType = [.all]
     }
     enum Mutation {
-        case setMedium([MediumModel])
+        case setKeyword(String)
+        case setMedium([MediumViewModel])
         case setError(Error)
+        case setSearchOptions(SearchSortType, SearchCategoryOptionType)
         case setLoading(Bool)
     }
     func mutate(action: Action) -> Observable<Mutation> {
         logger.debug("mutate action: \(action)")
-        
+
         switch action {
-        case .searchMedium(let keyword):
+        case let .setSearchOption(sort, category):
+            return Observable.just(.setSearchOptions(sort, category))
+        case .nextPage:
+            guard let keyword = self.currentState.keyword else { return Observable.just(.setLoading(false)) }
             return Observable.concat([
                 Observable.just(.setLoading(true)),
-                self.repository.searchMedium(keyword, searchOptions: [.all])
-                    .map { medium in medium.map(self.mapper.map) }
-                    .map { r in return Mutation.setMedium(r) }
-                    .asObservable(),
+                self.repository.nextMedium(keyword, searchOptions: [.kakaoVClip], sortOptions: .recency)
+                    .subscribeOn(scheduler.io)
+                    .map { Mutation.setMedium($0) }.asObservable(),
+                Observable.just(.setLoading(false))
+                ])
+                .catchError { .just(.setError($0)) }
+
+        case let .searchMedium(keyword):
+            return Observable.concat([
+                Observable.just(.setKeyword(keyword)),
+                Observable.just(.setLoading(true)),
+                self.repository.searchMedium(keyword, searchOptions: [.kakaoVClip], sortOptions: .recency)
+                    .subscribeOn(scheduler.io)
+                    .map { Mutation.setMedium($0) }.asObservable(),
                 Observable.just(.setLoading(false))
                 ])
                 .catchError { .just(.setError($0)) }
@@ -58,6 +78,11 @@ class MediaReactor: Reactor {
             newState.isLoading = false
         case .setLoading(let isLoading):
             newState.isLoading = isLoading
+        case let .setSearchOptions(sortOptions, categoryOptions):
+            newState.sortOptions = sortOptions
+            newState.catogoryOptions = categoryOptions
+        case .setKeyword(let keyword):
+            newState.keyword = keyword
         }
         return newState
     }

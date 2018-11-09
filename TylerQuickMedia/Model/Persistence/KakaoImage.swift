@@ -9,19 +9,44 @@
 import Foundation
 import RealmSwift
 
-class KakaoImage: Medium, Decodable {
-    @objc dynamic var  collection: String
-    @objc dynamic var  thumbnail_url: String
-    @objc dynamic var  image_url: String
-    @objc dynamic var  width: Int
-    @objc dynamic var  height: Int
-    @objc dynamic var  display_sitename: String
-    @objc dynamic var  doc_url: String
-    @objc dynamic var  datetime: String
+class KakaoImage: Medium, Decodable, HasMedia {
+    @objc dynamic var thumbnail: String = ""
+    @objc dynamic var origin: String = ""
+    @objc dynamic var collection: String = ""
+    @objc dynamic var image_url: String = ""
+    @objc dynamic var width: Int = 0
+    @objc dynamic var height: Int = 0
+    @objc dynamic var displaySiteName: String = ""
+    @objc dynamic var doc_url: String = ""
+    @objc dynamic var datetime: Date? = nil
+
+    enum CodingKeys: String, CodingKey {
+        case collection
+        case width
+        case height
+        case doc_url
+        case datetime
+        case displaySiteName = "display_sitename"
+        case thumbnail = "thumbnail_url"
+        case origin = "image_url"
+    }
+    required convenience init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        collection = try values.decode(String.self, forKey: .collection)
+        thumbnail = try values.decode(String.self, forKey: .thumbnail)
+        origin = try values.decode(String.self, forKey: .origin)
+        width = try values.decode(Int.self, forKey: .width)
+        height = try values.decode(Int.self, forKey: .height)
+        displaySiteName = try values.decode(String.self, forKey: .displaySiteName)
+        doc_url = try values.decode(String.self, forKey: .doc_url)
+        datetime = DateFormatter.iso8601Format(try values.decode(String.self, forKey: .datetime))
+        
+    }
 }
 
 extension KakaoImage: MediumConvetableModel {
-    func toMediumModel() -> MediumModel {
-        return MediumModel(type: .image, thumbnail: self.thumbnail_url, origin: self.image_url, title: self.display_sitename, width: self.width, height: self.height, dateTime: self.datetime)
+    func toMediumModel() -> MediumViewModel {
+        return MediumViewModel(type: .kakaoImage, thumbnail: self.thumbnail, origin: self.origin, title: self.displaySiteName, width: self.width, height: self.height, dateTime: self.datetime ?? Date())
     }
 }

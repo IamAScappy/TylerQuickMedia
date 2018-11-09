@@ -12,65 +12,103 @@ import RxSwift
 
 class MediumRepository: MediumRepositoryType {
     private let remote: MediumRemoteSourceType
-    private let local: MediumLocalSourceType
-    init(remote: MediumRemoteSourceType, local: MediumLocalSourceType) {
+    
+    init(remote: MediumRemoteSourceType) {
         self.remote = remote
-        self.local = local
     }
 
-    private func getNextInfo(_ keyword: String) throws -> NextInfo? {
-        let realm = try Realm()
-        let result = realm.objects(MediumSearchResult.self).filter("query = '\(keyword)'")
-        if result.isEmpty {
-            try realm.write {
-                realm.add(MediumSearchResult(query: keyword), update: true)
-            }
-        }
-        return realm.objects(MediumSearchResult.self).filter("query = '\(keyword)'").last?.nextInfo
+    func nextMedium(
+        _ keyword: String,
+        searchOptions: SearchCategoryOptionType = SearchCategoryOptionType.all,
+        sortOptions: SearchSortType = .recency) -> Single<[MediumViewModel]> {
+        guard !keyword.isEmpty else { return Single.just([]) }
+        logger.debug("next page keyword: [\(getThreadName())] [\(keyword)]")
+
+        guard let searchResult = MediumSearchResult.findSearchResultById(keyword, sortType: sortOptions) else { return Single.just([]) }
+        return self.createRemoteCall(searchResult: searchResult)
     }
-    
+
     func searchMedium(
         _ keyword: String,
         searchOptions: SearchCategoryOptionType = SearchCategoryOptionType.all,
-        sortOptions: SearchSortType = .recency) -> Single<[Medium]> {
+        sortOptions: SearchSortType = .recency) -> Single<[MediumViewModel]> {
         guard !keyword.isEmpty else { return Single.just([]) }
-
-        self.local.getMedium(keyword)
-        var nextInfo: NextInfo?
-        do {
-            nextInfo = try getNextInfo(keyword)
-        } catch let error {
-            logger.error("error: \(error)")
+        logger.debug("[\(getThreadName())] request keyword: [\(keyword)] searchOptions: [\(searchOptions)] sortOptions: [\(sortOptions.rawValue)]")
+        guard let searchResult = MediumSearchResult.findSearchResultById(keyword, sortType: sortOptions) else {
+            let searchResult = MediumSearchResult(query: keyword)
+            searchResult.save()
+            return createRemoteCall(searchResult: searchResult)
         }
         
-        guard let next = nextInfo else { return Single.just([]) }
-        return self.remote.searchMedium(keyword, nextInfo: next, sortOptions: sortOptions, searchOptions: searchOptions)
-            .observeOn(SerialDispatchQueueScheduler(qos: .userInteractive))
-            .map { proccessingMediums in
-                var viewItems: [Medium] = []
-                do {
-                    let mediums = proccessingMediums.flatMap({ $0.items })
-                    let pageInfos = proccessingMediums.compactMap { $0.pageInfo }
-
-                    let realm = try Realm()
-                    
-                    let result = realm.objects(MediumSearchResult.self).filter(NSPredicate(format: "query == %@", keyword)).last ?? MediumSearchResult(query: keyword)
-                    try realm.write {
-                        result.medium_ids.append(objectsIn: mediums.map { $0.id })
-                        result.nextInfo = NextInfo(pageInfos: proccessingMediums.map { $0.pageInfo })
-                    }
-//                    viewItems = realm.filter(
-//                        parentType: Medium.self,
-//                        subclasses: [KakaoImage.self, NaverImage.self, KakaoVclip.self],
-//                        predicate: NSPredicate(format: "id IN %@", result.medium_ids))
-                    logger.debug("realm added query: [\(keyword)] pages: [\(pageInfos)] ids: [\(result.medium_ids.count)]")
-
-                } catch let error {
-                    logger.error("error: \(error)")
-                    // ignored catched error
-                }
-                logger.debug("search items count: [\(viewItems.count)]")
-                return viewItems
+        if shouldFetch(searchResult: searchResult) {
+            return self.createRemoteCall(searchResult: searchResult)
+        } else {
+            let data = self.loadFromLocal(mediumIds: Array(searchResult.medium_ids))
+            if data.isEmpty {
+                return self.createRemoteCall(searchResult: searchResult)
+            } else {
+                return Single.just(data.map { $0.viewModel })
+            }
         }
+    }
+}
+
+extension MediumRepository {
+    func saveResult(data: [Medium]) {
+        data.save()
+    }
+
+    func shouldFetch(searchResult: MediumSearchResult?) -> Bool {
+        guard let result = searchResult else { return true }
+        return self.needFresh(lastestDate: result.updatedTime)
+    }
+
+    func loadFromLocal(mediumIds: [String]) -> [Medium] {
+        logger.debug("loadFromLocal request")
+        return mediumIds.getMediumFromIds()
+    }
+
+    func createRemoteCall(searchResult: MediumSearchResult) -> PrimitiveSequence<SingleTrait, [MediumViewModel]> {
+        logger.info("\(getThreadName())")
+        let searchResultRef = ThreadSafeReference(to: searchResult)
+        return self.remote.searchMedium(searchResult: searchResult)
+            .map { (nextInfo, mediums) in
+                logger.info("\(getThreadName())")
+                let realm = try? Realm()
+                guard let searchResult = realm?.resolve(searchResultRef) else { return [] }
+                try? realm?.write {
+                    realm?.add(mediums, update: true)
+                    searchResult.medium_ids.append(objectsIn: mediums.map { $0.id })
+                    searchResult.nextInfo = nextInfo
+                    realm?.add(searchResult, update: true)
+                }
+                let data = Array(searchResult.medium_ids).getMediumFromIds()
+                logger.debug("realm added query: [\(getThreadName())] [\(searchResult.query)] pages: [\(String(describing: searchResult.nextInfo))] ids: [\(String(describing: searchResult.medium_ids.count))] medium: [\(data.count)]")
+                return data.map { $0.viewModel }
+        }
+    }
+}
+
+extension MediumRepository: TimeRateLimitable {
+    var freshTime: Int {
+        return 20 * 60 // 20 minute
+    }
+
+    internal func needFresh(lastestDate: Date) -> Bool {
+        if lastestDate.timeIntervalSinceNow.advanced(by: Double(-freshTime)) < 0 {
+            return false
+        } else {
+            return true
+        }
+    }
+}
+
+fileprivate extension Array where Element == String {
+    func getMediumFromIds() -> [Medium] {
+        let realm = try? Realm()
+        return realm?.filter(
+            parentType: Medium.self,
+            subclasses: [KakaoImage.self, NaverImage.self, KakaoVclip.self],
+            predicate: NSPredicate(format: "id IN %@", self)) ?? []
     }
 }

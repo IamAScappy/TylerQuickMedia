@@ -5,7 +5,7 @@
 //  Created by tskim on 2018. 10. 21..
 //  Copyright © 2018년 tskim. All rights reserved.
 //
-struct KakaoMediumRequest: DictionarySerializable {
+struct KakaoMediumRequest: DictionarySerializable, Equatable {
     enum SortType: String {
         case accuracy
         case recency
