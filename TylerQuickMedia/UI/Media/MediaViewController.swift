@@ -6,6 +6,7 @@
 //  Copyright © 2018년 tskim. All rights reserved.
 //
 
+import Hero
 import Kingfisher
 import PinterestLayout
 import ReactorKit
@@ -34,7 +35,6 @@ class MediaViewController: UIViewController, HasDisposeBag, DeallocationView {
         enableMemoryLeakCheck(disposeBag)
         self.emptyStateDataSource = self
         self.emptyStateDelegate = self
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.do {
             $0.searchController = searchController
             $0.hidesSearchBarWhenScrolling = false
@@ -42,14 +42,13 @@ class MediaViewController: UIViewController, HasDisposeBag, DeallocationView {
         }
 
         self.searchController.do {
-            $0.dimsBackgroundDuringPresentation = false
             $0.searchBar.placeholder = "검색어를 입력해 주세요."
         }
         uiCollectionView.do {
             $0.register(MediaPreviewCell.self, forCellWithReuseIdentifier: MediaPreviewCell.swiftIdentifier)
             $0.prefetchDataSource = self
             $0.dataSource = self
-            $0.rx.setDelegate(self).disposed(by: disposeBag)
+            $0.delegate = self
         }
         pinterestLayout.do {
             $0.delegate = self
@@ -60,6 +59,15 @@ class MediaViewController: UIViewController, HasDisposeBag, DeallocationView {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         uiCollectionView.frame = view.bounds
+    }
+    private func transitionSelectedItem(_ cell: MediaPreviewCell, _ item: MediumViewModel) {
+        var detailVC: UIViewController
+        if item.type == .kakaoVClip {
+            detailVC = VideoViewController(heroId: "", item: item)
+        } else {
+            detailVC = DetailTransition().prepare(from: cell, item: item)
+        }
+        self.show(detailVC, sender: self)
     }
 }
 
@@ -76,10 +84,13 @@ extension MediaViewController: PinterestLayoutDelegate {
     }
 }
 
-extension MediaViewController: UIScrollViewDelegate {
+extension MediaViewController: UICollectionViewDataSourcePrefetching, UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MediaPreviewCell.swiftIdentifier, for: indexPath) as? MediaPreviewCell else { return }
+        guard let item = items?[indexPath.row] else { return }
 
-}
-extension MediaViewController: UICollectionViewDataSourcePrefetching, UICollectionViewDataSource {
+        transitionSelectedItem(cell, item)
+    }
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         let images = indexPaths.compactMap { indexPath -> URL? in
             guard let item = items?[indexPath.row] else { return nil }
@@ -93,15 +104,13 @@ extension MediaViewController: UICollectionViewDataSourcePrefetching, UICollecti
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MediaPreviewCell.swiftIdentifier, for: indexPath) as? MediaPreviewCell else {
-            fatalError()
-        }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MediaPreviewCell.swiftIdentifier, for: indexPath) as? MediaPreviewCell else { fatalError() }
         guard let item = items?[indexPath.row] else { return cell }
-        
+
         cell.configCell(item)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        (cell as? MediaPreviewCell)?.cancelDownloadTask()
+        (cell as? MediaPreviewCell)?.thumbnailView.kf.cancelDownloadTask()
     }
 }

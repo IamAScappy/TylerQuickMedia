@@ -19,7 +19,6 @@
 		BD15DDF8217C5C0900978A3B /* NaverResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDF7217C5C0900978A3B /* NaverResponses.swift */; };
 		BD15DDFA217C5D9700978A3B /* NaverRemoteSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15DDF9217C5D9700978A3B /* NaverRemoteSource.swift */; };
 		BD25702A2183808600A8804E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD65EDA121817DB40001B2B0 /* RealmSwift.framework */; };
-		BD25702C2183823B00A8804E /* MediumRepositoryRealmTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD25702B2183823B00A8804E /* MediumRepositoryRealmTest.swift */; };
 		BD2570332183875C00A8804E /* naverResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BD2570322183875C00A8804E /* naverResponse.json */; };
 		BD25703A21838E3C00A8804E /* ResourcesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD25703921838E3C00A8804E /* ResourcesLoader.swift */; };
 		BD25703C218397C800A8804E /* kakaoVclipResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BD25703B218397C800A8804E /* kakaoVclipResponse.json */; };
@@ -39,6 +38,7 @@
 		BD34F02E217C49AA0066023E /* AccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34F02D217C49A90066023E /* AccessTokenPlugin.swift */; };
 		BD3B4499218EA41700EFA4C8 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3B4498218EA41700EFA4C8 /* AnnotationView.swift */; };
 		BD3B449B218EA61600EFA4C8 /* ConstraintMaker+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3B449A218EA61600EFA4C8 /* ConstraintMaker+.swift */; };
+		BD3B44A0218EB2DF00EFA4C8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3B449F218EB2DF00EFA4C8 /* DetailViewController.swift */; };
 		BD3EFE07218B1DF300C8D69C /* RequestParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EFE06218B1DF300C8D69C /* RequestParam.swift */; };
 		BD3EFE09218B1EE900C8D69C /* MediumRemoteSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EFE08218B1EE900C8D69C /* MediumRemoteSourceTest.swift */; };
 		BD41860C2184718400C6B5C4 /* AppDelegate+Deallocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41860B2184718400C6B5C4 /* AppDelegate+Deallocation.swift */; };
@@ -54,11 +54,13 @@
 		BD65707D217F41E3001F715A /* MediumSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65707C217F41E3001F715A /* MediumSearchResult.swift */; };
 		BD657080217F43F9001F715A /* MediumRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65707F217F43F9001F715A /* MediumRepository.swift */; };
 		BD657084217F4482001F715A /* RateLimitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD657083217F4482001F715A /* RateLimitable.swift */; };
-		BD6A9DE9217D8CCD001952E8 /* MediaCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6A9DE8217D8CCD001952E8 /* MediaCollectionCell.swift */; };
 		BD7AF792218ABCD50025FB63 /* RealmLocalSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7AF791218ABCD50025FB63 /* RealmLocalSourceType.swift */; };
+		BD80B28C2193F8860092780C /* ViewControllerTransitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD80B28B2193F8860092780C /* ViewControllerTransitable.swift */; };
+		BD80B28E2193F8AB0092780C /* DetailTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD80B28D2193F8AB0092780C /* DetailTransition.swift */; };
 		BD82C8722181E6450078081D /* RealmSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD82C8712181E6450078081D /* RealmSpec.swift */; };
 		BD82C87F2181FCC60078081D /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD82C87E2181FCC60078081D /* Defaults.swift */; };
 		BD8C0569217D8D7200F24EA2 /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8C0568217D8D7200F24EA2 /* Dimens.swift */; };
+		BD914082218F244B003650C7 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD914081218F244B003650C7 /* VideoViewController.swift */; };
 		BD945121217C8CF2001733B7 /* Media.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD945120217C8CF2001733B7 /* Media.storyboard */; };
 		BD945123217C8D46001733B7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD945122217C8D46001733B7 /* Router.swift */; };
 		BD945126217C91BB001733B7 /* ReplicateActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD945125217C91BB001733B7 /* ReplicateActivityIndicator.swift */; };
@@ -93,7 +95,6 @@
 		BDB576F5218C9B0A00466BC1 /* NaverImageResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB576F4218C9B0900466BC1 /* NaverImageResponseTest.swift */; };
 		BDB576F7218CA43C00466BC1 /* MediaReactorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB576F6218CA43C00466BC1 /* MediaReactorTest.swift */; };
 		BDB8A735218AC367001594A4 /* MediumSearchResultTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB8A734218AC367001594A4 /* MediumSearchResultTest.swift */; };
-		BDBDB96221802CCC00B1863C /* MediumRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBDB96121802CCC00B1863C /* MediumRepositoryTest.swift */; };
 		BDC2C263217B666600A30107 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC2C262217B666600A30107 /* AppDelegate.swift */; };
 		BDC2C268217B666600A30107 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C266217B666600A30107 /* Main.storyboard */; };
 		BDC2C26D217B666700A30107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC2C26C217B666700A30107 /* Assets.xcassets */; };
@@ -155,7 +156,6 @@
 		BD15DDF5217C5ADA00978A3B /* NaverRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverRequests.swift; sourceTree = "<group>"; };
 		BD15DDF7217C5C0900978A3B /* NaverResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverResponses.swift; sourceTree = "<group>"; };
 		BD15DDF9217C5D9700978A3B /* NaverRemoteSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverRemoteSource.swift; sourceTree = "<group>"; };
-		BD25702B2183823B00A8804E /* MediumRepositoryRealmTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumRepositoryRealmTest.swift; sourceTree = "<group>"; };
 		BD2570322183875C00A8804E /* naverResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = naverResponse.json; sourceTree = "<group>"; };
 		BD25703921838E3C00A8804E /* ResourcesLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourcesLoader.swift; sourceTree = "<group>"; };
 		BD25703B218397C800A8804E /* kakaoVclipResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kakaoVclipResponse.json; sourceTree = "<group>"; };
@@ -175,6 +175,7 @@
 		BD34F02D217C49A90066023E /* AccessTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenPlugin.swift; sourceTree = "<group>"; };
 		BD3B4498218EA41700EFA4C8 /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		BD3B449A218EA61600EFA4C8 /* ConstraintMaker+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConstraintMaker+.swift"; sourceTree = "<group>"; };
+		BD3B449F218EB2DF00EFA4C8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BD3EFE06218B1DF300C8D69C /* RequestParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestParam.swift; sourceTree = "<group>"; };
 		BD3EFE08218B1EE900C8D69C /* MediumRemoteSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumRemoteSourceTest.swift; sourceTree = "<group>"; };
 		BD41860B2184718400C6B5C4 /* AppDelegate+Deallocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Deallocation.swift"; sourceTree = "<group>"; };
@@ -192,11 +193,13 @@
 		BD657083217F4482001F715A /* RateLimitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateLimitable.swift; sourceTree = "<group>"; };
 		BD65ED9F21817DAA0001B2B0 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		BD65EDA121817DB40001B2B0 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
-		BD6A9DE8217D8CCD001952E8 /* MediaCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionCell.swift; sourceTree = "<group>"; };
 		BD7AF791218ABCD50025FB63 /* RealmLocalSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmLocalSourceType.swift; sourceTree = "<group>"; };
+		BD80B28B2193F8860092780C /* ViewControllerTransitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTransitable.swift; sourceTree = "<group>"; };
+		BD80B28D2193F8AB0092780C /* DetailTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransition.swift; sourceTree = "<group>"; };
 		BD82C8712181E6450078081D /* RealmSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSpec.swift; sourceTree = "<group>"; };
 		BD82C87E2181FCC60078081D /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		BD8C0568217D8D7200F24EA2 /* Dimens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
+		BD914081218F244B003650C7 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		BD945120217C8CF2001733B7 /* Media.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Media.storyboard; sourceTree = "<group>"; };
 		BD945122217C8D46001733B7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		BD945125217C91BB001733B7 /* ReplicateActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplicateActivityIndicator.swift; sourceTree = "<group>"; };
@@ -232,7 +235,6 @@
 		BDB576F4218C9B0900466BC1 /* NaverImageResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NaverImageResponseTest.swift; path = /Users/tskim/Documents/Project/TylerQuickMedia/TylerQuickMediaTests/NaverImageResponseTest.swift; sourceTree = "<absolute>"; };
 		BDB576F6218CA43C00466BC1 /* MediaReactorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaReactorTest.swift; sourceTree = "<group>"; };
 		BDB8A734218AC367001594A4 /* MediumSearchResultTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumSearchResultTest.swift; sourceTree = "<group>"; };
-		BDBDB96121802CCC00B1863C /* MediumRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumRepositoryTest.swift; sourceTree = "<group>"; };
 		BDC2C25F217B666600A30107 /* TylerQuickMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TylerQuickMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC2C262217B666600A30107 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDC2C267217B666600A30107 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -414,9 +416,9 @@
 				BDDF4D01217DDF0600B6C4EC /* MediaViewController+EmptyState.swift */,
 				BD34F01C217C26D10066023E /* MediaReactor.swift */,
 				BD945120217C8CF2001733B7 /* Media.storyboard */,
-				BD6A9DE8217D8CCD001952E8 /* MediaCollectionCell.swift */,
 				BDB1B51D218E2970004CC692 /* MediaPreviewCell.swift */,
 				BD3B4498218EA41700EFA4C8 /* AnnotationView.swift */,
+				BD80B28D2193F8AB0092780C /* DetailTransition.swift */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -439,6 +441,14 @@
 				BD94512C217CA6EE001733B7 /* MediumRemoteSource.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		BD3B449E218EB2D100EFA4C8 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BD3B449F218EB2DF00EFA4C8 /* DetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		BD4C25ED2185F52200E30B93 /* Types */ = {
@@ -476,9 +486,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		BD914080218F243E003650C7 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				BD914081218F244B003650C7 /* VideoViewController.swift */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 		BD945129217C9E59001733B7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BD914080218F243E003650C7 /* Video */,
+				BD3B449E218EB2D100EFA4C8 /* Detail */,
 				BD8D98C8217DBDEB00961629 /* Views */,
 				BD34F019217C26A10066023E /* Media */,
 			);
@@ -593,8 +613,6 @@
 				BD3EFE08218B1EE900C8D69C /* MediumRemoteSourceTest.swift */,
 				BDB8A734218AC367001594A4 /* MediumSearchResultTest.swift */,
 				BD068C5121843AE200E62382 /* GeneratedMocks.swift */,
-				BDBDB96121802CCC00B1863C /* MediumRepositoryTest.swift */,
-				BD25702B2183823B00A8804E /* MediumRepositoryRealmTest.swift */,
 				BDC2C27C217B666800A30107 /* Info.plist */,
 				BD82C8712181E6450078081D /* RealmSpec.swift */,
 				BDB576F6218CA43C00466BC1 /* MediaReactorTest.swift */,
@@ -700,6 +718,7 @@
 				BDB576DB218C7B0700466BC1 /* DateFormatter+ISO8601.swift */,
 				BDB1B51F218E2A45004CC692 /* UIView+.swift */,
 				BD3B449A218EA61600EFA4C8 /* ConstraintMaker+.swift */,
+				BD80B28B2193F8860092780C /* ViewControllerTransitable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1125,6 +1144,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftRichString.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Cuckoo.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Hero.framework",
 			);
 			name = "[CP] Copy Carthage Resources";
 			outputFileListPaths = (
@@ -1233,6 +1253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD15DDF4217C599000978A3B /* NaverApi.swift in Sources */,
+				BD80B28C2193F8860092780C /* ViewControllerTransitable.swift in Sources */,
 				BD34F01B217C26C80066023E /* MediaViewController.swift in Sources */,
 				BD945128217C9237001733B7 /* CGUtils.swift in Sources */,
 				BD4186162184C14900C6B5C4 /* KakaoVclip.swift in Sources */,
@@ -1246,7 +1267,6 @@
 				BD34F009217C19A60066023E /* Enviroment.swift in Sources */,
 				BD4C25F52185F6C100E30B93 /* NaverRemoteSourceType.swift in Sources */,
 				BD34F022217C2C150066023E /* KakaoResponses.swift in Sources */,
-				BD6A9DE9217D8CCD001952E8 /* MediaCollectionCell.swift in Sources */,
 				BD068C132184290D00E62382 /* SearchOptions.swift in Sources */,
 				BD94512B217CA0A5001733B7 /* MediumViewModel.swift in Sources */,
 				BD15DDEC217C521800978A3B /* DeallocationView.swift in Sources */,
@@ -1267,6 +1287,7 @@
 				BD15DDF8217C5C0900978A3B /* NaverResponses.swift in Sources */,
 				BDC2C2B2217B726300A30107 /* MyColor.swift in Sources */,
 				BD7AF792218ABCD50025FB63 /* RealmLocalSourceType.swift in Sources */,
+				BD3B44A0218EB2DF00EFA4C8 /* DetailViewController.swift in Sources */,
 				BD34F01D217C26D10066023E /* MediaReactor.swift in Sources */,
 				BDB1B520218E2A45004CC692 /* UIView+.swift in Sources */,
 				BDC2C2B5217B726300A30107 /* L10n.swift in Sources */,
@@ -1274,6 +1295,7 @@
 				BDC2C2C0217B72B700A30107 /* NibWithSwiftName.swift in Sources */,
 				BDC2C2BE217B72B700A30107 /* SwiftNameIdentifier.swift in Sources */,
 				BD82C87F2181FCC60078081D /* Defaults.swift in Sources */,
+				BD914082218F244B003650C7 /* VideoViewController.swift in Sources */,
 				BDC2C2F4217B7D8C00A30107 /* KakaoRequests.swift in Sources */,
 				BD945126217C91BB001733B7 /* ReplicateActivityIndicator.swift in Sources */,
 				BDC2C263217B666600A30107 /* AppDelegate.swift in Sources */,
@@ -1291,6 +1313,7 @@
 				BD657080217F43F9001F715A /* MediumRepository.swift in Sources */,
 				BD15DDEF217C53CB00978A3B /* Medium.swift in Sources */,
 				BD65707D217F41E3001F715A /* MediumSearchResult.swift in Sources */,
+				BD80B28E2193F8AB0092780C /* DetailTransition.swift in Sources */,
 				BD34F01F217C2AE40066023E /* ViewController+Rx.swift in Sources */,
 				BD34F02E217C49AA0066023E /* AccessTokenPlugin.swift in Sources */,
 				BD15DDFA217C5D9700978A3B /* NaverRemoteSource.swift in Sources */,
@@ -1308,10 +1331,8 @@
 			files = (
 				BDB576F3218C97CA00466BC1 /* KakaoRemoteSourceTest.swift in Sources */,
 				BD068C5221843AE200E62382 /* GeneratedMocks.swift in Sources */,
-				BD25702C2183823B00A8804E /* MediumRepositoryRealmTest.swift in Sources */,
 				BDB1B518218DF3F1004CC692 /* ReactorTests.swift in Sources */,
 				BD3EFE09218B1EE900C8D69C /* MediumRemoteSourceTest.swift in Sources */,
-				BDBDB96221802CCC00B1863C /* MediumRepositoryTest.swift in Sources */,
 				BDB576DE218C7DD100466BC1 /* ISO8601DateFommaterTest.swift in Sources */,
 				BDB8A735218AC367001594A4 /* MediumSearchResultTest.swift in Sources */,
 				BDA76B42218B578500D83FFE /* Medium+.swift in Sources */,

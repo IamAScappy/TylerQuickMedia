@@ -3,9 +3,9 @@ import PinterestLayout
 import UIKit
 
 public class MediaPreviewCell: UICollectionViewCell, SwiftNameIdentifier {
-    private let thumbnailView = UIImageView()
-    private let annotationView = AnnotationView()
-    private let roundedCornersView: UIView = {
+    let thumbnailView = UIImageView()
+    let annotationView = AnnotationView()
+    let roundedCornersView: UIView = {
         let view = UIView()
         view.clipsToBounds = true
         view.layer.cornerRadius = Dimens.Media.cornerRadius.rawValue
@@ -74,8 +74,5 @@ extension MediaPreviewCell {
             progressBlock: { receivedSize, totalSize in },
             completionHandler: { image, error, cacheType, imageURL in })
         annotationView.bindView(AnnotationViewModel())
-    }
-    func cancelDownloadTask() {
-        thumbnailView.kf.cancelDownloadTask()
     }
 }

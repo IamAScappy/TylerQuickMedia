@@ -7,10 +7,7 @@ import UIKit
 
 extension MediaViewController: View, StoryboardView {
     func bind(reactor: MediaReactor) {
-        logger.debug("bind")
-        
         let scheduler = RxDispatchQueue()
-        
         uiCollectionView.rx.reachedBottom
             .withLatestFrom(reactor.state.map { $0.isLoading })
             .filter { !$0 }

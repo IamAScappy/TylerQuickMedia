@@ -49,7 +49,7 @@ class MediaReactor: Reactor {
             guard let keyword = self.currentState.keyword else { return Observable.just(.setLoading(false)) }
             return Observable.concat([
                 Observable.just(.setLoading(true)),
-                self.repository.nextMedium(keyword, searchOptions: [.all], sortOptions: .recency)
+                self.repository.nextMedium(keyword, searchOptions: [.kakaoVClip], sortOptions: .recency)
                     .subscribeOn(scheduler.io)
                     .map { Mutation.setMedium($0) }.asObservable(),
                 Observable.just(.setLoading(false))
@@ -60,7 +60,7 @@ class MediaReactor: Reactor {
             return Observable.concat([
                 Observable.just(.setKeyword(keyword)),
                 Observable.just(.setLoading(true)),
-                self.repository.searchMedium(keyword, searchOptions: [.all], sortOptions: .recency)
+                self.repository.searchMedium(keyword, searchOptions: [.kakaoVClip], sortOptions: .recency)
                     .subscribeOn(scheduler.io)
                     .map { Mutation.setMedium($0) }.asObservable(),
                 Observable.just(.setLoading(false))
