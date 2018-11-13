@@ -39,3 +39,77 @@
 
 * [MediumSearchResult.swift](TylerQuickMedia/Model/Persistence/MediumSearchResult.swift)
 * [NextInfo.swift](TylerQuickMedia/Model/Persistence/NextInfo.swift)
+
+## Network
+[Moya](https://github.com/Moya/Moya)를 활용한 API 구성
+### [NaverApi](TylerQuickMedia/Network/Api/NaverApi.swift)
+```swift
+extension NaverApi: TargetType {
+    var baseURL: URL { return URL(string: "https://openapi.naver.com")! }
+    var path: String {
+        switch self {
+        case .image:
+            return "/v1/search/image"
+        }
+    }
+    var method: Moya.Method {
+        switch self {
+        case .image:
+            return .get
+        }
+    }
+}
+```
+### [KakaoApi](TylerQuickMedia/Network/Api/KakaoApi.swift)
+```swift
+extension KakaoApi: TargetType {
+    var baseURL: URL { return URL(string: "https://dapi.kakao.com")! }
+    var path: String {
+        switch self {
+        case .image:
+            return "/v2/search/image"
+        case .vclip:
+            return "/v2/search/vclip"
+        }
+    }
+    var method: Moya.Method {
+        switch self {
+        case .image, .vclip:
+            return .get
+        }
+    }
+}
+
+```
+### AccessToken
+MoyaProvider를 생성하면서 Plugin을 등록해준다.
+```swift
+   let naverProvider = MoyaProvider<NaverApi>(
+        callbackQueue: moyaSchduler,
+        manager: DefaultAlamofireManager.sharedManager,
+        plugins: moyaPlugins)
+```
+```swift
+public struct AccessTokenPlugin: PluginType {
+    public func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+        guard let authorizable = target as? AccessTokenAuthorizable else { return request }
+        
+        let authorizationType = authorizable.authorizationType
+        
+        var request = request
+        
+        switch authorizationType {
+        case .kakaoAk:
+            let value = "\(authorizationType.rawValue) \(Enviroment.Kakao.API_KEY)"
+            request.addValue(value, forHTTPHeaderField: "Authorization")
+        case .none:
+            break
+        case .naver:
+            request.addValue(Enviroment.Naver.CLIENT_ID, forHTTPHeaderField: "X-Naver-Client-Id")
+            request.addValue(Enviroment.Naver.CLIENT_SECRET, forHTTPHeaderField: "X-Naver-Client-Secret")
+        }
+        
+        return request
+    }
+}
+```
