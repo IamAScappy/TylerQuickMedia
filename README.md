@@ -24,7 +24,7 @@
 
 ## 아키텍처 
 [ReactorKit](https://github.com/ReactorKit/ReactorKit)를 활용하여 MVI (Model-View-Inent) 패턴을 사용합니다.
-
+![](document/architecture.png)
 * [MediaReactor.swift](TylerQuickMedia/UI/Media/MediaReactor.swift)
 * [MediaViewController+Reactor.swift](TylerQuickMedia/UI/Media/MediaViewController+Reactor.swift)
 
@@ -119,12 +119,9 @@ public struct AccessTokenPlugin: PluginType {
 }
 ```
 ### 네트워크 요청
-* [KakaoRemoteSource.swift](TylerQuickMedia/Service/KakaoRemoteSource.swift)
-* [NaverRemoteSource.swift](TylerQuickMedia/Service/NaverRemoteSource.swift)
-* [MediumRemoteSource.swift](TylerQuickMedia/Service/MediumRemoteSource.swift)
-
-
 [KakaoRemoteSource.swift](TylerQuickMedia/Service/KakaoRemoteSource.swift) 아래의 요청은 카카오 API 를 호출하는 예제입니다.
+
+[TestCase](TylerQuickMediaTests/KakaoRemoteSourceTest.swift)
 > total page를 사전에 알 수 없기 때문에 **`catchHitEnd`** error handling 으로 total page 를 설정
 ```swift
  func searchVclip(_ param: KakaoMediumRequest) -> Single<KakaoVClipResponse> {
