@@ -25,8 +25,19 @@
 ## 아키텍처 
 [ReactorKit](https://github.com/ReactorKit/ReactorKit)를 활용하여 MVI (Model-View-Inent) 패턴을 사용합니다.
 ![](document/architecture.png)
-* [MediaReactor.swift](TylerQuickMedia/UI/Media/MediaReactor.swift)
+* [MediaReactor.swift](TylerQuickMedia/UI/Media/MediaReactor.swift) 
 * [MediaViewController+Reactor.swift](TylerQuickMedia/UI/Media/MediaViewController+Reactor.swift)
+
+[Reactor TestCase](TylerQuickMediaTests/MediaReactorTest.swift)
+
+### UI
+iOS Framework를 사용하며 화면에 표시되는 모든 UI 구성 요소를 만드는 데 사용됩니다.
+### Presentation
+UI의 Input과 Output 사이의 일련의 과정을 책임집니다.
+### Domain
+Data(Local DB, Network) layer로 부터 데이터를 검색하고 Presentation layer로 전달합니다.
+### Data
+Data layer는 외부 Data layer에 대한 Access point(Local DB, Network) 입니다.
 
 ## [Realm](https://realm.io/kr/docs/swift/latest/) with swift
 ### FlowChart 
@@ -154,5 +165,7 @@ private extension PrimitiveSequence where TraitType == SingleTrait {
 
 ```
 [MediumRemoteSource.swift](TylerQuickMedia/Service/MediumRemoteSource.swift)는 네트워크 요청 할 경우 CategoryType, SortType을 결정합니다.
+
+[TestCase](TylerQuickMediaTests/MediumRemoteSourceTest.swift)
 > * CategoryType [KakaoImage, KakaoVClip, NaverImage]
 > * SortType [Accuracy, Recency]
