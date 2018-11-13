@@ -5,7 +5,6 @@
 
 * [Swift](https://developer.apple.com/kr/swift/)
 * [RxSwift](https://github.com/ReactiveX/RxSwift)
-* [RxJava2](https://github.com/ReactiveX/RxJava/wiki/What's-different-in-2.0)
 * [SwiftLint](https://github.com/realm/SwiftLint)
 * [SwiftGen](https://github.com/SwiftGen/SwiftGen)
 * [SnapKit](https://github.com/SnapKit/SnapKit)
@@ -23,7 +22,13 @@
 * [Quick](https://github.com/Quick/Quick)
 * [Nimble](https://github.com/Quick/Nimble)
 
-## Realm with swift
+## 아키텍처 
+[ReactorKit](https://github.com/ReactorKit/ReactorKit)를 활용하여 MVI (Model-View-Inent) 패턴을 사용합니다.
+
+* [MediaReactor.swift](TylerQuickMedia/UI/Media/MediaReactor.swift)
+* [MediaViewController+Reactor.swift](TylerQuickMedia/UI/Media/MediaViewController+Reactor.swift)
+
+## [Realm](https://realm.io/kr/docs/swift/latest/) with swift
 ### FlowChart 
 ![](document/flow-chart.png)
 ### DataModels
@@ -39,3 +44,118 @@
 
 * [MediumSearchResult.swift](TylerQuickMedia/Model/Persistence/MediumSearchResult.swift)
 * [NextInfo.swift](TylerQuickMedia/Model/Persistence/NextInfo.swift)
+
+## Network
+[Moya](https://github.com/Moya/Moya)를 활용한 API 구성
+### [NaverApi](TylerQuickMedia/Network/Api/NaverApi.swift)
+```swift
+extension NaverApi: TargetType {
+    var baseURL: URL { return URL(string: "https://openapi.naver.com")! }
+    var path: String {
+        switch self {
+        case .image:
+            return "/v1/search/image"
+        }
+    }
+    var method: Moya.Method {
+        switch self {
+        case .image:
+            return .get
+        }
+    }
+}
+```
+### [KakaoApi](TylerQuickMedia/Network/Api/KakaoApi.swift)
+```swift
+extension KakaoApi: TargetType {
+    var baseURL: URL { return URL(string: "https://dapi.kakao.com")! }
+    var path: String {
+        switch self {
+        case .image:
+            return "/v2/search/image"
+        case .vclip:
+            return "/v2/search/vclip"
+        }
+    }
+    var method: Moya.Method {
+        switch self {
+        case .image, .vclip:
+            return .get
+        }
+    }
+}
+
+```
+### 인증토큰 등록
+MoyaProvider를 생성하면서 Plugin을 등록합니다.
+```swift
+   let naverProvider = MoyaProvider<NaverApi>(
+        callbackQueue: moyaSchduler,
+        manager: DefaultAlamofireManager.sharedManager,
+        plugins: moyaPlugins)
+```
+```swift
+public struct AccessTokenPlugin: PluginType {
+    public func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+        guard let authorizable = target as? AccessTokenAuthorizable else { return request }
+        
+        let authorizationType = authorizable.authorizationType
+        
+        var request = request
+        
+        switch authorizationType {
+        case .kakaoAk:
+            let value = "\(authorizationType.rawValue) \(Enviroment.Kakao.API_KEY)"
+            request.addValue(value, forHTTPHeaderField: "Authorization")
+        case .none:
+            break
+        case .naver:
+            request.addValue(Enviroment.Naver.CLIENT_ID, forHTTPHeaderField: "X-Naver-Client-Id")
+            request.addValue(Enviroment.Naver.CLIENT_SECRET, forHTTPHeaderField: "X-Naver-Client-Secret")
+        }
+        
+        return request
+    }
+}
+```
+### 네트워크 요청
+* [KakaoRemoteSource.swift](TylerQuickMedia/Service/KakaoRemoteSource.swift)
+* [NaverRemoteSource.swift](TylerQuickMedia/Service/NaverRemoteSource.swift)
+* [MediumRemoteSource.swift](TylerQuickMedia/Service/MediumRemoteSource.swift)
+
+
+[KakaoRemoteSource.swift](TylerQuickMedia/Service/KakaoRemoteSource.swift) 아래의 요청은 카카오 API 를 호출하는 예제입니다.
+> total page를 사전에 알 수 없기 때문에 **`catchHitEnd`** error handling 으로 total page 를 설정
+```swift
+ func searchVclip(_ param: KakaoMediumRequest) -> Single<KakaoVClipResponse> {
+        logger.info("\(getThreadName())")
+        return self.provider.rx.request(.vclip(param))
+            .do(onSuccess: { _ in
+                logger.info("\(getThreadName())")
+            })
+            .network()
+            .catchHitEnd({
+                Single.just(KakaoVClipResponse(meta: Meta.INSTANCE_END, documents: []))
+            })
+    }
+```
+```swift
+private extension PrimitiveSequence where TraitType == SingleTrait {
+    func catchHitEnd(_ concreateType: @escaping () -> PrimitiveSequence<SingleTrait, Element>) -> PrimitiveSequence<SingleTrait, Element> {
+        return self.catchError({ error in
+            if let moyaError = error as? MoyaError {
+                let res = moyaError.response
+                let errorData = try res?.map(KakakoErrorData.self)
+                if res?.statusCode == 400 && errorData?.errorType == KakaoErrors.hitEnd.rawValue {
+                    return concreateType()
+                }
+            }
+            throw error
+        })
+    }
+}
+
+```
+[MediumRemoteSource.swift](TylerQuickMedia/Service/MediumRemoteSource.swift)는 네트워크 요청 할 경우 CategoryType, SortType을 결정합니다.
+> * CategoryType [KakaoImage, KakaoVClip, NaverImage]
+> * SortType [Accuracy, Recency]
