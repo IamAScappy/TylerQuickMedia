@@ -22,3 +22,20 @@
 * [Firebase](https://firebase.google.com/docs/ios/setup?hl=ko)
 * [Quick](https://github.com/Quick/Quick)
 * [Nimble](https://github.com/Quick/Nimble)
+
+## Realm with swift
+### FlowChart 
+![](document/flow-chart.png)
+### DataModels
+![](document/media.png)
+
+### Codes
+* [NaverImage.swift](TylerQuickMedia/Model/Persistence/NaverImage.swift) 
+> [API 가이드](https://developers.naver.com/docs/search/image/)
+* [KakaoImage.swift](TylerQuickMedia/Model/Persistence/KakaoImage.swift)
+> [API 가이드](https://developers.kakao.com/docs/restapi/search#이미지-검색)
+* [KakaoVclip.swift](TylerQuickMedia/Model/Persistence/KakaoVclip.swift) 
+> [API 가이드](https://developers.kakao.com/docs/restapi/search#동영상-검색)
+
+* [MediumSearchResult.swift](TylerQuickMedia/Model/Persistence/MediumSearchResult.swift)
+* [NextInfo.swift](TylerQuickMedia/Model/Persistence/NextInfo.swift)
