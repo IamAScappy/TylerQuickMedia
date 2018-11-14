@@ -87,7 +87,7 @@ class MediumRemoteSourceTest: QuickSpec {
                 let searchResult = MediumSearchResult(query: "test", sortType: SearchSortType.accuracy, categoryType: .kakao)
                 searchResult.nextInfo?.naverImageNext?.isEnd = true
                 searchResult.nextInfo?.kakaoImageNext?.isEnd = true
-                let data = subject.searchMedium(searchResult: searchResult)
+                _ = subject.searchMedium(searchResult: searchResult)
                     .asObservable()
                     .toBlocking(timeout: 0.1)
                 

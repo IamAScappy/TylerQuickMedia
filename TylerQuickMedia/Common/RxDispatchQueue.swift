@@ -11,6 +11,7 @@ import RxSwift
 
 class RxDispatchQueue {
     let io: SerialDispatchQueueScheduler
+    
     init() {
         self.io = SerialDispatchQueueScheduler(internalSerialQueueName: "tyler-io-thread")
     }

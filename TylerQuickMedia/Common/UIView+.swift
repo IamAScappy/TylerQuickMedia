@@ -22,7 +22,8 @@ extension UIView {
         layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
 
-    func edgesEqualToSuperView(top: CGFloat = 0,
+    func edgesEqualToSuperView(
+        top: CGFloat = 0,
         leading: CGFloat = 0,
         bottom: CGFloat = 0,
         trailing: CGFloat = 0) {

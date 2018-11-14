@@ -65,7 +65,7 @@ class MediaViewController: UIViewController, HasDisposeBag, DeallocationView {
         if item.type == .kakaoVClip {
             detailVC = VideoViewController(heroId: "", item: item)
         } else {
-            detailVC = DetailTransition().prepare(from: cell, item: item)
+            detailVC = DetailCoordinator().prepare(from: cell, item: item)
         }
         self.show(detailVC, sender: self)
     }

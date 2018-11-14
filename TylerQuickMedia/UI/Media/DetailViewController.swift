@@ -12,6 +12,7 @@ import Kingfisher
 import UIKit
 
 class DetailViewController: UIViewController {
+    let contentView = UIView()
     let imageView = UIImageView()
     private var heroId: String!
     private var item: MediumViewModel!
@@ -19,8 +20,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan(gr:))))
-        imageView.hero.id = heroId
-        imageView.hero.modifiers = [.useNoSnapshot, .spring(stiffness: 250, damping: 25)]
+        contentView.addSubview(imageView)
+        view.addSubview(contentView)
         let thumbnailURL = URL(string: item.origin)
         imageView.kf.setImage(
             with: thumbnailURL,
@@ -28,7 +29,6 @@ class DetailViewController: UIViewController {
             options: [.transition(ImageTransition.fade(1))],
             progressBlock: { receivedSize, totalSize in },
             completionHandler: { image, error, cacheType, imageURL in })
-        view.addSubview(imageView)
     }
     init (heroId: String, item: MediumViewModel) {
         super.init(nibName: nil, bundle: nil)
@@ -59,6 +59,23 @@ class DetailViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let bounds = view.bounds
-        imageView.frame = CGRect(x: 50, y: 100, width: bounds.width, height: bounds.width)
+        contentView.frame = bounds
+        imageView.frame = CGRect(x: 0, y: 100, width: bounds.width, height: bounds.width)
+    }
+}
+
+class DetailCoordinator: ViewControllerTransitable {
+    func prepare(from: MediaPreviewCell, item: MediumViewModel) -> DetailViewController {
+        let heroId = "\(item.origin)"
+        
+        from.roundedCornersView.hero.id = heroId
+        from.roundedCornersView.hero.modifiers = [.useNoSnapshot, .spring(stiffness: 250, damping: 25)]
+        return DetailViewController(heroId: heroId, item: item).then {
+            $0.hero.isEnabled = true
+            $0.hero.modalAnimationType = .none
+            $0.contentView.hero.id = heroId
+            $0.imageView.image = from.thumbnailView.image
+            $0.contentView.hero.modifiers = [.source(heroID: heroId), .spring(stiffness: 250, damping: 25)]
+        }
     }
 }

@@ -78,7 +78,6 @@
 		BDA76B3E218B479100D83FFE /* sort_kakao_image_recency.json in Resources */ = {isa = PBXBuildFile; fileRef = BDA76B3D218B479100D83FFE /* sort_kakao_image_recency.json */; };
 		BDA76B40218B47B300D83FFE /* sort_kakao_image_accuracy.json in Resources */ = {isa = PBXBuildFile; fileRef = BDA76B3F218B47B300D83FFE /* sort_kakao_image_accuracy.json */; };
 		BDA76B42218B578500D83FFE /* Medium+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA76B41218B578500D83FFE /* Medium+.swift */; };
-		BDB1B518218DF3F1004CC692 /* ReactorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB1B517218DF3F1004CC692 /* ReactorTests.swift */; };
 		BDB1B51E218E2970004CC692 /* MediaPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB1B51D218E2970004CC692 /* MediaPreviewCell.swift */; };
 		BDB1B520218E2A45004CC692 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB1B51F218E2A45004CC692 /* UIView+.swift */; };
 		BDB576DC218C7B0700466BC1 /* DateFormatter+ISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB576DB218C7B0700466BC1 /* DateFormatter+ISO8601.swift */; };
@@ -218,7 +217,6 @@
 		BDA76B3D218B479100D83FFE /* sort_kakao_image_recency.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sort_kakao_image_recency.json; sourceTree = "<group>"; };
 		BDA76B3F218B47B300D83FFE /* sort_kakao_image_accuracy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sort_kakao_image_accuracy.json; sourceTree = "<group>"; };
 		BDA76B41218B578500D83FFE /* Medium+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medium+.swift"; sourceTree = "<group>"; };
-		BDB1B517218DF3F1004CC692 /* ReactorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorTests.swift; sourceTree = "<group>"; };
 		BDB1B51D218E2970004CC692 /* MediaPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPreviewCell.swift; sourceTree = "<group>"; };
 		BDB1B51F218E2A45004CC692 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		BDB576DB218C7B0700466BC1 /* DateFormatter+ISO8601.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+ISO8601.swift"; sourceTree = "<group>"; };
@@ -410,6 +408,7 @@
 		BD34F019217C26A10066023E /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				BD3B449F218EB2DF00EFA4C8 /* DetailViewController.swift */,
 				BD94512A217CA0A5001733B7 /* MediumViewModel.swift */,
 				BD34F01A217C26C80066023E /* MediaViewController.swift */,
 				BDDF4CFF217DDEC900B6C4EC /* MediaViewController+Reactor.swift */,
@@ -441,14 +440,6 @@
 				BD94512C217CA6EE001733B7 /* MediumRemoteSource.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		BD3B449E218EB2D100EFA4C8 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				BD3B449F218EB2DF00EFA4C8 /* DetailViewController.swift */,
-			);
-			path = Detail;
 			sourceTree = "<group>";
 		};
 		BD4C25ED2185F52200E30B93 /* Types */ = {
@@ -498,7 +489,6 @@
 			isa = PBXGroup;
 			children = (
 				BD914080218F243E003650C7 /* Video */,
-				BD3B449E218EB2D100EFA4C8 /* Detail */,
 				BD8D98C8217DBDEB00961629 /* Views */,
 				BD34F019217C26A10066023E /* Media */,
 			);
@@ -616,7 +606,6 @@
 				BDC2C27C217B666800A30107 /* Info.plist */,
 				BD82C8712181E6450078081D /* RealmSpec.swift */,
 				BDB576F6218CA43C00466BC1 /* MediaReactorTest.swift */,
-				BDB1B517218DF3F1004CC692 /* ReactorTests.swift */,
 			);
 			path = TylerQuickMediaTests;
 			sourceTree = "<group>";
@@ -1331,7 +1320,6 @@
 			files = (
 				BDB576F3218C97CA00466BC1 /* KakaoRemoteSourceTest.swift in Sources */,
 				BD068C5221843AE200E62382 /* GeneratedMocks.swift in Sources */,
-				BDB1B518218DF3F1004CC692 /* ReactorTests.swift in Sources */,
 				BD3EFE09218B1EE900C8D69C /* MediumRemoteSourceTest.swift in Sources */,
 				BDB576DE218C7DD100466BC1 /* ISO8601DateFommaterTest.swift in Sources */,
 				BDB8A735218AC367001594A4 /* MediumSearchResultTest.swift in Sources */,
