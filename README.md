@@ -7,7 +7,11 @@
 
 ## 데모
 ![](document/demo.png)
-
+## 빌드
+```shell
+chmod 755 build.sh
+./build.sh
+```
 ## Languages, libraries and tools used
 
 * [Swift](https://developer.apple.com/kr/swift/)
