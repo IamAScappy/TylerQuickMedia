@@ -1,2 +1,2 @@
 pod install
-carthage update –platform ios
+carthage update --cache-builds --platform iOS
